@@ -32,6 +32,61 @@ class Producer
      */
     private $brands;
 
+    /**
+     * @return ArrayCollection
+     */
+    public function getBrand(): ArrayCollection
+    {
+        return $this->brand;
+    }
+
+    /**
+     * @param ArrayCollection $brand
+     */
+    public function setBrand(ArrayCollection $brand): void
+    {
+        $this->brand = $brand;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBrands()
+    {
+        return $this->brands;
+    }
+
+    /**
+     * @param mixed $brands
+     */
+    public function setBrands($brands): void
+    {
+        $this->brands = $brands;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getProducerName()
+    {
+        return $this->producerName;
+    }
+
+    /**
+     * @param mixed $producerName
+     */
+    public function setProducerName($producerName): void
+    {
+        $this->producerName = $producerName;
+    }
+
+    /**
+     *
+     * @ORM\Column(type="string")
+     *
+     */
+    private $producerName;
+
     public function __construct()
     {
         $this->brand = new ArrayCollection();

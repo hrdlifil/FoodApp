@@ -9,6 +9,9 @@
 
 
 namespace App\Controller;
+use App\Entity\Brand;
+use App\Entity\Producer;
+use App\Entity\Product;
 use Doctrine\DBAL\Types\Type;
 use App\Entity\Address;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -23,9 +26,11 @@ class IndexController extends AbstractController
     public function index()
     {
         Type::addType('user_role', 'App\Helpers\EnumUserRoleType');
+        Type::addType('country_of_origin', 'App\Helpers\EnumCountryOfOriginType');
+        Type::addType('category_type', 'App\Helpers\EnumCategoryType');
 
         $em = $this->getDoctrine()->getManager();
-
+/*
         $ad = new Address();
         $ad->setTown("Richov");
         $ad->setStreet("Richova");
@@ -46,7 +51,30 @@ class IndexController extends AbstractController
 
         $em->persist($kokot);
         $em->flush();
+*/
 
+
+        $producer = new Producer();
+        $brand = new Brand();
+        $brand->setBrandName("Rich Piana Shit");
+        $brand->setProducer($producer);
+
+
+
+        $producer->setProducerName("5% nutrition");
+        $producer->addBrand($brand);
+        $producer->setCountryOfOrigin("USA");
+
+        $product = new Product();
+        $product->setProductName("Grow you fcking dick by 15 inches");
+        $product->setCategoryType("Uzeniny");
+        $product->setBrandId($brand);
+
+        $em->persist($brand);
+        $em->persist($producer);
+        $em->persist($product);
+
+        $em->flush();
         return $this->json([
             'message' => 'Welcome to your new controller!',
             'path' => 'src/Controller/IndexController.php',
