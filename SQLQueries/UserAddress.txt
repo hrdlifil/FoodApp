@@ -1,0 +1,28 @@
+CREATE TABLE application_user(
+user_id serial PRIMARY KEY,
+	name VARCHAR(20) NOT NULL,
+	surname VARCHAR(30) NOT NULL,
+	login VARCHAR(20) NOT NULL UNIQUE,
+	password VARCHAR(100) NOT NULL,
+	phone VARCHAR(13),
+	email VARCHAR(50) NOT NULL UNIQUE
+);
+
+ALTER TABLE application_user ADD COLUMN role VARCHAR(20);
+
+DELETE FROM application_user WHERE user_id=1;
+
+CREATE TABLE address(
+address_id serial PRIMARY KEY,
+	street VARCHAR(50) NOT NULL,
+	town VARCHAR(50) NOT NULL,
+	postcode VARCHAR(10) NOT NULL,
+	house_number INT NOT NULL
+
+);
+
+CREATE TABLE address_of_an_user(
+user_id INT REFERENCES application_user(user_id),
+	address_id INT REFERENCES address(address_id),
+	PRIMARY KEY(user_id, address_id)
+);
