@@ -14,9 +14,9 @@ class Producer
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", name="producer_id")
      */
-    private $id;
+    private $producerId;
 
     /**
      * country_of_origin jr Enum, ktery jsem si sam vytvoril
