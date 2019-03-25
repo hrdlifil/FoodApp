@@ -17,7 +17,7 @@ class Address
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer", name="address_id")
      */
-    private $id;
+    private $addressId;
 
     /**
      * @ORM\Column(type="string")
@@ -39,9 +39,9 @@ class Address
      */
     private $postCode;
 
-    public function getId(): ?int
+    public function getAddressId(): ?int
     {
-        return $this->id;
+        return $this->addressId;
     }
 
     /**
