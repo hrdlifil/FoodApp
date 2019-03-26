@@ -17,8 +17,9 @@ use App\Entity\Address;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use  App\Entity\User;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class IndexController extends AbstractController
+class IndexController extends Controller
 {
     /**
      * @Route("/", name="index")
@@ -53,7 +54,7 @@ class IndexController extends AbstractController
         $em->flush();
 */
 
-
+/*
         $producer = new Producer();
         $brand = new Brand();
         $brand->setBrandName("Rich Piana Shit");
@@ -74,9 +75,12 @@ class IndexController extends AbstractController
         $em->persist($producer);
         $em->persist($product);
 
-        $em->flush();
+        $em->flush();*/
+        $kokot = $this->container->get("kdo_jsem2");
+        $msg = $kokot->jmeno;
+
         return $this->json([
-            'message' => 'Welcome to your new controller!',
+            'message' => $msg,
             'path' => 'src/Controller/IndexController.php',
         ]);
     }

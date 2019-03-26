@@ -11,6 +11,14 @@ services:
         autowire: true      # Automatically injects dependencies in your services.
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
 
+    kdo_jsem:
+      class: App\Services\AF
+      public: true
+
+    kdo_jsem2:
+          class: App\Services\kokot
+          public: true
+
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
     App\:
