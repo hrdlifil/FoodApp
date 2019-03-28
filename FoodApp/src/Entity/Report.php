@@ -3,6 +3,8 @@
 
 namespace App\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ReportRepository")
  * @ORM\Table(name="report")
@@ -18,9 +20,9 @@ class Report
 
     /**
      * @ORM\ManyToOne(targetEntity="User")
-     * @ORM\JoinCOlumn(name="user_id", referencedColumnName="user_id")
+     * @ORM\JoinCOlumn(name="user_reported_id", referencedColumnName="user_id")
      */
-    private $userReportedId;
+    private $userReported;
 
     /**
      * @ORM\Column(type="datetime", name="reported_at")
@@ -41,13 +43,13 @@ class Report
      * @ORM\OneToOne(targetEntity="Message")
      * @ORM\JoinColumn(name="message_id", referencedColumnName="message_id")
      */
-    private $messageId;
+    private $message;
 
     /**
      * @ORM\ManyToOne(targetEntity="Offer")
      * @ORM\JoinColumn(name="offer_id", referencedColumnName="offer_id")
      */
-    private $offerId;
+    private $offer;
 
     public function getReportId(): ?int
     {
@@ -57,17 +59,17 @@ class Report
     /**
      * @return mixed
      */
-    public function getUserReportedId()
+    public function getUserReported()
     {
-        return $this->userReportedId;
+        return $this->userReported;
     }
 
     /**
-     * @param mixed $userReportedId
+     * @param mixed $userReported
      */
-    public function setUserReportedId($userReportedId): void
+    public function setUserReported($userReported): void
     {
-        $this->userReportedId = $userReportedId;
+        $this->userReported = $userReported;
     }
 
     /**
@@ -121,32 +123,32 @@ class Report
     /**
      * @return mixed
      */
-    public function getMessageId()
+    public function getMessage()
     {
-        return $this->messageId;
+        return $this->message;
     }
 
     /**
-     * @param mixed $messageId
+     * @param mixed $message
      */
-    public function setMessageId($messageId): void
+    public function setMessage($message): void
     {
-        $this->messageId = $messageId;
+        $this->message = $message;
     }
 
     /**
      * @return mixed
      */
-    public function getOfferId()
+    public function getOffer()
     {
-        return $this->offerId;
+        return $this->offer;
     }
 
     /**
-     * @param mixed $offerId
+     * @param mixed $offer
      */
-    public function setOfferId($offerId): void
+    public function setOffer($offer): void
     {
-        $this->offerId = $offerId;
+        $this->offer = $offer;
     }
 }

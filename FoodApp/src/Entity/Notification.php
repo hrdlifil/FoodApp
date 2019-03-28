@@ -3,6 +3,8 @@
 
 namespace App\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
  * @ORM\Entity(repositoryClass="App\Repository\NotificationRepository")
  * @ORM\Table(name="notification")
@@ -17,13 +19,13 @@ class Notification
     private $notificationId;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Offer")
-     * @ORM\JoinColumn(name="offer_id", referencedColumnName="offer_id")
+     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="user_id")
      */
-    private $userId;
+    private $user;
 
     /**
-     * @ORM\Column(type="datetime", name="insertedAt")
+     * @ORM\Column(type="datetime", name="inserted_at")
      */
     private $insertedAt;
 
@@ -33,31 +35,31 @@ class Notification
     private $text;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Offer")
-     * @ORM\JoinColumn(name="offer_id", referencedColumnName="offer_id")
+     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\JoinColumn(name="user_rating_id", referencedColumnName="user_id")
      */
-    private $userRatingId;
+    private $userRating;
 
     /**
      * @ORM\ManyToOne(targetEntity="Offer")
      * @ORM\JoinColumn(name="offer_id", referencedColumnName="offer_id")
      */
-    private $offerId;
+    private $offer;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Offer")
-     * @ORM\JoinColumn(name="offer_id", referencedColumnName="offer_id")
+     * @ORM\ManyToOne(targetEntity="Reservation")
+     * @ORM\JoinColumn(name="reservation_id", referencedColumnName="reservation_id")
      */
-    private $reservationId;
+    private $reservation;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Offer")
-     * @ORM\JoinColumn(name="offer_id", referencedColumnName="offer_id")
+     * @ORM\ManyToOne(targetEntity="ReservationRequest")
+     * @ORM\JoinColumn(name="reservation_request_id", referencedColumnName="reservation_request_id")
      */
-    private $reservationRequestId;
+    private $reservationRequest;
 
     /**
-     * @ORM\Column(type="notification_type")
+     * @ORM\Column(type="notification_type", name="notification_type")
      */
     private $type;
 
@@ -69,17 +71,17 @@ class Notification
     /**
      * @return mixed
      */
-    public function getUserId()
+    public function getUser()
     {
-        return $this->userId;
+        return $this->user;
     }
 
     /**
-     * @param mixed $userId
+     * @param mixed $user
      */
-    public function setUserId($userId): void
+    public function setUser($user): void
     {
-        $this->userId = $userId;
+        $this->user = $user;
     }
 
     /**
@@ -117,65 +119,65 @@ class Notification
     /**
      * @return mixed
      */
-    public function getUserRatingId()
+    public function getUserRating()
     {
-        return $this->userRatingId;
+        return $this->userRating;
     }
 
     /**
-     * @param mixed $userRatingId
+     * @param mixed $userRating
      */
-    public function setUserRatingId($userRatingId): void
+    public function setUserRating($userRating): void
     {
-        $this->userRatingId = $userRatingId;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getOfferId()
-    {
-        return $this->offerId;
-    }
-
-    /**
-     * @param mixed $offerId
-     */
-    public function setOfferId($offerId): void
-    {
-        $this->offerId = $offerId;
+        $this->userRating = $userRating;
     }
 
     /**
      * @return mixed
      */
-    public function getReservationId()
+    public function getOffer()
     {
-        return $this->reservationId;
+        return $this->offer;
     }
 
     /**
-     * @param mixed $reservationId
+     * @param mixed $offer
      */
-    public function setReservationId($reservationId): void
+    public function setOffer($offer): void
     {
-        $this->reservationId = $reservationId;
+        $this->offer = $offer;
     }
 
     /**
      * @return mixed
      */
-    public function getReservationRequestId()
+    public function getReservation()
     {
-        return $this->reservationRequestId;
+        return $this->reservation;
     }
 
     /**
-     * @param mixed $reservationRequestId
+     * @param mixed $reservation
      */
-    public function setReservationRequestId($reservationRequestId): void
+    public function setReservation($reservation): void
     {
-        $this->reservationRequestId = $reservationRequestId;
+        $this->reservation = $reservation;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getReservationRequest()
+    {
+        return $this->reservationRequest;
+    }
+
+    /**
+     * @param mixed $reservationRequest
+     */
+    public function setReservationRequest($reservationRequest): void
+    {
+        $this->reservationRequest = $reservationRequest;
     }
 
     /**

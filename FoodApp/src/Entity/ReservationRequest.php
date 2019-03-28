@@ -3,6 +3,8 @@
 
 namespace App\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ReservationRequestRepository")
  * @ORM\Table(name="reservation_request")
@@ -12,21 +14,21 @@ class ReservationRequest
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer", name="message_id")
+     * @ORM\Column(type="integer", name="reservation_request_id")
      */
     private $reservationRequestId;
 
     /**
      * @ORM\ManyToOne(targetEntity="Offer")
-     * @ORM\JoinCOlumn(name="offer_id", referencedColumnName="offer_id")
+     * @ORM\JoinColumn(name="offer_id", referencedColumnName="offer_id")
      */
-    private $offerId;
+    private $offer;
 
     /**
      * @ORM\ManyToOne(targetEntity="User")
-     * @ORM\JoinCOlumn(name="user_id", referencedColumnName="user_id")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="user_id")
      */
-    private $userId;
+    private $user;
 
     /**
      * @ORM\Column(type="datetime", name="inserted_at")
@@ -46,33 +48,33 @@ class ReservationRequest
     /**
      * @return mixed
      */
-    public function getOfferId()
+    public function getOffer()
     {
-        return $this->offerId;
+        return $this->offer;
     }
 
     /**
-     * @param mixed $offerId
+     * @param mixed $offer
      */
-    public function setOfferId($offerId): void
+    public function setOffer($offer): void
     {
-        $this->offerId = $offerId;
+        $this->offer = $offer;
     }
 
     /**
      * @return mixed
      */
-    public function getUserId()
+    public function getUser()
     {
-        return $this->userId;
+        return $this->user;
     }
 
     /**
-     * @param mixed $userId
+     * @param mixed $user
      */
-    public function setUserId($userId): void
+    public function setUser($user): void
     {
-        $this->userId = $userId;
+        $this->user = $user;
     }
 
     /**

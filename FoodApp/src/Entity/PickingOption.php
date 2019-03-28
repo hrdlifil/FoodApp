@@ -1,7 +1,8 @@
 <?php
 
-
 namespace App\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PickingOptionRepository")
@@ -12,7 +13,7 @@ class PickingOption
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer", name="notification_id")
+     * @ORM\Column(type="integer", name="picking_option_id")
      */
     private $pickingOptionId;
 
@@ -22,26 +23,26 @@ class PickingOption
     private $day;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="string")
      */
     private $beginning;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="string")
      */
-    private $end;
+    private $ending;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Offer")
-     * @ORM\JoinColumn(name="offer_id", referencedColumnName="offer_id", inversedBy="pickingOptions")
+     * @ORM\ManyToOne(targetEntity="Offer", inversedBy="pickingOptions")
+     * @ORM\JoinColumn(name="offer_id", referencedColumnName="offer_id")
      */
-    private $offerId;
+    private $offer;
 
     /**
      * @ORM\ManyToOne(targetEntity="Address")
      * @ORM\JoinColumn(name="address_id", referencedColumnName="address_id")
      */
-    private $addressId;
+    private $address;
 
     public function getPickingOptionId(): ?int
     {
@@ -83,49 +84,49 @@ class PickingOption
     /**
      * @return mixed
      */
-    public function getEnd()
+    public function getEnding()
     {
-        return $this->end;
+        return $this->ending;
     }
 
     /**
-     * @param mixed $end
+     * @param mixed $ending
      */
-    public function setEnd($end): void
+    public function setEnding($ending): void
     {
-        $this->end = $end;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getOfferId()
-    {
-        return $this->offerId;
-    }
-
-    /**
-     * @param mixed $offerId
-     */
-    public function setOfferId($offerId): void
-    {
-        $this->offerId = $offerId;
+        $this->ending = $ending;
     }
 
     /**
      * @return mixed
      */
-    public function getAddressId()
+    public function getOffer()
     {
-        return $this->addressId;
+        return $this->offer;
     }
 
     /**
-     * @param mixed $addressId
+     * @param mixed $offer
      */
-    public function setAddressId($addressId): void
+    public function setOffer($offer): void
     {
-        $this->addressId = $addressId;
+        $this->offer = $offer;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    /**
+     * @param mixed $address
+     */
+    public function setAddress($address): void
+    {
+        $this->address = $address;
     }
 
 

@@ -3,6 +3,8 @@
 
 namespace App\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ReservationRepository")
  * @ORM\Table(name="reservation")
@@ -28,15 +30,15 @@ class Reservation
 
     /**
      * @ORM\ManyToOne(targetEntity="Offer")
-     * @ORM\JoinCOlumn(name="offer_id", referencedColumnName="offer_id")
+     * @ORM\JoinColumn(name="offer_id", referencedColumnName="offer_id")
      */
-    private $offer_id;
+    private $offer;
 
     /**
      * @ORM\ManyToOne(targetEntity="User")
-     * @ORM\JoinCOlumn(name="user_id", referencedColumnName="user_id")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="user_id")
      */
-    private $user_id;
+    private $user;
 
     public function getReservationId(): ?int
     {
@@ -78,32 +80,32 @@ class Reservation
     /**
      * @return mixed
      */
-    public function getOfferId()
+    public function getOffer()
     {
-        return $this->offer_id;
+        return $this->offer;
     }
 
     /**
-     * @param mixed $offer_id
+     * @param mixed $offer
      */
-    public function setOfferId($offer_id): void
+    public function setOffer($offer): void
     {
-        $this->offer_id = $offer_id;
+        $this->offer = $offer;
     }
 
     /**
      * @return mixed
      */
-    public function getUserId()
+    public function getUser()
     {
-        return $this->user_id;
+        return $this->user;
     }
 
     /**
-     * @param mixed $user_id
+     * @param mixed $user
      */
-    public function setUserId($user_id): void
+    public function setUser($user): void
     {
-        $this->user_id = $user_id;
+        $this->user = $user;
     }
 }

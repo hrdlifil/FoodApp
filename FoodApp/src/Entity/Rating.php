@@ -3,6 +3,8 @@
 
 namespace App\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
  * @ORM\Entity(repositoryClass="App\Repository\RatingRepository")
  * @ORM\Table(name="rating")
@@ -33,15 +35,15 @@ class Rating
 
     /**
      * @ORM\ManyToOne(targetEntity="User")
-     * @ORM\JoinCOlumn(name="user_id", referencedColumnName="user_id")
+     * @ORM\JoinColumn(name="sender_id", referencedColumnName="user_id")
      */
-    private $senderId;
+    private $sender;
 
     /**
      * @ORM\ManyToOne(targetEntity="User")
-     * @ORM\JoinCOlumn(name="user_id", referencedColumnName="user_id")
+     * @ORM\JoinColumn(name="receiver_id", referencedColumnName="user_id")
      */
-    private $receiverId;
+    private $receiver;
 
     public function getRatingId(): ?int
     {
@@ -99,32 +101,32 @@ class Rating
     /**
      * @return mixed
      */
-    public function getSenderId()
+    public function getSender()
     {
-        return $this->senderId;
+        return $this->sender;
     }
 
     /**
-     * @param mixed $senderId
+     * @param mixed $sender
      */
-    public function setSenderId($senderId): void
+    public function setSender($sender): void
     {
-        $this->senderId = $senderId;
+        $this->sender = $sender;
     }
 
     /**
      * @return mixed
      */
-    public function getReceiverId()
+    public function getReceiver()
     {
-        return $this->receiverId;
+        return $this->receiver;
     }
 
     /**
-     * @param mixed $receiverId
+     * @param mixed $receiver
      */
-    public function setReceiverId($receiverId): void
+    public function setReceiver($receiver): void
     {
-        $this->receiverId = $receiverId;
+        $this->receiver = $receiver;
     }
 }

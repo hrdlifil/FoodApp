@@ -30,6 +30,7 @@
       <excludeFolder url="file://$MODULE_DIR$/FoodApp/vendor/psr/log" />
       <excludeFolder url="file://$MODULE_DIR$/FoodApp/vendor/psr/simple-cache" />
       <excludeFolder url="file://$MODULE_DIR$/FoodApp/vendor/sensio/framework-extra-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/FoodApp/vendor/symfony/apache-pack" />
       <excludeFolder url="file://$MODULE_DIR$/FoodApp/vendor/symfony/cache" />
       <excludeFolder url="file://$MODULE_DIR$/FoodApp/vendor/symfony/config" />
       <excludeFolder url="file://$MODULE_DIR$/FoodApp/vendor/symfony/console" />

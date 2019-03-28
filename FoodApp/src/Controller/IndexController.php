@@ -22,7 +22,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class IndexController extends Controller
 {
     /**
-     * @Route("/", name="index")
+     * @Route("/dement", name="dement")
      */
     public function index()
     {

@@ -12,13 +12,27 @@ class UserBan
 {
     /**
      * Unidirectional mapping protoze podle meho se to zde hodi
+     * @ORM\Id()
      * @ORM\OneToOne(targetEntity="User")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="user_id")
      */
-    private $userId;
+    private $user;
 
-    public function getId(): ?int
+    /**
+     * @return mixed
+     */
+    public function getUser()
     {
-        return $this->id;
+        return $this->user;
     }
+
+    /**
+     * @param mixed $user
+     */
+    public function setUser($user): void
+    {
+        $this->user = $user;
+    }
+
+
 }

@@ -3,6 +3,8 @@
 
 namespace App\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PriceRepository")
  * @ORM\Table(name="price")
@@ -10,10 +12,11 @@ namespace App\Entity;
 class Price
 {
     /**
+     * @ORM\Id()
      * @ORM\OneToOne(targetEntity="Offer")
      * @ORM\JoinColumn(name="offer_id", referencedColumnName="offer_id")
      */
-    private $offerId;
+    private $offer;
 
     /**
      * @ORM\Column(type="string", name="bought_for_price")
@@ -30,7 +33,21 @@ class Price
      */
     private $discount;
 
+    /**
+     * @return mixed
+     */
+    public function getOffer()
+    {
+        return $this->offer;
+    }
 
+    /**
+     * @param mixed $offer
+     */
+    public function setOffer($offer): void
+    {
+        $this->offer = $offer;
+    }
 
     /**
      * @return mixed

@@ -31,24 +31,24 @@ class Message
     /**
      * @ORM\Column(type="boolean", name="sender_deleted")
      */
-    private $senderDeleted;
+    private $senderDeleted = false;
 
     /**
      * @ORM\Column(type="boolean", name="receiver_deleted")
      */
-    private $receiverDeleted;
+    private $receiverDeleted = false;
 
     /**
      * @ORM\ManyToOne(targetEntity="User")
-     * @ORM\JoinCOlumn(name="user_id", referencedColumnName="user_id")
+     * @ORM\JoinColumn(name="sender_id", referencedColumnName="user_id")
      */
-    private $senderId;
+    private $sender;
 
     /**
      * @ORM\ManyToOne(targetEntity="User")
-     * @ORM\JoinCOlumn(name="user_id", referencedColumnName="user_id")
+     * @ORM\JoinColumn(name="receiver_id", referencedColumnName="user_id")
      */
-    private $receiverId;
+    private $receiver;
 
     public function getMessageId(): ?int
     {
@@ -122,16 +122,32 @@ class Message
     /**
      * @return mixed
      */
-    public function getReceiverId()
+    public function getSender()
     {
-        return $this->receiverId;
+        return $this->sender;
     }
 
     /**
-     * @param mixed $receiverId
+     * @param mixed $sender
      */
-    public function setReceiverId($receiverId): void
+    public function setSender($sender): void
     {
-        $this->receiverId = $receiverId;
+        $this->sender = $sender;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getReceiver()
+    {
+        return $this->receiver;
+    }
+
+    /**
+     * @param mixed $receiver
+     */
+    public function setReceiver($receiver): void
+    {
+        $this->receiver = $receiver;
     }
 }

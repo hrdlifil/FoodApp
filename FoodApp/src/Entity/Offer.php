@@ -3,6 +3,7 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -21,12 +22,12 @@ class Offer
     /**
      * @ORM\Column(type="boolean")
      */
-    private $reserved;
+    private $reserved = false;
 
     /**
      * @ORM\Column(type="boolean")
      */
-    private $active;
+    private $active = true;
 
     /**
      * @ORM\Column(type="datetime", name="offer_expiration")
@@ -45,15 +46,20 @@ class Offer
 
     /**
      * @ORM\ManyToOne(targetEntity="Product")
-     * @ORM\JoinCOlumn(name="product_id", referencedColumnName="product_id")
+     * @ORM\JoinColumn(name="product_id", referencedColumnName="product_id")
      */
     private $product;
 
     /**
-     * @ORM\OneToOne(targetEntity="Price")
-     * @ORM\JoinColumn(name="price_id", referencedColumnName="price_id")
+     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="user_id")
      */
-    private $priceId;
+    private $user;
+
+    /**
+     * @ORM\OneToOne(targetEntity="Price", mappedBy="offer")
+     */
+    private $price;
 
     /**
      * @ORM\OneToMany(targetEntity="PickingOption", mappedBy="picking_option")
@@ -174,18 +180,49 @@ class Offer
     /**
      * @return mixed
      */
-    public function getPriceId()
+    public function getUser()
     {
-        return $this->priceId;
+        return $this->user;
     }
 
     /**
-     * @param mixed $priceId
+     * @param mixed $userId
      */
-    public function setPriceId($priceId): void
+    public function setUser($user): void
     {
-        $this->priceId = $priceId;
+        $this->user = $user;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    /**
+     * @param mixed $price
+     */
+    public function setPrice($price): void
+    {
+        $this->price = $price;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPickingOptions()
+    {
+        return $this->pickingOptions;
+    }
+
+    /**
+     * @param mixed $pickingOptions
+     */
+    public function setPickingOptions($pickingOptions): void
+    {
+        $this->pickingOptions = $pickingOptions;
+    }
 
 }
