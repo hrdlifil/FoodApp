@@ -25,12 +25,12 @@ class IndexController extends Controller
      * @Route("/dement", name="dement")
      */
     public function index()
-    {
+    {/*
         Type::addType('user_role', 'App\Helpers\EnumUserRoleType');
         Type::addType('country_of_origin', 'App\Helpers\EnumCountryOfOriginType');
         Type::addType('category_type', 'App\Helpers\EnumCategoryType');
 
-        $em = $this->getDoctrine()->getManager();
+        $em = $this->getDoctrine()->getManager();*/
 /*
         $ad = new Address();
         $ad->setTown("Richov");
@@ -79,9 +79,6 @@ class IndexController extends Controller
         $kokot = $this->container->get("kdo_jsem2");
         $msg = $kokot->jmeno;
 
-        return $this->json([
-            'message' => $msg,
-            'path' => 'src/Controller/IndexController.php',
-        ]);
+        return $this->render("index.html.twig");
     }
 }

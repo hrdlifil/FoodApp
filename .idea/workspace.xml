@@ -2,23 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="995808a4-91c2-49cb-8598-f36dfa344aac" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/FoodApp/templates/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/FoodApp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/FoodApp.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FoodApp/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/FoodApp/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FoodApp/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/FoodApp/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodApp/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/FoodApp/config/bundles.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FoodApp/src/Controller/IndexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/FoodApp/src/Controller/IndexController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FoodApp/src/Entity/Message.php" beforeDir="false" afterPath="$PROJECT_DIR$/FoodApp/src/Entity/Message.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FoodApp/src/Entity/Notification.php" beforeDir="false" afterPath="$PROJECT_DIR$/FoodApp/src/Entity/Notification.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FoodApp/src/Entity/Offer.php" beforeDir="false" afterPath="$PROJECT_DIR$/FoodApp/src/Entity/Offer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FoodApp/src/Entity/PickingOption.php" beforeDir="false" afterPath="$PROJECT_DIR$/FoodApp/src/Entity/PickingOption.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FoodApp/src/Entity/Price.php" beforeDir="false" afterPath="$PROJECT_DIR$/FoodApp/src/Entity/Price.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FoodApp/src/Entity/Rating.php" beforeDir="false" afterPath="$PROJECT_DIR$/FoodApp/src/Entity/Rating.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FoodApp/src/Entity/Report.php" beforeDir="false" afterPath="$PROJECT_DIR$/FoodApp/src/Entity/Report.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FoodApp/src/Entity/Reservation.php" beforeDir="false" afterPath="$PROJECT_DIR$/FoodApp/src/Entity/Reservation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FoodApp/src/Entity/ReservationRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/FoodApp/src/Entity/ReservationRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FoodApp/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/FoodApp/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FoodApp/src/Entity/UserBan.php" beforeDir="false" afterPath="$PROJECT_DIR$/FoodApp/src/Entity/UserBan.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FoodApp/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/FoodApp/symfony.lock" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -45,7 +36,7 @@
       <file leaf-file-name="Address.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FoodApp/src/Entity/Address.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="127">
+            <state relative-caret-position="1743">
               <caret line="85" selection-start-line="85" selection-end-line="85" />
             </state>
           </provider>
@@ -63,11 +54,29 @@
       <file leaf-file-name="IndexController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/FoodApp/src/Controller/IndexController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
-              <caret line="26" column="27" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="27" />
+            <state relative-caret-position="483">
+              <caret line="28" column="67" lean-forward="true" selection-start-line="28" selection-start-column="67" selection-end-line="28" selection-end-column="67" />
               <folding>
                 <element signature="e#117#138#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/FoodApp/templates/index.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".htaccess" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/FoodApp/public/.htaccess">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="42">
+              <caret line="2" column="71" selection-start-line="2" selection-start-column="71" selection-end-line="2" selection-end-column="71" />
             </state>
           </provider>
         </entry>
@@ -117,6 +126,7 @@
         <option value="$PROJECT_DIR$/FoodApp/src/Entity/UserBan.php" />
         <option value="$PROJECT_DIR$/FoodApp/src/Entity/Address.php" />
         <option value="$PROJECT_DIR$/FoodApp/src/Entity/Brand.php" />
+        <option value="$PROJECT_DIR$/FoodApp/src/Views/index.html.twig" />
         <option value="$PROJECT_DIR$/FoodApp/src/Controller/IndexController.php" />
       </list>
     </option>
@@ -183,6 +193,9 @@
       <path value="$PROJECT_DIR$/FoodApp/vendor/symfony/doctrine-bridge" />
       <path value="$PROJECT_DIR$/FoodApp/vendor/sensio/framework-extra-bundle" />
       <path value="$PROJECT_DIR$/FoodApp/vendor/symfony/apache-pack" />
+      <path value="$PROJECT_DIR$/FoodApp/vendor/twig/twig" />
+      <path value="$PROJECT_DIR$/FoodApp/vendor/symfony/twig-bridge" />
+      <path value="$PROJECT_DIR$/FoodApp/vendor/symfony/twig-bundle" />
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
@@ -283,6 +296,24 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Services" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="FoodApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FoodApp" type="462c0819:PsiDirectoryNode" />
+              <item name="FoodApp" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FoodApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FoodApp" type="462c0819:PsiDirectoryNode" />
+              <item name="FoodApp" type="462c0819:PsiDirectoryNode" />
+              <item name="var" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FoodApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FoodApp" type="462c0819:PsiDirectoryNode" />
+              <item name="FoodApp" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -295,6 +326,11 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="Errors" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\FoodApp\FoodApp\templates" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -326,6 +362,9 @@
       <workItem from="1553472565209" duration="1897000" />
       <workItem from="1553556510174" duration="1314000" />
       <workItem from="1553642419197" duration="5307000" />
+      <workItem from="1553786308504" duration="700000" />
+      <workItem from="1553809697647" duration="19000" />
+      <workItem from="1554055651153" duration="701000" />
     </task>
     <task id="LOCAL-00001" summary="bug fix">
       <created>1553294761699</created>
@@ -355,26 +394,33 @@
       <option name="project" value="LOCAL" />
       <updated>1553644472021</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="additions">
+      <created>1553786400801</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1553786400801</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34060000" />
+    <option name="totallyTimeSpent" value="35480000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.36778525" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Terminal" order="9" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28255033" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32884097" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -383,6 +429,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32884097" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -396,13 +443,10 @@
     <MESSAGE value="test kolem produktu" />
     <MESSAGE value="basic refactoring" />
     <MESSAGE value="servisy" />
-    <option name="LAST_COMMIT_MESSAGE" value="servisy" />
+    <MESSAGE value="additions" />
+    <option name="LAST_COMMIT_MESSAGE" value="additions" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa9812.8121/ReservationRequest.php" />
-    <entry file="file://$PROJECT_DIR$/FoodApp/src/Repository/BrandRepository.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/FoodApp/src/Repository/MessageRepository.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -452,34 +496,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa560.45212/Address.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="27" column="33" lean-forward="true" selection-end-line="110" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa560.4395/Brand.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="1" lean-forward="true" selection-end-line="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa560.9674/Message.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="13" lean-forward="true" selection-end-line="152" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa560.16095/Notification.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="32" lean-forward="true" selection-end-line="199" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa560.45212/Address.php" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa560.4395/Brand.php" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa560.9674/Message.php" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa560.16095/Notification.php" />
     <entry file="file://$PROJECT_DIR$/FoodApp/src/Entity/Notification.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="652">
@@ -494,27 +514,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa560.18629/Offer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="13" column="1" lean-forward="true" selection-end-line="227" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa560.20215/Offer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="15" column="16" lean-forward="true" selection-end-line="227" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa560.22972/PickingOption.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="18" lean-forward="true" selection-end-line="132" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa560.18629/Offer.php" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa560.20215/Offer.php" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa560.22972/PickingOption.php" />
     <entry file="file://$PROJECT_DIR$/FoodApp/src/Entity/PickingOption.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2772">
@@ -529,27 +531,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa560.26055/Price.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="12" column="1" lean-forward="true" selection-end-line="99" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa560.28459/Producer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="13" column="7" lean-forward="true" selection-end-line="120" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa560.30939/Producer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="12" column="1" lean-forward="true" selection-end-line="120" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa560.26055/Price.php" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa560.28459/Producer.php" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa560.30939/Producer.php" />
     <entry file="file://$PROJECT_DIR$/FoodApp/src/Entity/Producer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
@@ -557,13 +541,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa560.36743/Report.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="19" lean-forward="true" selection-end-line="153" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa560.36743/Report.php" />
     <entry file="file://$PROJECT_DIR$/FoodApp/src/Entity/Report.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="652">
@@ -596,33 +574,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="17" column="2" lean-forward="true" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="2" />
-          <folding>
-            <element signature="e#6#87#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa560.35025/Rating.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="13" column="7" lean-forward="true" selection-end-line="131" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa560.32549/Product.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="17" column="23" lean-forward="true" selection-end-line="107" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa560.39449/Reservation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="20" column="7" lean-forward="true" selection-end-line="110" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa560.35025/Rating.php" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa560.32549/Product.php" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa560.39449/Reservation.php" />
     <entry file="file://$PROJECT_DIR$/FoodApp/src/Entity/Reservation.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="652">
@@ -630,20 +587,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa560.41035/ReservationRequest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="20" column="7" lean-forward="true" selection-end-line="112" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa560.42686/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="20" lean-forward="true" selection-end-line="222" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa560.41035/ReservationRequest.php" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa560.42686/User.php" />
     <entry file="file://$PROJECT_DIR$/FoodApp/src/Entity/User.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="652">
@@ -658,13 +603,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa560.44630/UserBan.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="22" column="7" lean-forward="true" selection-end-line="38" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa560.44630/UserBan.php" />
     <entry file="file://$PROJECT_DIR$/FoodApp/src/Entity/UserBan.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="652">
@@ -679,27 +618,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa560.47034/Address.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="7" lean-forward="true" selection-end-line="110" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa560.47034/Address.php" />
     <entry file="file://$PROJECT_DIR$/FoodApp/src/Entity/Address.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
+        <state relative-caret-position="1743">
           <caret line="85" selection-start-line="85" selection-end-line="85" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa560.49367/Brand.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="1" lean-forward="true" selection-end-line="87" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa560.49367/Brand.php" />
     <entry file="file://$PROJECT_DIR$/FoodApp/src/Entity/Brand.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -717,10 +644,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/FoodApp/public/.htaccess">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="71" selection-start-line="2" selection-start-column="71" selection-end-line="2" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FoodApp/templates/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/FoodApp/src/Controller/IndexController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="26" column="27" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="27" />
+        <state relative-caret-position="483">
+          <caret line="28" column="67" lean-forward="true" selection-start-line="28" selection-start-column="67" selection-end-line="28" selection-end-column="67" />
           <folding>
             <element signature="e#117#138#0#PHP" expanded="true" />
           </folding>
