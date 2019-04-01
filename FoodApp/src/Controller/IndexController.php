@@ -15,16 +15,40 @@ use App\Entity\Product;
 use Doctrine\DBAL\Types\Type;
 use App\Entity\Address;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use  App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use App\Form\UserType;
 
 class IndexController extends Controller
 {
+    public $user;
+    public $registerForm;
+
+
+
     /**
-     * @Route("/dement", name="dement")
+     * @Route("/register", name="register")
+     * @Method("POST")
      */
-    public function index()
+    public function register(Request $request)
+    { $this->registerForm->handleRequest($request);
+        if ($this->registerForm->isSubmitted() && $this->registerForm->isValid())
+        {
+            $this->user->setRole("prodavajici");
+            $this->user->setPassword("kokot");
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($this->user);
+            $em->flush();
+        }
+    }
+
+    /**
+     * @Route("/", name="dement")
+     */
+    public function index(Request $request)
     {/*
         Type::addType('user_role', 'App\Helpers\EnumUserRoleType');
         Type::addType('country_of_origin', 'App\Helpers\EnumCountryOfOriginType');
@@ -78,7 +102,22 @@ class IndexController extends Controller
         $em->flush();*/
         $kokot = $this->container->get("kdo_jsem2");
         $msg = $kokot->jmeno;
+        Type::addType('user_role', 'App\Helpers\EnumUserRoleType');
+        Type::addType('country_of_origin', 'App\Helpers\EnumCountryOfOriginType');
+        Type::addType('category_type', 'App\Helpers\EnumCategoryType');
 
-        return $this->render("index.html.twig");
+
+        $this->user = new User();
+        $this->registerForm = $this->createForm(UserType::class, $this->user,
+            [
+                "method" => "POST",
+                "action" => "register"
+            ]);
+
+        return $this->render("index.html.twig", [
+            'form' => $this->registerForm->createView()
+        ]);
+
+        //return $this->render("index.html.twig");
     }
 }

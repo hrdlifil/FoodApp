@@ -2,12 +2,17 @@
 
 namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  * @ORM\Table(name="application_user")
+ * @UniqueEntity(fields="login", message="Toto uzivatelske jmeno je jiz zabrane")
+ * @UniqueEntity(fields="email", message="Tento e-mail jiz pouziva nekdo jiny")
+ *
  */
 class User
 {
@@ -21,6 +26,8 @@ class User
 
     /**
      * @ORM\Column(type="string")
+     * @Assert\NotBlank()
+     * @Assert\Length(min=3)
      */
     private $login;
 
@@ -31,11 +38,15 @@ class User
 
     /**
      * @ORM\Column(type="string")
+     * @Assert\NotBlank()
+     * @Assert\Length(min=2)
      */
     private $name;
 
     /**
      * @ORM\Column(type="string")
+     * @Assert\NotBlank()
+     * @Assert\Length(min=2)
      */
     private $surname;
 
@@ -46,6 +57,8 @@ class User
 
     /**
      * @ORM\Column(type="string")
+     * @Assert\NotBlank()
+     * @Assert\Email()
      */
     private $email;
 
@@ -65,6 +78,12 @@ class User
      *      )
      */
     private $address;
+
+    /**
+     * @Assert\NotBlank()
+     * @Assert\Length(min=5)
+     */
+    private $plainPassword;
 
 
     public function __construct()
@@ -91,6 +110,22 @@ class User
     public function setAddress($address): void
     {
         $this->address = $address;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPlainPassword()
+    {
+        return $this->plainPassword;
+    }
+
+    /**
+     * @param mixed $plainPassword
+     */
+    public function setPlainPassword($plainPassword): void
+    {
+        $this->plainPassword = $plainPassword;
     }
 
 
