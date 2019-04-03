@@ -5,6 +5,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -14,7 +15,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @UniqueEntity(fields="email", message="Tento e-mail jiz pouziva nekdo jiny")
  *
  */
-class User
+class User implements UserInterface, \Serializable
 {
 
     /**
@@ -86,6 +87,35 @@ class User
     private $plainPassword;
 
 
+    public function getRoles()
+    {
+        return $this->role;
+    }
+
+
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+
+    public function getSalt()
+    {
+        return null;
+    }
+
+
+    public function getUsername()
+    {
+        return $this->login;
+    }
+
+
+    public function eraseCredentials()
+    {
+
+    }
+
     public function __construct()
     {
         $this->address = new ArrayCollection();
@@ -145,13 +175,6 @@ class User
         $this->login = $login;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getPassword()
-    {
-        return $this->password;
-    }
 
     /**
      * @param mixed $password
@@ -253,5 +276,26 @@ class User
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function serialize()
+    {
+        return serialize(
+            [
+                $this->id,
+                $this->login,
+                $this->password
+            ]
+        );
+    }
+
+
+    public function unserialize($serialized)
+    {
+        list(
+            $this->id,
+            $this->login,
+            $this->password
+            ) = unserialize($serialized);
     }
 }

@@ -21,6 +21,9 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use  App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use App\Form\UserType;
+use Symfony\Component\Debug\Debug;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class IndexController extends Controller
 {
@@ -28,27 +31,23 @@ class IndexController extends Controller
     public $registerForm;
 
 
+    private $twig;
+    private $passwordEncoder;
 
-    /**
-     * @Route("/register", name="register")
-     * @Method("POST")
-     */
-    public function register(Request $request)
-    { $this->registerForm->handleRequest($request);
-        if ($this->registerForm->isSubmitted() && $this->registerForm->isValid())
-        {
-            $this->user->setRole("prodavajici");
-            $this->user->setPassword("kokot");
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($this->user);
-            $em->flush();
-        }
+    public function __construct(\Twig_Environment $twiq, UserPasswordEncoderInterface $passwordEncoder)
+    {
+        $this->twig = $twiq;
+        $this->passwordEncoder = $passwordEncoder;
+        $this->user = new User();
+
     }
+
+
 
     /**
      * @Route("/", name="dement")
      */
-    public function index(Request $request)
+    public function index(Request $request, AuthenticationUtils $authenticationUtils)
     {/*
         Type::addType('user_role', 'App\Helpers\EnumUserRoleType');
         Type::addType('country_of_origin', 'App\Helpers\EnumCountryOfOriginType');
@@ -100,22 +99,24 @@ class IndexController extends Controller
         $em->persist($product);
 
         $em->flush();*/
-        $kokot = $this->container->get("kdo_jsem2");
-        $msg = $kokot->jmeno;
+
         Type::addType('user_role', 'App\Helpers\EnumUserRoleType');
         Type::addType('country_of_origin', 'App\Helpers\EnumCountryOfOriginType');
         Type::addType('category_type', 'App\Helpers\EnumCategoryType');
+        Debug::enable();
 
 
-        $this->user = new User();
         $this->registerForm = $this->createForm(UserType::class, $this->user,
             [
                 "method" => "POST",
-                "action" => "register"
+                "action" => "register",
+
             ]);
 
         return $this->render("index.html.twig", [
-            'form' => $this->registerForm->createView()
+            'form' => $this->registerForm->createView(),
+            "lastUsername" => $authenticationUtils->getLastUsername(),
+            "error" => $authenticationUtils->getLastAuthenticationError()
         ]);
 
         //return $this->render("index.html.twig");

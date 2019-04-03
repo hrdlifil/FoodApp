@@ -47,15 +47,21 @@
         <input id="registration-btn" type="button" value="Registrovat se">
         <input id="sign-in-btn" type="button" value="Prihlasit se">
     </div>
+    {% if error %}
+        <div id="chyba">
+            {{ error.messageKey }}
+        </div>
+    {% endif  %}
     <div>
-        <form method="post" action="register" id="sign-in-form">
+        <form method="post" {{ path("securityLogin") }} id="sign-in-form">
             <label for="username" >Uzivatelske jmeno</label>
-            <input required  pattern=".{4,}" type="text" id="username" name="username">
+            <input required  pattern=".{4,}" type="text" id="username" name="username" value="{{ lastUsername }}">
             <br/>
             <label for="password" >Heslo</label>
             <input  required pattern=".{5,}" type="password" id="password" name="password">
             <br/>
             <input type="submit" name="submit-sign-in" value="prihlasit se" id="prihlas">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token("authenticate") }}">
         </form>
 
         <div id="registration-form">

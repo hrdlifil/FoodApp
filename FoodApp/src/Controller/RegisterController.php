@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Controller;
 
 use App\Entity\User;
@@ -14,10 +13,23 @@ use App\Entity\Product;
 use Doctrine\DBAL\Types\Type;
 use App\Entity\Address;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 
 class RegisterController extends Controller
 {
+
+    private $passwordEncoder;
+    private $twig;
+
+    public function __construct(\Twig_Environment $twiq, UserPasswordEncoderInterface $passwordEncoder)
+    {
+        $this->twig = $twiq;
+        $this->passwordEncoder = $passwordEncoder;
+
+
+    }
+
     /**
      * @Route("/register", name="register")
      */
@@ -32,7 +44,7 @@ class RegisterController extends Controller
         if ($registerForm->isSubmitted() && $registerForm->isValid())
         {
             $user->setRole("prodavajici");
-            $user->setPassword("kokot");
+            $user->setPassword($this->passwordEncoder->encodePassword($user,"kokot"));
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();

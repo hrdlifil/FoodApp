@@ -1,0 +1,54 @@
+security:
+
+    # encoders specifikuje, jak budu hashovat heslo a kde je heslo které budu hashovat umistene
+    encoders:
+        # říkám že entita, kde je heslo které se bude hashovat je v  App\Entity\User
+        # a že algoritmus. který bude použit pro hashování bude bcrypt
+        App\Entity\User: bcrypt
+
+    # providers specifikuje, odkud se budou uživatele brát
+    providers:
+        database_users:
+            # specifikuji umístění entit a podle jakého fieldu se budou vyhledávat
+            entity: { class: App\Entity\User, property: login}
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            # dovoluji přístup neautentifikovaným tzv anonymním uživatelům
+            anonymous: true
+            pattern: ^/
+
+
+            # říkám, že k autentifikaci se bude používat přihlašovací formulář
+            form_login: true
+                # where the login form will submit
+                check_path: securityLogin
+                # umístění přihlašovacího formuláře
+                login_path: dement
+                csrf_token_generator: security.csrf.token_manager
+                # kam bude uživatel redirectovan po uspesnem prihlaseni
+                default_target_path: dement
+                # property name v prihlasovacim formulari ktera souvisi s username
+                username_parameter: username
+                # property name v prihlasovacim formulari ktera souvisi s password
+                password_parameter: password
+                # property name v prihlasovacim formulari ktera souvisi s csrf tokenem
+                csrf_parameter: csrf_token
+                # kam bude uživatel redirectovan po neuspesnem prihlaseni, defaultne je to stejne misto s
+                # kde je přihlašovací formulář
+                failure_path: dement
+
+            logout:
+                path: securityLogout
+                # kam bude uživatel redirectovan po odhlášení
+                target: dement
+            # https://symfony.com/doc/current/security/form_login_setup.html
+
+    # Easy way to control access for large sections of your site
+    # Note: Only the *first* access control that matches will be used
+    access_control:
+        # - { path: ^/admin, roles: ROLE_ADMIN }
+        # - { path: ^/profile, roles: ROLE_USER }
