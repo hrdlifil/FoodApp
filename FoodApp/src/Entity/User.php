@@ -89,8 +89,8 @@ class User implements UserInterface, \Serializable
 
     public function getRoles()
     {
-        $roleToReturn = $this->role;
-        return [$roleToReturn];
+
+        return ["ROLE_USER"];
     }
 
 
