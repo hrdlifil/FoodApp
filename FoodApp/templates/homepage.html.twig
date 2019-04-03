@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+{% block title %}Homepage{% endblock %}
+{% block stylesheets %}
+    <style>
+        *
+        {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        html
+        {
+            height: 100%;
+        }
+
+        body
+        {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #upper-row
+        {
+            display: flex;
+            flex-direction: column;
+        }
+        #lower-row
+        {
+            display: flex;
+            flex-direction: column;
+        }
+        .menu-item
+        {
+            width: 300px;
+            height: 300px;
+            background-color: yellow;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+
+    <div id="upper-row">
+        <div class="menu-item" id="nastaveni">
+
+            nastaveni
+        </div>
+        <div class="menu-item" id="zpravy">
+
+            zpravy
+        </div>
+        <div class="menu-item" id="vyhledavani">
+
+            vyhledavani
+        </div>
+        <div class="menu-item" id="profil">
+
+            profil
+        </div>
+
+    </div>
+    <div id="lower-row">
+        <div class="menu-item" id="trziste">
+
+            trziste
+        </div>
+        <div class="menu-item" id="pridat-nabidku">
+
+            pridat nabidku
+        </div>
+        <div class="menu-item" id="sprava-nabidek-rezervaci">
+
+            sprava
+        </div>
+    </div>
+
+{% endblock %}

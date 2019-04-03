@@ -42,16 +42,16 @@ class IndexController extends Controller
     }
 
     /**
-     * @Route("/login_uspesny", name="login_uspesny")
+     * @Route("/login_uspesny/homepage", name="login_uspesny")
      */
     public function loginUspesny(Request $request, AuthenticationUtils $authenticationUtils)
     {
 
-        return $this->render("base.html.twig");
+        return $this->render("homepage.html.twig");
     }
 
     /**
-     * tato fce je zodpovědná sa validaci přihlašovacího formuláře
+     *
      *@Route("/security_logout", name="security_logout")
      */
     public function securityLogout(Request $request)
