@@ -19,6 +19,10 @@ doctrine:
                     user:     ItForHumanity
                     password: mP4oxnt11
                     charset:  UTF8
+            types:
+                user_role: App\Helpers\EnumUserRoleType
+                country_of_origin: App\Helpers\EnumCountryOfOriginType
+                category_type: App\Helpers\EnumCategoryType
     orm:
         auto_generate_proxy_classes: true
         naming_strategy: doctrine.orm.naming_strategy.underscore

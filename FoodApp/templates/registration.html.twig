@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+*
+{
+box-sizing: border-box;
+padding: 0;
+margin: 0;
+}
+
+html
+{
+height: 100%;
+}
+
+body
+{
+height: 100%;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+form
+{
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-items: center;
+}
+
+{% endblock %}
+
+{% block body %}
+
+    <div id="registration-form">
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+    </div>
+
+{% endblock %}

@@ -1,128 +1,60 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+{% extends 'base.html.twig' %}
 
-    <title>{% block title %}Welcome!{% endblock %}</title>
-    <style>
-        *
-        {
-            box-sizing: border-box;
-            padding: 0;
-            margin: 0;
-        }
+{% block stylesheets %}
+    *
+    {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    }
 
-        html
-        {
-            height: 100%;
-        }
+    html
+    {
+    height: 100%;
+    }
 
-        body
-        {
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+    body
+    {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    }
 
-        form
-        {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-        }
+    form
+    {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    }
 
-        #registration-form
-        {
-            display: none;
-        }
-    {% block stylesheets %}{% endblock %}
-    </style>
-</head>
-<body>
+{% endblock %}
+
 {% block body %}
-    <div id="registration-or-sign-in-btns-div">
-        <input id="registration-btn" type="button" value="Registrovat se">
-        <input id="sign-in-btn" type="button" value="Prihlasit se">
-    </div>
-    {% if error %}
-        <div id="chyba">
-            {{ error.messageKey }}
-        </div>
-    {% endif  %}
     <div>
-        <form method="post" {{ path("securityLogin") }} id="sign-in-form">
+        <h1>Prihlaseni</h1>
+    </div>
+    <div>
+        {% if error %}
+            <div id="chyba">
+                {{ error }}
+            </div>
+        {% endif  %}
+        <form method="post" {{ path("index") }} id="sign-in-form">
+
             <label for="username" >Uzivatelske jmeno</label>
-            <input required  pattern=".{4,}" type="text" id="username" name="username" value="{{ lastUsername }}">
+            <input required  pattern=".{4,}" type="text" id="username" name="_username" value="{{ last_username }}">
             <br/>
             <label for="password" >Heslo</label>
-            <input  required pattern=".{5,}" type="password" id="password" name="password">
+            <input  required pattern=".{5,}" type="password" id="password" name="_password">
             <br/>
-            <input type="submit" name="submit-sign-in" value="prihlasit se" id="prihlas">
-            <input type="hidden" name="csrf_token" value="{{ csrf_token("authenticate") }}">
+            <button type="submit">odeslat</button>
+
         </form>
 
-        <div id="registration-form">
-            {{ form_start(form) }}
-            {{ form_widget(form) }}
-            {{ form_end(form) }}
-        </div>
+
     </div>
+    <a href="{{ path("register") }}">Jeste nemam ucet - REGISTRACE</a>
 {% endblock %}
-<script>
-    {% block javascripts %}
-    let state = "sign-in";
-    let registrationBtn = document.querySelector("#registration-btn");
-    registrationBtn.addEventListener("click", registrationBtnClicked);
-    let signInBtn = document.querySelector("#sign-in-btn");
-    signInBtn.addEventListener("click", singInBtnClicked);
-    let registrationForm = document.querySelector("#registration-form");
-    let signInForm = document.querySelector("#sign-in-form");
 
-
-    function singInBtnClicked(event)
-    {
-        if (state === "sign-in"){}
-        else if(state ==="registration")
-        {
-            registrationForm.style.display = "none";
-            signInForm.style.display = "flex";
-            state = "sign-in"
-
-        }
-
-    }
-
-    function registrationBtnClicked(event)
-    {
-        /*
-        * Podivaj se jaky je stav, pokud je registration, coz je default a kliklo se znovu
-        * na tlacitko registration tak se nesmi stat nic, coz ava smysl
-        * */
-        if (state === "registration")
-        {
-
-        }
-        /*
-        * Podivaj se jaky je stav, pokud je sign-in, a kliklo se na sign-in
-        * tlacitko, tak musim dat registration-form display: none cimz ho schovam
-        * a sign-in-form musim dat display flex aby slo videt
-        * */
-        else if (state === "sign-in")
-        {
-            registrationForm.style.display = "flex";
-            signInForm.style.display = "none";
-            state = "registration"
-
-        }
-
-
-    }
-
-    {% endblock %}
-</script>
-
-</body>
-</html>

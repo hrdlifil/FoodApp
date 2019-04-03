@@ -33,7 +33,7 @@ class User implements UserInterface, \Serializable
     private $login;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", name="password")
      */
     private $password;
 
@@ -65,7 +65,7 @@ class User implements UserInterface, \Serializable
 
     /**
      * user_role je Enum, ktery jsem si sam vytvoril
-     * @ORM\Column(type="user_role")
+     * @ORM\Column(type="user_role", name="role")
      *
      */
     private $role;
@@ -89,7 +89,8 @@ class User implements UserInterface, \Serializable
 
     public function getRoles()
     {
-        return $this->role;
+        $roleToReturn = $this->role;
+        return [$roleToReturn];
     }
 
 

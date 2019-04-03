@@ -4,47 +4,51 @@ security:
     encoders:
         # říkám že entita, kde je heslo které se bude hashovat je v  App\Entity\User
         # a že algoritmus. který bude použit pro hashování bude bcrypt
-        App\Entity\User: bcrypt
+        App\Entity\User:
+          algorithm: bcrypt
 
     # providers specifikuje, odkud se budou uživatele brát
     providers:
         database_users:
             # specifikuji umístění entit a podle jakého fieldu se budou vyhledávat
-            entity: { class: App\Entity\User, property: login}
+            entity:
+              class: App\Entity\User
+              property: login
 
     firewalls:
-        dev:
-            pattern: ^/(_(profiler|wdt)|css|images|js)/
-            security: false
         main:
             # dovoluji přístup neautentifikovaným tzv anonymním uživatelům
             anonymous: true
-            pattern: ^/
-
 
             # říkám, že k autentifikaci se bude používat přihlašovací formulář
-            form_login: true
-                # where the login form will submit
-                check_path: securityLogin
+            form_login:
                 # umístění přihlašovacího formuláře
-                login_path: dement
-                csrf_token_generator: security.csrf.token_manager
+                login_path: index
+                # where the login form will submit
+                check_path: index
+
                 # kam bude uživatel redirectovan po uspesnem prihlaseni
-                default_target_path: dement
+                default_target_path: login_uspesny
+
+                #csrf_token_generator: security.csrf.token_manager
+
                 # property name v prihlasovacim formulari ktera souvisi s username
-                username_parameter: username
+                #username_parameter: username
                 # property name v prihlasovacim formulari ktera souvisi s password
-                password_parameter: password
+                #password_parameter: password
                 # property name v prihlasovacim formulari ktera souvisi s csrf tokenem
-                csrf_parameter: csrf_token
+                #csrf_parameter: csrf_token
                 # kam bude uživatel redirectovan po neuspesnem prihlaseni, defaultne je to stejne misto s
                 # kde je přihlašovací formulář
-                failure_path: dement
+                #failure_path: dement
+                provider: database_users
+
+
 
             logout:
-                path: securityLogout
+                path: security_logout
                 # kam bude uživatel redirectovan po odhlášení
-                target: dement
+                target: index
             # https://symfony.com/doc/current/security/form_login_setup.html
 
     # Easy way to control access for large sections of your site

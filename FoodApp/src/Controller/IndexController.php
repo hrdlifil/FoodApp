@@ -27,98 +27,57 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class IndexController extends Controller
 {
-    public $user;
-    public $registerForm;
-
-
-    private $twig;
-    private $passwordEncoder;
-
-    public function __construct(\Twig_Environment $twiq, UserPasswordEncoderInterface $passwordEncoder)
-    {
-        $this->twig = $twiq;
-        $this->passwordEncoder = $passwordEncoder;
-        $this->user = new User();
-
-    }
-
-
-
     /**
-     * @Route("/", name="dement")
+     * @Route("/", name="index")
      */
     public function index(Request $request, AuthenticationUtils $authenticationUtils)
-    {/*
-        Type::addType('user_role', 'App\Helpers\EnumUserRoleType');
-        Type::addType('country_of_origin', 'App\Helpers\EnumCountryOfOriginType');
-        Type::addType('category_type', 'App\Helpers\EnumCategoryType');
+    {
+        $error = $authenticationUtils->getLastAuthenticationError();
+        $lastUsername = $authenticationUtils->getLastUsername();
+        return $this->render("index.html.twig",
+            [
+                "last_username" => $lastUsername,
+                "error" => $error
+            ]);
+    }
 
-        $em = $this->getDoctrine()->getManager();*/
+    /**
+     * @Route("/login_uspesny", name="login_uspesny")
+     */
+    public function loginUspesny(Request $request, AuthenticationUtils $authenticationUtils)
+    {
+
+        return $this->render("base.html.twig");
+    }
+
+    /**
+     * tato fce je zodpovědná sa validaci přihlašovacího formuláře
+     *@Route("/security_logout", name="security_logout")
+     */
+    public function securityLogout(Request $request)
+    {
+
+    }
+}
 /*
-        $ad = new Address();
-        $ad->setTown("Richov");
-        $ad->setStreet("Richova");
-        $ad->setHouseNumber(66);
-        $ad->setPostCode(66666);
-
-        $em->persist($ad);
-
-        $kokot = new User();
-        $kokot->setName("Pavel");
-        $kokot->setSurname("Hes");
-        $kokot->setLogin("af");
-        $kokot->setPassword("af");
-        $kokot->setEmail("af.com");
-        $kokot->setPhone("666666666");
-        $kokot->setRole("prodavajici");
-        $kokot->addAddress($ad);
-
-        $em->persist($kokot);
-        $em->flush();
-*/
-
-/*
-        $producer = new Producer();
-        $brand = new Brand();
-        $brand->setBrandName("Rich Piana Shit");
-        $brand->setProducer($producer);
 
 
-
-        $producer->setProducerName("5% nutrition");
-        $producer->addBrand($brand);
-        $producer->setCountryOfOrigin("USA");
-
-        $product = new Product();
-        $product->setProductName("Grow you fcking dick by 15 inches");
-        $product->setCategoryType("Uzeniny");
-        $product->setBrandId($brand);
-
-        $em->persist($brand);
-        $em->persist($producer);
-        $em->persist($product);
-
-        $em->flush();*/
-
-        Type::addType('user_role', 'App\Helpers\EnumUserRoleType');
-        Type::addType('country_of_origin', 'App\Helpers\EnumCountryOfOriginType');
-        Type::addType('category_type', 'App\Helpers\EnumCategoryType');
-        Debug::enable();
-
+        $error = $authenticationUtils->getLastAuthenticationError();
+        $lastUsername  = $authenticationUtils->getLastUsername();
 
         $this->registerForm = $this->createForm(UserType::class, $this->user,
             [
                 "method" => "POST",
                 "action" => "register",
 
+
             ]);
 
         return $this->render("index.html.twig", [
             'form' => $this->registerForm->createView(),
-            "lastUsername" => $authenticationUtils->getLastUsername(),
-            "error" => $authenticationUtils->getLastAuthenticationError()
         ]);
 
         //return $this->render("index.html.twig");
     }
 }
+*/

@@ -14,6 +14,7 @@ use Doctrine\DBAL\Types\Type;
 use App\Entity\Address;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 
 class RegisterController extends Controller
@@ -35,22 +36,26 @@ class RegisterController extends Controller
      */
     public function index(Request $request)
     {
-        Type::addType('user_role', 'App\Helpers\EnumUserRoleType');
-        Type::addType('country_of_origin', 'App\Helpers\EnumCountryOfOriginType');
-        Type::addType('category_type', 'App\Helpers\EnumCategoryType');
+
         $user = new User();
-        $registerForm = $this->createForm(UserType::class, $user);
+        $registerForm = $this->createForm(UserType::class, $user, [
+            "method" => "POST",
+            "action" => "register",
+
+        ]);
         $registerForm->handleRequest($request);
         if ($registerForm->isSubmitted() && $registerForm->isValid())
         {
             $user->setRole("prodavajici");
-            $user->setPassword($this->passwordEncoder->encodePassword($user,"kokot"));
+            $plainPswd = $user->getPlainPassword();
+            $user->setPassword($this->passwordEncoder->encodePassword($user,$plainPswd));
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
+            return $this->redirectToRoute("index");
         }
 
-        return $this->render('register/index.html.twig', [
+        return $this->render('registration.html.twig', [
             'form' => $registerForm->createView()
         ]);
     }
