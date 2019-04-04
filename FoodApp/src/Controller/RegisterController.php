@@ -46,7 +46,7 @@ class RegisterController extends Controller
         $registerForm->handleRequest($request);
         if ($registerForm->isSubmitted() && $registerForm->isValid())
         {
-            $user->setRole("prodavajici");
+            $user->setRole("nakupujici");
             $plainPswd = $user->getPlainPassword();
             $user->setPassword($this->passwordEncoder->encodePassword($user,$plainPswd));
             $em = $this->getDoctrine()->getManager();

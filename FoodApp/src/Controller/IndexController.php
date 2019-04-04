@@ -59,25 +59,3 @@ class IndexController extends Controller
 
     }
 }
-/*
-
-
-        $error = $authenticationUtils->getLastAuthenticationError();
-        $lastUsername  = $authenticationUtils->getLastUsername();
-
-        $this->registerForm = $this->createForm(UserType::class, $this->user,
-            [
-                "method" => "POST",
-                "action" => "register",
-
-
-            ]);
-
-        return $this->render("index.html.twig", [
-            'form' => $this->registerForm->createView(),
-        ]);
-
-        //return $this->render("index.html.twig");
-    }
-}
-*/

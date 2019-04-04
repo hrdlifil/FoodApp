@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\AddressRepository")
@@ -21,21 +22,28 @@ class Address
 
     /**
      * @ORM\Column(type="string")
+     * @Assert\NotBlank()
+     * @Assert\Length(min=2)
      */
     private $street;
 
     /**
      * @ORM\Column(type="string")
+     * @Assert\NotBlank()
+     * @Assert\Length(min=2)
      */
     private $town;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank()
      */
     private $houseNumber;
 
     /**
-     * @ORM\Column(type="integer", name="postcode")
+     * @ORM\Column(type="string", name="postcode")
+     * @Assert\NotBlank()
+     * @Assert\Length(min=5)
      */
     private $postCode;
 

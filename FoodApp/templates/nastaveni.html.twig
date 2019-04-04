@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+{% block title %}Homepage{% endblock %}
+{% block stylesheets %}
+    <style>
+        *
+        {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        html
+        {
+            height: 100%;
+        }
+
+        body
+        {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        #prodavajici
+        {
+            display: none;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <a href="{{ path("login_uspesny") }}">ZPET</a>
+    {% if  app.user.role is same as("nakupujici")  %}
+        <div>
+            <label for="chci-se-stat-prodavajicim">Chci i prodavat</label>
+            <input id="chci-se-stat-prodavajicim" type="radio" name="zmena-rola">
+        </div>
+        <div>
+            <label for="chci-se-stat-prodejnou">Jsem prodejna</label>
+            <input id="chci-se-stat-prodejnou" type="radio" name="zmena-rola">
+        </div>
+        <div>
+            <label for="chci-se-stat-organizaci">Jsem organizace</label>
+            <input id="chci-se-stat-organizaci" type="radio" name="zmena-rola">
+        </div>
+
+        <div id="prodavajici">
+            <h2>Zadejte adresu vyzvedavaciho mista:</h2>
+            <div id="form-pridat-adresu">
+                {{ form_start(form_pridat_adresu) }}
+                    {{ form_label(form_pridat_adresu.street, 'Ulice') }}
+                    {{ form_widget(form_pridat_adresu.street) }}
+
+                    {{ form_label(form_pridat_adresu.town, 'Mesto') }}
+                    {{ form_widget(form_pridat_adresu.town) }}
+
+                    {{ form_label(form_pridat_adresu.houseNumber, 'Cislo Domu') }}
+                    {{ form_widget(form_pridat_adresu.houseNumber) }}
+
+                    {{ form_label(form_pridat_adresu.postCode, 'PSC') }}
+                    {{ form_widget(form_pridat_adresu.postCode) }}
+
+                {{ form_end(form_pridat_adresu) }}
+            </div>
+
+        </div>
+    {% endif %}
+
+
+{% endblock %}
+{% block javascripts %}
+<script>
+        let chciSeStatProdavajicimCheckbox = document.querySelector("#chci-se-stat-prodavajicim");
+        chciSeStatProdavajicimCheckbox.addEventListener("click", chciSeStatProdavajicimCheckboxClicked);
+
+        function chciSeStatProdavajicimCheckboxClicked(event)
+        {
+            document.getElementById("prodavajici").style.display = "block";
+
+        }
+
+</script>
+{% endblock %}
