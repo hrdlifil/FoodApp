@@ -64,6 +64,16 @@ class User implements UserInterface, \Serializable
     private $email;
 
     /**
+     * @ORM\Column(type="string", name="name_of_shop")
+     */
+    private $nameOfShop;
+
+    /**
+     * @ORM\Column(type="string", name="name_of_organisation")
+     */
+    private $nameOfOrganisation;
+
+    /**
      * user_role je Enum, ktery jsem si sam vytvoril
      * @ORM\Column(type="user_role", name="role")
      *
@@ -133,6 +143,38 @@ class User implements UserInterface, \Serializable
     public function getAddress()
     {
         return $this->address;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNameOfShop()
+    {
+        return $this->nameOfShop;
+    }
+
+    /**
+     * @param mixed $nameOfShop
+     */
+    public function setNameOfShop($nameOfShop): void
+    {
+        $this->nameOfShop = $nameOfShop;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNameOfOrganisation()
+    {
+        return $this->nameOfOrganisation;
+    }
+
+    /**
+     * @param mixed $nameOfOrganisation
+     */
+    public function setNameOfOrganisation($nameOfOrganisation): void
+    {
+        $this->nameOfOrganisation = $nameOfOrganisation;
     }
 
     /**

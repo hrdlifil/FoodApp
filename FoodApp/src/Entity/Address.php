@@ -28,6 +28,27 @@ class Address
     private $street;
 
     /**
+     * @ORM\Column(type="string", name="popis_adresy")
+     */
+    private $popisAdresy;
+
+    /**
+     * @return mixed
+     */
+    public function getPopisAdresy()
+    {
+        return $this->popisAdresy;
+    }
+
+    /**
+     * @param mixed $popisAdresy
+     */
+    public function setPopisAdresy($popisAdresy): void
+    {
+        $this->popisAdresy = $popisAdresy;
+    }
+
+    /**
      * @ORM\Column(type="string")
      * @Assert\NotBlank()
      * @Assert\Length(min=2)

@@ -15,7 +15,8 @@ class AddressType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('street', TextType::class, [ "attr" => ["label" => "Ulice"]])
+            ->add('popisAdresy', TextType::class)
+            ->add('street', TextType::class)
             ->add('town', TextType::class)
             ->add('houseNumber', NumberType::class)
             ->add('postCode', TextType::class)

@@ -26,6 +26,39 @@
         {
             display: none;
         }
+        #prodejna
+        {
+            display: none;
+        }
+        #organizace
+        {
+            display: none;
+        }
+        #nove-username
+        {
+            display: none;
+        }
+        #novy-email
+        {
+            display: none;
+        }
+        #nove-heslo
+        {
+            display: none;
+        }
+        #novy-telefon
+        {
+            display: none;
+        }
+        #nove-jmeno-prodejny
+        {
+            display: none;
+        }
+        #nove-jmeno-organizace
+        {
+            display: none;
+        }
+
     </style>
 {% endblock %}
 
@@ -49,6 +82,10 @@
             <h2>Zadejte adresu vyzvedavaciho mista:</h2>
             <div id="form-pridat-adresu">
                 {{ form_start(form_pridat_adresu) }}
+
+                    {{ form_label(form_pridat_adresu.popisAdresy, 'Popis Adresy') }}
+                    {{ form_widget(form_pridat_adresu.popisAdresy) }}
+
                     {{ form_label(form_pridat_adresu.street, 'Ulice') }}
                     {{ form_widget(form_pridat_adresu.street) }}
 
@@ -65,7 +102,334 @@
             </div>
 
         </div>
+
+        <div id="prodejna">
+            <h2>Zadejte adresu prodejny:</h2>
+            <br/>
+            {{ form_start(form_stat_se_prodejnou) }}
+
+                {{ form_label(form_stat_se_prodejnou.popisAdresy, 'Popis Adresy') }}
+                {{ form_widget(form_stat_se_prodejnou.popisAdresy) }}
+
+                {{ form_label(form_stat_se_prodejnou.street, 'Ulice') }}
+                {{ form_widget(form_stat_se_prodejnou.street) }}
+
+                {{ form_label(form_stat_se_prodejnou.town, 'Mesto') }}
+                {{ form_widget(form_stat_se_prodejnou.town) }}
+
+                {{ form_label(form_stat_se_prodejnou.houseNumber, 'Cislo Domu') }}
+                {{ form_widget(form_stat_se_prodejnou.houseNumber) }}
+
+                {{ form_label(form_stat_se_prodejnou.postCode, 'PSC') }}
+                {{ form_widget(form_stat_se_prodejnou.postCode) }}
+
+            {{ form_end(form_stat_se_prodejnou) }}
+
+        </div>
+
+        <div id="organizace">
+            <h2>Zadejte adresu organizace:</h2>
+            <br/>
+            {{ form_start(form_stat_se_organizaci) }}
+
+                {{ form_label(form_stat_se_organizaci.popisAdresy, 'Popis Adresy') }}
+                {{ form_widget(form_stat_se_organizaci.popisAdresy) }}
+
+                {{ form_label(form_stat_se_organizaci.street, 'Ulice') }}
+                {{ form_widget(form_stat_se_organizaci.street) }}
+
+                {{ form_label(form_stat_se_organizaci.town, 'Mesto') }}
+                {{ form_widget(form_stat_se_organizaci.town) }}
+
+                {{ form_label(form_stat_se_organizaci.houseNumber, 'Cislo Domu') }}
+                {{ form_widget(form_stat_se_organizaci.houseNumber) }}
+
+                {{ form_label(form_stat_se_organizaci.postCode, 'PSC') }}
+                {{ form_widget(form_stat_se_organizaci.postCode) }}
+
+            {{ form_end(form_stat_se_organizaci) }}
+
+        </div>
+
+
+        {% for message in app.flashes("info") %}
+            <h3>{{ message }}</h3>
+        {% endfor %}
+        <a id="zmenit-username-odkaz">Zmenit username</a>
+
+
+        <form id="nove-username" method="post" action="{{ path("nove_username") }}">
+            <label for="x">Zadejte nove uzivatelske jmeno:</label>
+            <input id="x" type="text" name="nove-username">
+            <br/>
+            <input type="submit" value="Zmenit">
+        </form>
+
+
+        {% for message in app.flashes("info_email") %}
+            <h3>{{ message }}</h3>
+        {% endfor %}
+        <a id="zmenit-email-odkaz">Zmenit email</a>
+        <form id="novy-email" method="post" action="{{ path("novy_email") }}">
+            <label for="x">Zadejte novy email:</label>
+            <input id="x" type="email" name="novy-email">
+            <br/>
+            <input type="submit" value="Zmenit">
+        </form>
+
+        {% for message in app.flashes("info_heslo") %}
+            <h3>{{ message }}</h3>
+        {% endfor %}
+        <a id="zmenit-heslo-odkaz">Zmenit helo</a>
+        <form id="nove-heslo" method="post" action="{{ path("nove_heslo") }}">
+            <label for="y">Zadejte nove heslo:</label>
+            <input id="y" type="password" name="nove-heslo">
+            <br/>
+            <label for="z">Zadejte nove heslo znovu:</label>
+            <input id="z" type="password" name="nove-heslo-znovu">
+            <br/>
+            <input type="submit" value="Zmenit">
+        </form>
+
+        {% for message in app.flashes("info_telefon") %}
+            <h3>{{ message }}</h3>
+        {% endfor %}
+        <a id="zmenit-telefon-odkaz">Zmenit telefon</a>
+        <form id="novy-telefon" method="post" action="{{ path("novy_telefon") }}">
+            <label for="y">Zadejte sve telefoni cislo:</label>
+            <input id="y" type="text" name="novy-telefon">
+            <br/>
+            <input type="submit" value="Zmenit">
+        </form>
+
+
+
     {% endif %}
+
+    {% if  app.user.role is same as("prodavajici")  %}
+
+        {% for message in app.flashes("info") %}
+            <h3>{{ message }}</h3>
+        {% endfor %}
+        <a id="zmenit-username-odkaz">Zmenit username</a>
+
+
+        <form id="nove-username" method="post" action="{{ path("nove_username") }}">
+            <label for="x">Zadejte nove uzivatelske jmeno:</label>
+            <input id="x" type="text" name="nove-username">
+            <br/>
+            <input type="submit" value="Zmenit">
+        </form>
+
+
+        {% for message in app.flashes("info_email") %}
+            <h3>{{ message }}</h3>
+        {% endfor %}
+        <a id="zmenit-email-odkaz">Zmenit email</a>
+        <form id="novy-email" method="post" action="{{ path("novy_email") }}">
+            <label for="x">Zadejte novy email:</label>
+            <input id="x" type="email" name="novy-email">
+            <br/>
+            <input type="submit" value="Zmenit">
+        </form>
+
+        {% for message in app.flashes("info_heslo") %}
+            <h3>{{ message }}</h3>
+        {% endfor %}
+        <a id="zmenit-heslo-odkaz">Zmenit helo</a>
+        <form id="nove-heslo" method="post" action="{{ path("nove_heslo") }}">
+            <label for="y">Zadejte nove heslo:</label>
+            <input id="y" type="password" name="nove-heslo">
+            <br/>
+            <label for="z">Zadejte nove heslo znovu:</label>
+            <input id="z" type="password" name="nove-heslo-znovu">
+            <br/>
+            <input type="submit" value="Zmenit">
+        </form>
+
+        {% for message in app.flashes("info_telefon") %}
+            <h3>{{ message }}</h3>
+        {% endfor %}
+        <a id="zmenit-telefon-odkaz">Zmenit telefon</a>
+        <form id="novy-telefon" method="post" action="{{ path("novy_telefon") }}">
+            <label for="y">Zadejte sve telefoni cislo:</label>
+            <input id="y" type="text" name="novy-telefon">
+            <br/>
+            <input type="submit" value="Zmenit">
+        </form>
+
+        <h3>Me adresy:</h3>
+        <br/>
+        {% for adresa in app.user.address %}
+            <h3>--------------------------------</h3>
+            <ul>
+                <li>{{ adresa.popisAdresy }}</li>
+                <li>{{ adresa.town }}</li>
+                <li>{{ adresa.street }}</li>
+                <li>{{ adresa.houseNumber }}</li>
+                <li>{{ adresa.postCode }}</li>
+            </ul>
+        {% endfor %}
+
+        <h3>Pridat dalsi adresu:</h3>
+        <div id="pridat-dalsi-adresu">
+            {{ form_start(form_pridat_adresu) }}
+
+            {{ form_label(form_pridat_adresu.popisAdresy, 'Popis Adresy') }}
+            {{ form_widget(form_pridat_adresu.popisAdresy) }}
+
+            {{ form_label(form_pridat_adresu.street, 'Ulice') }}
+            {{ form_widget(form_pridat_adresu.street) }}
+
+            {{ form_label(form_pridat_adresu.town, 'Mesto') }}
+            {{ form_widget(form_pridat_adresu.town) }}
+
+            {{ form_label(form_pridat_adresu.houseNumber, 'Cislo Domu') }}
+            {{ form_widget(form_pridat_adresu.houseNumber) }}
+
+            {{ form_label(form_pridat_adresu.postCode, 'PSC') }}
+            {{ form_widget(form_pridat_adresu.postCode) }}
+
+            {{ form_end(form_pridat_adresu) }}
+        </div>
+
+    {% endif %}
+
+    {% if  app.user.role is same as("prodejna")  %}
+
+        {% for message in app.flashes("info_prodejna") %}
+            <h3>{{ message }}</h3>
+        {% endfor %}
+        <a id="zmenit-jmeno-prodejny">Zmenit/Pridat jmeno prodejny</a>
+
+
+        <form id="nove-jmeno-prodejny" method="post" action="{{ path("nove_jmeno_prodejny") }}">
+            <label for="x">Zadejte jmeno prodejny:</label>
+            <input id="x" type="text" name="nove-jmeno-prodejny">
+            <br/>
+            <input type="submit" value="Zmenit">
+        </form>
+
+        {% for message in app.flashes("info") %}
+            <h3>{{ message }}</h3>
+        {% endfor %}
+        <a id="zmenit-username-odkaz">Zmenit username</a>
+
+
+        <form id="nove-username" method="post" action="{{ path("nove_username") }}">
+            <label for="x">Zadejte nove uzivatelske jmeno:</label>
+            <input id="x" type="text" name="nove-username">
+            <br/>
+            <input type="submit" value="Zmenit">
+        </form>
+
+
+        {% for message in app.flashes("info_email") %}
+            <h3>{{ message }}</h3>
+        {% endfor %}
+        <a id="zmenit-email-odkaz">Zmenit email</a>
+        <form id="novy-email" method="post" action="{{ path("novy_email") }}">
+            <label for="x">Zadejte novy email:</label>
+            <input id="x" type="email" name="novy-email">
+            <br/>
+            <input type="submit" value="Zmenit">
+        </form>
+
+        {% for message in app.flashes("info_heslo") %}
+            <h3>{{ message }}</h3>
+        {% endfor %}
+        <a id="zmenit-heslo-odkaz">Zmenit helo</a>
+        <form id="nove-heslo" method="post" action="{{ path("nove_heslo") }}">
+            <label for="y">Zadejte nove heslo:</label>
+            <input id="y" type="password" name="nove-heslo">
+            <br/>
+            <label for="z">Zadejte nove heslo znovu:</label>
+            <input id="z" type="password" name="nove-heslo-znovu">
+            <br/>
+            <input type="submit" value="Zmenit">
+        </form>
+
+        {% for message in app.flashes("info_telefon") %}
+            <h3>{{ message }}</h3>
+        {% endfor %}
+        <a id="zmenit-telefon-odkaz">Zmenit telefon</a>
+        <form id="novy-telefon" method="post" action="{{ path("novy_telefon") }}">
+            <label for="y">Zadejte sve telefoni cislo:</label>
+            <input id="y" type="text" name="novy-telefon">
+            <br/>
+            <input type="submit" value="Zmenit">
+        </form>
+
+    {% endif %}
+
+    {% if  app.user.role is same as("organizace")  %}
+
+
+        {% for message in app.flashes("info_organizace") %}
+            <h3>{{ message }}</h3>
+        {% endfor %}
+        <a id="zmenit-jmeno-organizace">Zmenit/Pridat jmeno organizace</a>
+
+
+        <form id="nove-jmeno-organizace" method="post" action="{{ path("nove_jmeno_organizace") }}">
+            <label for="x">Zadejte jmeno organizace:</label>
+            <input id="x" type="text" name="nove-jmeno-organizace">
+            <br/>
+            <input type="submit" value="Zmenit">
+        </form>
+
+        {% for message in app.flashes("info") %}
+            <h3>{{ message }}</h3>
+        {% endfor %}
+        <a id="zmenit-username-odkaz">Zmenit username</a>
+
+
+        <form id="nove-username" method="post" action="{{ path("nove_username") }}">
+            <label for="x">Zadejte nove uzivatelske jmeno:</label>
+            <input id="x" type="text" name="nove-username">
+            <br/>
+            <input type="submit" value="Zmenit">
+        </form>
+
+
+        {% for message in app.flashes("info_email") %}
+            <h3>{{ message }}</h3>
+        {% endfor %}
+        <a id="zmenit-email-odkaz">Zmenit email</a>
+        <form id="novy-email" method="post" action="{{ path("novy_email") }}">
+            <label for="x">Zadejte novy email:</label>
+            <input id="x" type="email" name="novy-email">
+            <br/>
+            <input type="submit" value="Zmenit">
+        </form>
+
+        {% for message in app.flashes("info_heslo") %}
+            <h3>{{ message }}</h3>
+        {% endfor %}
+        <a id="zmenit-heslo-odkaz">Zmenit helo</a>
+        <form id="nove-heslo" method="post" action="{{ path("nove_heslo") }}">
+            <label for="y">Zadejte nove heslo:</label>
+            <input id="y" type="password" name="nove-heslo">
+            <br/>
+            <label for="z">Zadejte nove heslo znovu:</label>
+            <input id="z" type="password" name="nove-heslo-znovu">
+            <br/>
+            <input type="submit" value="Zmenit">
+        </form>
+
+        {% for message in app.flashes("info_telefon") %}
+            <h3>{{ message }}</h3>
+        {% endfor %}
+        <a id="zmenit-telefon-odkaz">Zmenit telefon</a>
+        <form id="novy-telefon" method="post" action="{{ path("novy_telefon") }}">
+            <label for="y">Zadejte sve telefoni cislo:</label>
+            <input id="y" type="text" name="novy-telefon">
+            <br/>
+            <input type="submit" value="Zmenit">
+        </form>
+
+    {% endif %}
+
 
 
 {% endblock %}
@@ -74,11 +438,80 @@
         let chciSeStatProdavajicimCheckbox = document.querySelector("#chci-se-stat-prodavajicim");
         chciSeStatProdavajicimCheckbox.addEventListener("click", chciSeStatProdavajicimCheckboxClicked);
 
+        let chciSeStatProdejnouCheckbox = document.getElementById("chci-se-stat-prodejnou");
+        chciSeStatProdejnouCheckbox.addEventListener("click", chciSeStatProdejnouCheckboxClicked);
+
+        let chciSeStatOrganizaciCheckbox = document.getElementById("chci-se-stat-organizaci");
+        chciSeStatOrganizaciCheckbox.addEventListener("click", chciSeStatOrganizaciCheckboxClicked);
+
+        document.getElementById("zmenit-username-odkaz").addEventListener("click", zmenitUsername);
+        document.getElementById("zmenit-email-odkaz").addEventListener("click", zmenitEmail);
+        document.getElementById("zmenit-heslo-odkaz").addEventListener("click", zmenitHeslo);
+        document.getElementById("zmenit-telefon-odkaz").addEventListener("click", zmenitTelefon);
+        document.getElementById("zmenit-jmeno-prodejny").addEventListener("click", zmenitJmenoProdejny);
+        document.getElementById("zmenit-jmeno-organizace").addEventListener("click", zmenitJmenoOrganizace);
+
+
+        function zmenitJmenoOrganizace()
+        {
+            document.getElementById("nove-jmeno-organizace").style.display = "block";
+
+        }
+
+        function zmenitJmenoProdejny()
+        {
+            document.getElementById("nove-jmeno-prodejny").style.display = "block";
+
+        }
+
+        function zmenitTelefon()
+        {
+            document.getElementById("novy-telefon").style.display = "block";
+
+        }
+
+        function zmenitHeslo()
+        {
+            document.getElementById("nove-heslo").style.display = "block";
+
+        }
+
+        function zmenitEmail()
+        {
+            document.getElementById("novy-email").style.display = "block";
+
+        }
+
+        function zmenitUsername()
+        {
+            document.getElementById("nove-username").style.display = "block";
+
+        }
+
+        function chciSeStatProdejnouCheckboxClicked(event)
+        {
+            document.getElementById("prodejna").style.display = "block";
+            document.getElementById("prodavajici").style.display = "none";
+            document.getElementById("organizace").style.display = "none";
+        }
+
         function chciSeStatProdavajicimCheckboxClicked(event)
         {
             document.getElementById("prodavajici").style.display = "block";
+            document.getElementById("prodejna").style.display = "none";
+            document.getElementById("organizace").style.display = "none";
 
         }
+
+        function chciSeStatOrganizaciCheckboxClicked(event)
+        {
+            document.getElementById("organizace").style.display = "block";
+            document.getElementById("prodavajici").style.display = "none";
+            document.getElementById("prodejna").style.display = "none";
+
+        }
+
+
 
 </script>
 {% endblock %}
