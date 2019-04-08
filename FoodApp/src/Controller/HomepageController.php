@@ -112,7 +112,32 @@ class HomepageController extends Controller
      */
     public function trziste(OfferRepository $offerRepository)
     {
-        $nabidky = $offerRepository->findAll();
+        // zatim primitivni treba prepsat do query
+        // vsechny prosle nabidky oznacim jako neaktivni, aby se nezobrazovaly a vyselektuji aktivni a ty zobrazim na trzisti
+        // toto je hrozne shit implementace treba udelat lepsi
+        $nabidky = [];
+        $vsechnyNabidky = $offerRepository->findAll();
+        $em = $this->getDoctrine()->getManager();
+        foreach ($vsechnyNabidky as $nabidka)
+        {
+            $today = new \DateTime();
+            $expiraceNabidky = $nabidka->getOfferExpiration();
+
+            if ($expiraceNabidky < $today)
+            {
+                $nabidka->setActive(false);
+                $em->persist($nabidka);
+            }
+            // chci zobrazovat pouze aktivni nerezervovane nabidky
+            if ($nabidka->getActive() == true and $nabidka->getReserved() == false)
+            {
+                $nabidky[] = $nabidka;
+            }
+
+        }
+
+        // aktualizuji db tak aby prosle nabidky nebyly aktivni
+        $em->flush();
         return $this->render("trziste.html.twig", ["nabidky" => $nabidky]);
     }
 

@@ -20,6 +20,11 @@ class Offer
     private $offerId;
 
     /**
+     * @ORM\Column(type="text", name="additional_information")
+     */
+    private $additionalInformation;
+
+    /**
      * @ORM\Column(type="boolean")
      */
     private $reserved = false;
@@ -51,6 +56,22 @@ class Offer
     private $product;
 
     /**
+     * @return mixed
+     */
+    public function getPickingOption()
+    {
+        return $this->pickingOption;
+    }
+
+    /**
+     * @param mixed $pickingOption
+     */
+    public function setPickingOption($pickingOption): void
+    {
+        $this->pickingOption = $pickingOption;
+    }
+
+    /**
      * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="user_id")
      */
@@ -62,9 +83,9 @@ class Offer
     private $price;
 
     /**
-     * @ORM\OneToMany(targetEntity="PickingOption", mappedBy="picking_option")
+     * @ORM\OneToOne(targetEntity="PickingOption", mappedBy="offer")
      */
-    private $pickingOptions;
+    private $pickingOption;
 
     public function __construct()
     {
@@ -87,6 +108,22 @@ class Offer
     public function getReserved()
     {
         return $this->reserved;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAdditionalInformation()
+    {
+        return $this->additionalInformation;
+    }
+
+    /**
+     * @param mixed $additionalInformation
+     */
+    public function setAdditionalInformation($additionalInformation): void
+    {
+        $this->additionalInformation = $additionalInformation;
     }
 
     /**
@@ -119,6 +156,16 @@ class Offer
     public function getOfferExpiration()
     {
         return $this->offerExpiration;
+    }
+
+    public function getOfferExpirationString()
+    {
+        return $this->offerExpiration->format('d-m-y H:i:s');
+    }
+
+    public function getProductExpirationString()
+    {
+        return $this->productExpiration->format("d-m-y");
     }
 
     /**

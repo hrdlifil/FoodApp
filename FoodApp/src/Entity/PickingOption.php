@@ -19,7 +19,7 @@ class PickingOption
 
 
     /**
-     * @ORM\ManyToOne(targetEntity="Offer", inversedBy="pickingOptions")
+     * @ORM\OneToOne(targetEntity="Offer", inversedBy="pickingOption")
      * @ORM\JoinColumn(name="offer_id", referencedColumnName="offer_id")
      */
     private $offer;

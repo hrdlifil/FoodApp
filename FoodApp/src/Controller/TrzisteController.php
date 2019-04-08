@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Reservation;
 use App\Repository\OfferRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -24,5 +25,25 @@ class TrzisteController extends AbstractController
         $nabidka = $this->offerRepository->find($id);
         //vratim stranku kde je vice informaci a nabidce na kterou uzivatel klikl
         return $this->render('vice_informaci.html.twig', ["nabidka" => $nabidka]);
+    }
+
+    /**
+     * @Route("/login_uspesny/homepage/trziste/rezervovat_nabidku/{id}", name="rezervovat_nabidku")
+     */
+    public function rezervovatNabidku($id)
+    {
+        $rezervace = new Reservation();
+        $nabidka = $this->offerRepository->find($id);
+        $rezervace->setOffer($nabidka);
+        $rezervace->setUser($this->getUser());
+        $rezervace->setBeginning(new \DateTime());
+        $rezervace->setExpiration($nabidka->getOfferExpiration());
+        $nabidka->setReserved(true);
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($rezervace);
+        $em->persist($nabidka);
+        $em->flush();
+
+        return $this->redirectToRoute("login_uspesny");
     }
 }

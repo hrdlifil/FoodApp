@@ -1,14 +1,75 @@
 {% extends 'base.html.twig' %}
 {% block title %}Homepage{% endblock %}
 {% block stylesheets %}
+    <style>
+        *
+        {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        html
+        {
+            height: 100%;
+        }
+
+        body
+        {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
 
 
 {% endblock %}
 
 {% block body %}
     <h3>Vice informaci</h3>
-    <brú>
-        {{ nabidka.product.productName }}
+    <a href="{{ path("trziste") }}">ZPET</a>
+    Uzivatel, ktery nabidku vytvoril: {{ nabidka.user.login }}
+    <br/>
+    Role Uzivatele: {{ nabidka.user.role }}
+    <br/>
+    {% if nabidka.user.role is same as("prodejna") %}
+        Jmeno prodejny: {{ nabidka.user.nameOfShop }}
+        <br/>
+    {% endif %}
+    {% if nabidka.user.role is same as("organizace") %}
+        Jmeno organizace: {{ nabidka.user.nameOfOrganization }}
+        <br/>
+    {% endif %}
+    <a href="#">Profil uzivatele</a>
+    <br/>
+    Nabídka je platná do: {{ nabidka.getOfferExpirationString() }}
+    <br/>
+    Původní cena produktu: {{ nabidka.price.boughtForPrice }}
+    <br/>
+    Soucasna cena produktu: {{ nabidka.price.currentPrice }}
+    <br/>
+    Sleva: {{ nabidka.price.discount }}
+    <br/>
+    Kde lze nabídku vyzvednout: {{ nabidka.pickingOption.address.toString }}
+    <br/>
+    Kategorie: {{ nabidka.product.category.nameOfCategory }}
+    <br/>
+    Znacka: {{ nabidka.product.brand.brandName }}
+    <br/>
+    Jmeno Produktu: {{ nabidka.product.productName }}
+    <br/>
+    Datum expirace produktu: {{ nabidka.getProductExpirationString() }}
+    <br/>
+    Dalsi informace: {{ nabidka.additionalInformation }}
+    <a href="{{ path("rezervovat_nabidku", {id: nabidka.offerId}) }}"><button>Rezervovat nabidku</button></a>
+
+
+
 {% endblock %}
 {% block javascripts %}
 

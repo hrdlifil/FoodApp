@@ -65,6 +65,9 @@ class PridatNabidkuController extends AbstractController
         //id adresy vyzvednuti
         $ida = $request->get("misto-vyzvednuti");
 
+        //vytahnu si dodatecne informace
+        $dodatecneInformace = $request->get("dodatecne-informace");
+
         $adresa = $addressRepository->find($ida);
 
         $pickingOption = new PickingOption();
@@ -88,6 +91,7 @@ class PridatNabidkuController extends AbstractController
         $nabidka->setProductExpiration($date2);
         $pickingOption->setAddress($adresa);
         $pickingOption->setOffer($nabidka);
+        $nabidka->setAdditionalInformation($dodatecneInformace);
 
         $em = $this->getDoctrine()->getManager();
         $em->persist($produkt);
