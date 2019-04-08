@@ -21,10 +21,14 @@
       <excludeFolder url="file://$MODULE_DIR$/FoodApp/vendor/doctrine/orm" />
       <excludeFolder url="file://$MODULE_DIR$/FoodApp/vendor/doctrine/persistence" />
       <excludeFolder url="file://$MODULE_DIR$/FoodApp/vendor/doctrine/reflection" />
+      <excludeFolder url="file://$MODULE_DIR$/FoodApp/vendor/friendsofsymfony/rest-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/FoodApp/vendor/jdorn/sql-formatter" />
       <excludeFolder url="file://$MODULE_DIR$/FoodApp/vendor/nikic/php-parser" />
       <excludeFolder url="file://$MODULE_DIR$/FoodApp/vendor/ocramius/package-versions" />
       <excludeFolder url="file://$MODULE_DIR$/FoodApp/vendor/ocramius/proxy-manager" />
+      <excludeFolder url="file://$MODULE_DIR$/FoodApp/vendor/phpdocumentor/reflection-common" />
+      <excludeFolder url="file://$MODULE_DIR$/FoodApp/vendor/phpdocumentor/reflection-docblock" />
+      <excludeFolder url="file://$MODULE_DIR$/FoodApp/vendor/phpdocumentor/type-resolver" />
       <excludeFolder url="file://$MODULE_DIR$/FoodApp/vendor/psr/cache" />
       <excludeFolder url="file://$MODULE_DIR$/FoodApp/vendor/psr/container" />
       <excludeFolder url="file://$MODULE_DIR$/FoodApp/vendor/psr/log" />
@@ -57,13 +61,17 @@
       <excludeFolder url="file://$MODULE_DIR$/FoodApp/vendor/symfony/polyfill-php72" />
       <excludeFolder url="file://$MODULE_DIR$/FoodApp/vendor/symfony/profiler-pack" />
       <excludeFolder url="file://$MODULE_DIR$/FoodApp/vendor/symfony/property-access" />
+      <excludeFolder url="file://$MODULE_DIR$/FoodApp/vendor/symfony/property-info" />
       <excludeFolder url="file://$MODULE_DIR$/FoodApp/vendor/symfony/routing" />
       <excludeFolder url="file://$MODULE_DIR$/FoodApp/vendor/symfony/security-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/FoodApp/vendor/symfony/security-core" />
       <excludeFolder url="file://$MODULE_DIR$/FoodApp/vendor/symfony/security-csrf" />
       <excludeFolder url="file://$MODULE_DIR$/FoodApp/vendor/symfony/security-guard" />
       <excludeFolder url="file://$MODULE_DIR$/FoodApp/vendor/symfony/security-http" />
+      <excludeFolder url="file://$MODULE_DIR$/FoodApp/vendor/symfony/serializer" />
+      <excludeFolder url="file://$MODULE_DIR$/FoodApp/vendor/symfony/serializer-pack" />
       <excludeFolder url="file://$MODULE_DIR$/FoodApp/vendor/symfony/stopwatch" />
+      <excludeFolder url="file://$MODULE_DIR$/FoodApp/vendor/symfony/templating" />
       <excludeFolder url="file://$MODULE_DIR$/FoodApp/vendor/symfony/twig-bridge" />
       <excludeFolder url="file://$MODULE_DIR$/FoodApp/vendor/symfony/twig-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/FoodApp/vendor/symfony/validator" />
@@ -72,6 +80,9 @@
       <excludeFolder url="file://$MODULE_DIR$/FoodApp/vendor/symfony/web-profiler-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/FoodApp/vendor/symfony/yaml" />
       <excludeFolder url="file://$MODULE_DIR$/FoodApp/vendor/twig/twig" />
+      <excludeFolder url="file://$MODULE_DIR$/FoodApp/vendor/webmozart/assert" />
+      <excludeFolder url="file://$MODULE_DIR$/FoodApp/vendor/willdurand/jsonp-callback-validator" />
+      <excludeFolder url="file://$MODULE_DIR$/FoodApp/vendor/willdurand/negotiation" />
       <excludeFolder url="file://$MODULE_DIR$/FoodApp/vendor/zendframework/zend-code" />
       <excludeFolder url="file://$MODULE_DIR$/FoodApp/vendor/zendframework/zend-eventmanager" />
     </content>

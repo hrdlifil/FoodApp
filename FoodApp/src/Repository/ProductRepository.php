@@ -19,6 +19,36 @@ class ProductRepository extends ServiceEntityRepository
         parent::__construct($registry, Product::class);
     }
 
+    public function getProductByBrandAndCategory($znacka, $kategorie)
+    {
+        $gb = $this->createQueryBuilder("p");
+        $gb->select("p")->where("p.brand = :znacka")->andWhere("p.category = :kategorie")
+            ->setParameters(array("znacka" => $znacka, "kategorie" => $kategorie));
+
+
+        return $gb->getQuery()->getResult();
+    }
+
+    public function getProductByCategory($kategorie)
+    {
+        $gb = $this->createQueryBuilder("p");
+        $gb->select("p")->Where("p.category = :kategorie")
+            ->setParameters(array("kategorie" => $kategorie));
+
+
+        return $gb->getQuery()->getResult();
+    }
+
+    public function getProductByBrand($znacka)
+    {
+        $gb = $this->createQueryBuilder("p");
+        $gb->select("p")->where("p.brand = :znacka")
+            ->setParameters(array("znacka" => $znacka));
+
+
+        return $gb->getQuery()->getResult();
+    }
+
     // /**
     //  * @return Product[] Returns an array of Product objects
     //  */

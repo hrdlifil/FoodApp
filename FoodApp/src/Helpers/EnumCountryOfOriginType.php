@@ -12,6 +12,6 @@ namespace App\Helpers;
 class EnumCountryOfOriginType extends EnumType
 {
     protected $name = 'country_of_origin';
-    protected $values = array('Czech Republic', 'USA', 'Germany', 'Russia', 'Italy');
+    protected $values = array('Czech Republic', 'USA', 'Germany', 'Russia', 'Italy', 'TBD');
 
 }

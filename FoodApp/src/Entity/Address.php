@@ -73,6 +73,11 @@ class Address
         return $this->addressId;
     }
 
+    public function toString()
+    {
+        return $this->town . " " . $this->street . " " . $this->houseNumber . " " . $this->postCode;
+    }
+
     /**
      * @return mixed
      */

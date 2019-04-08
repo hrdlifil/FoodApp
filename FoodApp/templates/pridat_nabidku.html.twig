@@ -1,0 +1,171 @@
+{% extends 'base.html.twig' %}
+{% block title %}Homepage{% endblock %}
+{% block stylesheets %}
+
+        #form-nova-znacka
+        {
+            display: none;
+        }
+
+
+{% endblock %}
+
+{% block body %}
+    <a href="{{ path("login_uspesny") }}">ZPET</a>
+    <form action="{{ path("vlozit_nabidku") }}">
+        <h3>Zvolte znacku: </h3>
+        <select id="znacky" name="jmeno-znacky">
+            <option value="Zvolte znacku">Zvolte znacku</option>
+            {% for znacka in  pole_znacek  %}
+
+                <option  value="{{ znacka.brandName }}">{{ znacka.brandName }}</option>
+
+            {% endfor %}
+        </select>
+        <br/>
+        <a href="{{ path("pridat_znacku_zobrazit") }}" id="nova-znacka">Nenasli jste svou znacku? Vytvorte ji</a>
+
+        <br/>
+        <h3>Zvolte kategorii: </h3>
+        <select id="kategorie" name="jmeno-kategorie">
+            <option value="Zvolte znacku">Zvolte kategorii</option>
+            {% for kategorie in  pole_kategorii  %}
+
+                <option  value="{{ kategorie.nameOfCategory }}">{{ kategorie.nameOfCategory }}</option>
+
+            {% endfor %}
+
+        </select>
+        <br/>
+        <a href="{{ path("pridat_kategorii_zobrazit") }}" id="nova-kategorie">Nenasli jste svou kategorii? Vytvorte ji</a>
+        <br/>
+        <h3>Zvolte produkt: </h3>
+        <select id="produkty" name="jmeno-produktu">
+            <option value="Zvolte produkt">Zvolte produkt</option>
+
+        </select>
+        <br/>
+        <a id="novy-produkt">Nenasli jste produkt? Vytvorte ho</a>
+        <br/>
+        <h3>Zvolte misto vyzvednuti: </h3>
+        <br/>
+        <select name="misto-vyzvednuti">
+            {% for adresa in app.user.address %}
+                <option value="{{ adresa.addressId }}">{{ adresa.toString() }}</option>
+
+            {% endfor %}
+        </select>
+        <br/>
+        <h3>Puvodni cena </h3>
+        <nb/>
+        <label for="puvodni-cena">Původni cena</label>
+        <input type="text" id="puvodni-cena" name="puvodni-cena">
+        <br/>
+        <h3>Soucasna cena </h3>
+        <br/>
+        <label for="soucasna-cena">Soucasna cena</label>
+        <input type="text" id="soucasna-cena" name="soucasna-cena">
+        <br/>
+        <h3>Datum expirace produktu </h3>
+        <br/>
+        <label for="datum-expirace-produktu">Datum expirace produktu</label>
+        <input type="date" id="datum-expirace-produktu" name="datum-expirace-produktu">
+        <br/>
+        <h3>Datum expirace Nabídky </h3>
+        <br/>
+        <label for="datum-expirace-nabidky">Datum expirace nabidky</label>
+        <input type="datetime-local" id="datum-expirace-nabidky" name="datum-expirace-nabidky">
+        <br/>
+        <input type="submit" value="Vlozit nabidku">
+    </form>
+
+
+{% endblock %}
+{% block javascripts %}
+
+    <script>
+        let vyberZnacky = document.getElementById("znacky");
+        let vyberKategorie = document.getElementById("kategorie");
+
+        document.getElementById("novy-produkt").addEventListener("click", novyProduktClicked);
+
+        document.getElementById("novy-produkt").addEventListener("click", novyProduktClicked);
+
+        function novyProduktClicked()
+        {
+            // zjistim jakou znacku ma mit dany produkt
+            let vybranaZnacka = vyberZnacky.options[vyberZnacky.selectedIndex].value;
+            // zjistim jakou kategorii ma mit dany produkt
+            let vybranaKategorie = vyberKategorie.options[vyberKategorie.selectedIndex].value;
+            let xhr = new XMLHttpRequest();
+            // poslu post request na dane url
+            window.location.replace("/FoodApp/FoodApp/public/login_uspesny/homepage/vytvorit_produkt/"+ vybranaZnacka + "/" + vybranaKategorie);
+            /*xhr.open("GET","/FoodApp/FoodApp/public/login_uspesny/homepage/vytvorit_produkt/" + vybranaZnacka + "/" + vybranaKategorie,true);
+            xhr.onload = function ()
+            {
+
+                objs = JSON.parse(this.responseText);
+                populateProdukt(objs);
+
+            };
+            xhr.send();
+            console.log("sendint");
+
+            console.log("sent");*/
+
+        }
+
+
+        document.getElementById("kategorie").addEventListener("change", ajaxFunction);
+
+        function populateProdukt(objs)
+        {
+            let produkty = document.getElementById("produkty");
+            produkty.innerHTML = "";
+            for (var value in objs.produkty) {
+                let option = document.createElement("option");
+                option.value = objs.produkty[value];
+                option.textContent = objs.produkty[value];
+                option.name = "jmeno-produktu"
+                produkty.appendChild(option);
+
+            /*for (let x in objs)
+            {
+                console.log("ve foru");
+                console.log(x);
+
+                let option = document.createElement("option");
+                option.value = objs.produkty;
+                option.textContent = objs.produkty;
+                produkty.appendChild(option);
+
+            }*/
+
+        }}
+
+        function ajaxFunction()
+        {
+            let objs;
+            let vybranaZnacka = vyberZnacky.options[vyberZnacky.selectedIndex].value;
+            let vybranaKategorie = vyberKategorie.options[vyberKategorie.selectedIndex].value;
+            let xhr = new XMLHttpRequest();
+            xhr.open("GET","/FoodApp/FoodApp/public/login_uspesny/homepage/vyhledat_nabidku/" + vybranaZnacka + "/" + vybranaKategorie,true);
+            xhr.onload = function ()
+            {
+
+                objs = JSON.parse(this.responseText);
+                console.log(objs);
+                populateProdukt(objs);
+
+            };
+            xhr.send();
+            console.log("sendint");
+
+            console.log("sent");
+
+        }
+
+
+    </script>
+
+{% endblock %}

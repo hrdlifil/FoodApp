@@ -233,7 +233,7 @@ class NastaveniController extends Controller
             return $this->redirectToRoute("nastaveni");
         }else
         {
-            $this->getUser()->setJmenoProdejny($noveJmenoProdejny);
+            $this->getUser()->setNameOfShop($noveJmenoProdejny);
             $this->getDoctrine()->getManager()->flush();
             $this->addFlash("info_prodejna","Jmeno prodejny bylo zmeneno/pridano");
             return $this->redirectToRoute("nastaveni");
@@ -257,7 +257,7 @@ class NastaveniController extends Controller
             return $this->redirectToRoute("nastaveni");
         }else
         {
-            $this->getUser()->setJmenoOrganizace($noveJmenoOrganizace);
+            $this->getUser()->setNameOfOrganisation($noveJmenoOrganizace);
             $this->getDoctrine()->getManager()->flush();
             $this->addFlash("info_organizace","Jmeno organizace bylo zmeneno/pridano");
             return $this->redirectToRoute("nastaveni");

@@ -18,15 +18,39 @@ class Product
     private $productId;
 
     /**
+     * Zde neni bidirectional mapping, protoze podle me nema smysl, aby si brand udrzoval
+     * pole vsech produktu, ktere brand ma
+     * @ORM\ManyToOne(targetEntity="Brand")
+     * @ORM\JoinColumn(name="brand_id", referencedColumnName="brand_id")
+     */
+    private $brand;
+
+    /**
      * @ORM\Column(type="string", name="product_name")
      */
     private $productName;
 
     /**
-     * category_type je Enum, ktery jsem si sam vytvoril
-     * @ORM\Column(type="category_type", name="category")
+     * @ORM\ManyToOne(targetEntity="Category")
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="category_id")
      */
-    private $categoryType;
+    private $category;
+
+    /**
+     * @return mixed
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * @param mixed $category
+     */
+    public function setCategory($category): void
+    {
+        $this->category = $category;
+    }
 
     /**
      * @return mixed
@@ -60,48 +84,28 @@ class Product
         $this->productName = $productName;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getCategoryType()
-    {
-        return $this->categoryType;
-    }
-
-    /**
-     * @param mixed $categoryType
-     */
-    public function setCategoryType($categoryType): void
-    {
-        $this->categoryType = $categoryType;
-    }
 
     /**
      * @return mixed
      */
-    public function getBrandId()
+    public function getBrand()
     {
-        return $this->brandId;
+        return $this->brand;
     }
 
     /**
-     * @param mixed $brandId
+     * @param mixed $brand
      */
-    public function setBrandId($brandId): void
+    public function setBrand($brand): void
     {
-        $this->brandId = $brandId;
+        $this->brand = $brand;
     }
 
-    /**
-     * Zde neni bidirectional mapping, protoze podle me nema smysl, aby si brand udrzoval
-     * pole vsech produktu, ktere brand ma
-     * @ORM\ManyToOne(targetEntity="Brand")
-     * @ORM\JoinColumn(name="brand_id", referencedColumnName="brand_id")
-     */
-    private $brandId;
-
-    public function getId(): ?int
+    public function getId()
     {
-        return $this->id;
+        return $this->productId;
     }
+
+
+
 }

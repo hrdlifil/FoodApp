@@ -9,9 +9,13 @@
 namespace App\Controller;
 
 use App\Entity\Address;
+use App\Entity\Brand;
 use App\Entity\User;
+use App\Form\MakeNewBrandType;
 use App\Form\ZmenitEmail;
 use App\Form\ZmenitEmailType;
+use App\Repository\BrandRepository;
+use App\Repository\CategoryRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use App\Form\AddressType;
@@ -88,6 +92,8 @@ class HomepageController extends Controller
 
 
 
+
+
 /*
         $formularPridaniAdresyProdavajici = $this->createForm(AddressType::class, $adresa, [
             "method" => "POST",
@@ -113,6 +119,21 @@ class HomepageController extends Controller
                 "form_stat_se_organizaci" => $formularStatSeOrganizaci->createView(),
             ]
         );*/
+    }
+
+    /**
+     * @Route("/login_uspesny/homepage/pridat_nabidku", name="pridat_nabidku")
+     */
+    public function pridatNabidku(Request $request, BrandRepository $brandRepository, CategoryRepository $categoryRepository)
+    {
+        $znacka = new Brand();
+
+        $poleZnacek = $brandRepository->findAll();
+        $poleKategorii = $categoryRepository->findAll();
+        if ($this->getUser()->getRole() !== "nakupujici")
+        {
+            return $this->render("pridat_nabidku.html.twig", [ "pole_znacek" => $poleZnacek, "pole_kategorii" => $poleKategorii]);
+        }
     }
 
 }

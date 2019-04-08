@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+{% block title %}Homepage{% endblock %}
+{% block stylesheets %}
+
+
+{% endblock %}
+
+{% block body %}
+    <form id="form-nova-kategorie" name="form-nova-kategorie" method="post" action="{{ path("pridat_kategorii") }}">
+        <label for="jmeno-kategorie">Zadejte jmeno kategorie</label>
+        <input name="jmeno-kategorie" type="text" id="jmeno-kategorie">
+        <br/>
+        <input type="submit" value="Vytvorit kategorii">
+    </form>
+
+{% endblock %}
+{% block javascripts %}
+
+
+
+{% endblock %}

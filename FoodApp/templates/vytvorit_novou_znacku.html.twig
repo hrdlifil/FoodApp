@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+{% block title %}Homepage{% endblock %}
+{% block stylesheets %}
+
+
+{% endblock %}
+
+{% block body %}
+    <form id="form-nova-znacka" name="form-nova-znacka" method="post" action="{{ path("pridat_znacku") }}">
+        <label for="jmeno-znacky">Zadejte jmeno znacky</label>
+        <input name="jmeno-znacky" type="text" id="jmeno-znacky">
+        <br/>
+        <label for="jmeno-vyrobc">Zadejte jmeno vyrobce(pokud nevite nechte prazdne)</label>
+        <input name="jmeno-vyrobce" type="text" id="jmeno-vyrobc">
+        <br/>
+        <input type="submit" value="Vytvorit znacku">
+    </form>
+
+{% endblock %}
+{% block javascripts %}
+
+
+
+{% endblock %}

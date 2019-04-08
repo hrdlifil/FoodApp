@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+{% block title %}Homepage{% endblock %}
+{% block stylesheets %}
+
+
+{% endblock %}
+
+{% block body %}
+    <a href="{{ path("pridat_nabidku") }}">ZPET</a>
+
+    <form id="form-novy-produkt" name="form-novy-produkt" method="post" action="{{ path("pridat_produkt") }}">
+        <label for="jmeno-kategorie">Zadejte jmeno produktu</label>
+        <input name="jmeno-produktu" type="text" id="jmeno-produktu">
+        <br/>
+        <input type="hidden" name="jmeno-kategorie" value="{{ kategorie }}">
+        <input type="hidden" name="jmeno-znacky" value="{{ znacka }}">
+        <input type="submit" value="Vytvorit produkt">
+    </form>
+
+{% endblock %}
+{% block javascripts %}
+
+
+
+{% endblock %}

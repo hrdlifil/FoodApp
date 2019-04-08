@@ -17,20 +17,6 @@ class PickingOption
      */
     private $pickingOptionId;
 
-    /**
-     * @ORM\Column(type="day")
-     */
-    private $day;
-
-    /**
-     * @ORM\Column(type="string")
-     */
-    private $beginning;
-
-    /**
-     * @ORM\Column(type="string")
-     */
-    private $ending;
 
     /**
      * @ORM\ManyToOne(targetEntity="Offer", inversedBy="pickingOptions")
@@ -49,53 +35,6 @@ class PickingOption
         return $this->pickingOptionId;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getDay()
-    {
-        return $this->day;
-    }
-
-    /**
-     * @param mixed $day
-     */
-    public function setDay($day): void
-    {
-        $this->day = $day;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getBeginning()
-    {
-        return $this->beginning;
-    }
-
-    /**
-     * @param mixed $beginning
-     */
-    public function setBeginning($beginning): void
-    {
-        $this->beginning = $beginning;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getEnding()
-    {
-        return $this->ending;
-    }
-
-    /**
-     * @param mixed $ending
-     */
-    public function setEnding($ending): void
-    {
-        $this->ending = $ending;
-    }
 
     /**
      * @return mixed

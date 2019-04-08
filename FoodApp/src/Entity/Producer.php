@@ -19,6 +19,13 @@ class Producer
     private $producerId;
 
     /**
+     *
+     * @ORM\Column(type="string")
+     *
+     */
+    private $producerName;
+
+    /**
      * country_of_origin jr Enum, ktery jsem si sam vytvoril
      * @ORM\Column(type="country_of_origin")
      *
@@ -32,21 +39,7 @@ class Producer
      */
     private $brands;
 
-    /**
-     * @return ArrayCollection
-     */
-    public function getBrand(): ArrayCollection
-    {
-        return $this->brand;
-    }
 
-    /**
-     * @param ArrayCollection $brand
-     */
-    public function setBrand(ArrayCollection $brand): void
-    {
-        $this->brand = $brand;
-    }
 
     /**
      * @return mixed
@@ -56,13 +49,6 @@ class Producer
         return $this->brands;
     }
 
-    /**
-     * @param mixed $brands
-     */
-    public function setBrands($brands): void
-    {
-        $this->brands = $brands;
-    }
 
     /**
      * @return mixed
@@ -73,6 +59,22 @@ class Producer
     }
 
     /**
+     * @return mixed
+     */
+    public function getProducerId()
+    {
+        return $this->producerId;
+    }
+
+    /**
+     * @param mixed $producerId
+     */
+    public function setProducerId($producerId): void
+    {
+        $this->producerId = $producerId;
+    }
+
+    /**
      * @param mixed $producerName
      */
     public function setProducerName($producerName): void
@@ -80,21 +82,16 @@ class Producer
         $this->producerName = $producerName;
     }
 
-    /**
-     *
-     * @ORM\Column(type="string")
-     *
-     */
-    private $producerName;
+
 
     public function __construct()
     {
-        $this->brand = new ArrayCollection();
+        $this->brands = new ArrayCollection();
     }
 
     public function addBrand(Brand $brand)
     {
-        $this->brand[] = $brand;
+        $this->brands[] = $brand;
     }
 
     /**
@@ -113,8 +110,9 @@ class Producer
         $this->countryOfOrigin = $countryOfOrigin;
     }
 
-    public function getId(): ?int
+    public function getId()
     {
-        return $this->id;
+        return $this->producerId;
     }
+
 }
