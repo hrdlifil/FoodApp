@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+{% block title %}Homepage{% endblock %}
+{% block stylesheets %}
+<style>
+    *
+    {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    }
+
+    html
+    {
+    height: 100%;
+    }
+
+    body
+    {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+        align-items: center;
+
+    }
+    table, th, td {
+        border: 1px solid black;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+    <h1>Tržiště</h1>
+    <table>
+        <thead>
+        <tr >
+            <th>
+                Kategorie
+            </th>
+            <th>
+                Znacka
+            </th>
+            <th>
+                Produkt
+            </th>
+            <th>
+                Cena
+            </th>
+            <th>
+                odkaz
+            </th>
+        </tr>
+        {% for nabidka in nabidky %}
+            <tr id="{{ nabidka.offerId }}">
+                <td>
+                    {{ nabidka.product.category.nameOfCategory}}
+                </td>
+                <td>
+                    {{ nabidka.product.brand.brandName}}
+                </td>
+                <td>
+                    {{ nabidka.product.productName}}
+                </td>
+                <td>
+                    {{ nabidka.price.currentPrice}}
+                </td>
+                <td>
+                    <a href="{{ path("vice_informaci",{id: nabidka.offerId})}}">Vice informaci</a>
+                </td>
+            </tr>
+        {% endfor %}
+
+        </thead>
+    </table>
+
+{% endblock %}
+{% block javascripts %}
+
+
+
+{% endblock %}

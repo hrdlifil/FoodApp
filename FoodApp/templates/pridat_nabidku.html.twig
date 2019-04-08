@@ -2,11 +2,35 @@
 {% block title %}Homepage{% endblock %}
 {% block stylesheets %}
 
-        #form-nova-znacka
+    <style>
+        *
         {
-            display: none;
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
         }
 
+        html
+        {
+            height: 100%;
+        }
+
+        body
+        {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        form
+        {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
 
 {% endblock %}
 
@@ -58,22 +82,22 @@
         <br/>
         <h3>Puvodni cena </h3>
         <nb/>
-        <label for="puvodni-cena">Původni cena</label>
+
         <input type="text" id="puvodni-cena" name="puvodni-cena">
         <br/>
         <h3>Soucasna cena </h3>
         <br/>
-        <label for="soucasna-cena">Soucasna cena</label>
+
         <input type="text" id="soucasna-cena" name="soucasna-cena">
         <br/>
         <h3>Datum expirace produktu </h3>
         <br/>
-        <label for="datum-expirace-produktu">Datum expirace produktu</label>
+
         <input type="date" id="datum-expirace-produktu" name="datum-expirace-produktu">
         <br/>
         <h3>Datum expirace Nabídky </h3>
         <br/>
-        <label for="datum-expirace-nabidky">Datum expirace nabidky</label>
+
         <input type="datetime-local" id="datum-expirace-nabidky" name="datum-expirace-nabidky">
         <br/>
         <input type="submit" value="Vlozit nabidku">

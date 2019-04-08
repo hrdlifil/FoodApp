@@ -43,7 +43,13 @@ class NastaveniController extends Controller
         if ($pridatAdresuForm->isSubmitted() && $pridatAdresuForm->isValid())
         {
             $user = $this->getUser();
-            $user->setRole("prodavajici");
+            // jelikoz tato metoda slouzi i k pridavani dalsich adres pro prodejny a organizace, nechceme jim přepisovat
+            // roli na prodavajici, proto roli prepiseme pouze pokud se jedna o nakupujiciho ktery tutou routu vola pouze
+            // pokud se chce stat prodavajicim kde naopak chceme prepsat roli
+            if ($user->getRole() === "nakupujici")
+            {
+                $user->setRole("prodavajici");
+            }
             $user->addAddress($adresa);
 
             $em = $this->getDoctrine()->getManager();
@@ -111,7 +117,7 @@ class NastaveniController extends Controller
      * @Route("/login_uspesny/homepage/nove_username", name="nove_username")
      * @Method({"POST"})
      */
-    public function noveUsername(Request $request, UserRepository $userRepository, CustomError $error)
+    public function noveUsername(Request $request, UserRepository $userRepository)
     {
         // vytahnu si z requestu zadany username
         $noveUsername = $request->get("nove-username");
@@ -171,7 +177,7 @@ class NastaveniController extends Controller
      * @Route("/login_uspesny/homepage/nove_heslo", name="nove_heslo")
      * @Method({"POST"})
      */
-    public function noveHeslo(Request $request, UserRepository $userRepository, UserPasswordEncoderInterface $passwordEncoder)
+    public function noveHeslo(Request $request, UserPasswordEncoderInterface $passwordEncoder)
     {
         // vytahnu si z requesty zadany email
         $noveHeslo = $request->get("nove-heslo");

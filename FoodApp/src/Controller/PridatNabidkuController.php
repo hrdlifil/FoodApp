@@ -27,8 +27,6 @@ class PridatNabidkuController extends AbstractController
 {
     private $productRepository;
 
-    //private $brandRepository;
-
     private $categoryRepository;
 
     public function __construct(ProductRepository $productRepository, BrandRepository $brandRepository, CategoryRepository $categoryRepository)
@@ -102,6 +100,9 @@ class PridatNabidkuController extends AbstractController
         $cena->setCurrentPrice($soucasnaCena);
         $cena->setDiscount($sleva);
         $cena->setOffer($nabidka);
+        $em->persist($cena);
+        $em->flush();
+
 
 
 
@@ -171,7 +172,7 @@ class PridatNabidkuController extends AbstractController
      * @Route("/login_uspesny/homepage/vyhledat_nabidku/pridat_znacku_zobrazit", name="pridat_znacku_zobrazit")
      *
      */
-    public function pridatZnackuZobrazit(\Symfony\Component\HttpFoundation\Request $request, ProducerRepository $producerRepository)
+    public function pridatZnackuZobrazit()
     {
         return $this->render("vytvorit_novou_znacku.html.twig");
 
@@ -181,7 +182,7 @@ class PridatNabidkuController extends AbstractController
      * @Route("/login_uspesny/homepage/vyhledat_nabidku/pridat_kategorii_zobrazit", name="pridat_kategorii_zobrazit")
      *
      */
-    public function pridatKategoriiZobrazit(\Symfony\Component\HttpFoundation\Request $request, ProducerRepository $producerRepository)
+    public function pridatKategoriiZobrazit()
     {
         return $this->render("vytvorit_novou_kategorii.html.twig");
 
@@ -192,7 +193,7 @@ class PridatNabidkuController extends AbstractController
      * @Route("/login_uspesny/homepage/vyhledat_nabidku/pridat_kategorii", name="pridat_kategorii")
      * @Method({"POST"})
      */
-    public function pridatKategorii(\Symfony\Component\HttpFoundation\Request $request, ProducerRepository $producerRepository)
+    public function pridatKategorii(\Symfony\Component\HttpFoundation\Request $request)
     {
         $category = new Category();
 

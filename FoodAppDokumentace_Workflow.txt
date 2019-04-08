@@ -1,0 +1,209 @@
+Workflow aplikace:
+
+IndexController
+- stara se o prihlasovani a odhlasovani a má následující Routy:
+
+	- @Route("/", name="index") metoda: index(AuthenticationUtils $authenticationUtils)
+		- stara se o prihlasovani, rendruje index.html.twig, kde je pøihlašovaci formuláø.
+		- samotnou logiku pøihlašování si zajišuje sama symfony
+		- tento proces je nakonfigurovany v security.yaml, kde je pod login_path a check_path uvedena tato routa, tudí se stará jak o vyrendrování pøihlašovacího formuláøe, tak o jeho
+		validaci
+
+	- @Route("/login_uspesny/homepage", name="login_uspesny") metoda: loginUspesny()
+		- je v security.yaml nakonfigurovana jako routa, ktera se automaticky zavola, pokud se uivatel úspìšnì pøihlásí (díky default_target_path: login_uspesny)
+		- rendruje templatu homepage.html.twig kde je domovská stránka pøihlášeného uivatele
+
+	- @Route("/security_logout", name="security_logout") metoda: securityLogout(Request $request)
+		- je v security.yaml nakonfigurována jako odhlašovací routa, nedìlá ádnou logiku, o to se stará symfony jen tam prostì je 
+
+RegisterControler
+- slouí k vyrendrování i zpracování registraèního formuláøe. 
+- teoreticky by tento controller vybec nemìl existovat protoe routa /register by mìla bıt v index controlleru, jeliko se na ni dostane uivatel z index.html.twig, u to tak ale nechám :)
+(pro zmatení nepøitele a jistì i sebe sama za pár tıdnù)
+
+	- @Route("/register", name="register") metoda: index(Request $request)
+		- na tuto routu se uivatel dostane z úvodní stránky (index.html.twig) pøes odkaz
+		- tato routa slouí jak k vyrendrování tak zpracování registraèního formuláøe. Jeliko je zde pøímé mapování na entitu User tak se vyuívá symfony formuláøe, o validaci
+		formuláre se tedy stará symfony. Pokud bude registrace uspesna bude uivatel pøesmìrován zpátky na pøihlašovací stránku (index.html.twig), pokud nebude registrace 
+		úspìšná vráti se uivatel zpìz na registration.html.twig, kde je registraèní formuláø
+
+HomepageControler
+- stara se o vyrendrování všech template na které se dá dostat z domovské stránky (homepage.html.twig)
+- má následující Routy:
+
+	- @Route("/login_uspesny/homepage/nastaveni", name="nastaveni") metoda: index()
+		- funguje jako taková rozboèka, tato routa se zavolá kdy uivatel klikne v homepage.html.twig na poloku hlavního menu s názvem nastavení, pokud je uivatel novì 
+		zaregistrovanı (èím pádem má defaultnì roli nakupujici), nebo si rozhodl ponechat tuto roli, tak mu tato routa vyrendruje template nastaveni_nakupujici.html.twig s 3 
+		symfony formuláøi, které slouí k tomu pokud se v nastaveni_nakupujici rozhodne zmenit svou roli na prodavajici, prodejna, nebo organizace. Vyuívá se zde sysmfony 
+		formuláø protoe at se ji uivatel bude chtít stát prodávajícím, prodejnou èi organizací ve všech pøípadech vyplní adresu co se pøímo mapuje na entitu Address, 
+		tudí je vıhodné vyuít symfony formuláøe
+		- pokud je uivatel prodavajici, pak mu tato routa vyrendruje nastaveni_prodavajici.html.twig
+		- pokud je uivatel prodejna/organizace. pak mu tato routa vyrendruje nastaveni_prodejna.html.twig respektive nastaveni_organizace.html.twig
+		- dostanu se tedy tudy do nastaveni ktere je specificke pro kazdou uzivatelskou roli0
+
+	- @Route("/login_uspesny/homepage/pridat_nabidku", name="pridat_nabidku") metoda: pridatNabidku(BrandRepository $brandRepository, CategoryRepository $categoryRepository)
+		- pomoci repository najde všechny znacky a kategorie ktere vrati spolu s templatou pridat_nabidku.html.twig, dostanu se tedy tudy na misto, kde budu moci pridat nabidku
+
+
+	- @Route("/login_uspesny/homepage/trziste", name="trziste") metoda: trziste(OfferRepository $offerRepository)
+		- makdu vsechny nabidku ktere vrati spolu s templatou trziste.html.twig, dostanu se tedy tudy na trziste
+
+NastaveniController
+- stara se o všechno co jde udelat z nastaveni respektive ze vsech nastaveni pro vsechny uzivatelske role (nastaveni_nakupujici.html.twig, nastaveni_prodavajici.html-twig, nastaveni_
+prodejna.htmk.twig, nastaveni_organizace.html.twig)
+
+funkcionalita spolecna pro vsechny nastaveni: 
+- nevyuívám zde symfony formuláøù, ale vlastních formuláøù (kombinace html/js), jeliko se to nemapuje hezky na nìjakou z entit ale pouze na podmnoinu entit
+- vsechny routy redirektuji zpatky na routu s name="nastaveni" ktera dìlá onu rozv´boèku podle role uivatele
+- jako info uivatele k zadání špatnıch údajù (napø hesla se neshodují, nové username je krátké vyuívám flash messages)
+
+	- @Route("/login_uspesny/homepage/nove_username", name="nove_username") metoda: noveUsername(Request $request, UserRepository $userRepository)
+		- slouí ke zmìnì uivatelského jméne
+		
+
+	- @Route("/login_uspesny/homepage/novy_email", name="novy_email") metoda: zmenitEmail(Request $request, UserRepository $userRepository)
+		- slouí ke zmìnì emailu
+
+	- @Route("/login_uspesny/homepage/nove_heslo", name="nove_heslo") metoda: noveHeslo(Request $request, UserPasswordEncoderInterface $passwordEncoder)
+		- slouí ke zmìnì hesla
+
+	- @Route("/login_uspesny/homepage/novy_telefon", name="novy_telefon") metoda: novyTelefon(Request $request)
+		 - slouí ke zmìnì telefonu èi k pøidání telefonu protoe defaultnì se na zaèátku v registraèním formuláøi telefon nevyplòuje
+
+funkcionalita ktera vede z nastaveni_nakupujici.html.twig
+- funkcionalita souvisejici se zmìnou role tj registrace adresy a pøepsani property role u uivatele.
+- kvùli dobrému pøímému mapování na entitu Address se zde pouívají symfony formuláøe
+
+	- @Route("/login_uspesny/homepage/pridat_adresu_prodavajici", name="pridat_adresu_prodavajici") metoda: pridatAdresuProdavajici(Request $request)
+		- pomocí této routy se uivatel stane prodávající tj zadá si svou adresu kde bude mono vyzvedávat jídlo
+		- pøi úspìchu redirectuje na routu s name="login_uspesny" tedy na domovskou stranku homepage.html.twig
+
+	- @Route("/login_uspesny/homepage/chci_se_stat_prodejnou", name="chci_se_stat_prodejnou") metoda: chciSeStatProdejnou(Request $request)
+		- pomoci teto routy se uivatel bude moci stat prodejnou, tj zadá adresu kde bude mono vyzvedávat jídlo s tím e se poèítá e to bude logicky adresa prodejny
+		- pøi úspìchu nevrací na domovskou stránku aùe redirectuje na routu s name="nastaveni" která provádí rozboèku a odpoèí na nastaveni_prodejna.html.twig, kde si bude
+		moci uivatel hned doplnit jmeno prodejny mimo další funkcionalitu
+
+	- @Route("/login_uspesny/homepage/chci_se_stat_organizaci", name="chci_se_stat_organizaci") metoda: chciSeStatOrganizaci(Request $request)
+		- pomoci teto routy se uivatel stane organizaci tj zadá svou adresu kde bude mono vyzvedávat jídlo s tím e se poèítá e to bude logicky adresa organizace
+		- pøi úspìchu nevrací na domovskou stránku ale redirectuje na routu s name="nastaveni" která provádí rozboèku a odpoèí na nastaveni_organizace.html.twig, kde si bude
+		moci uivatel hned doplnit jmeno organizace mimo další funkcionalitu
+
+funkcionalita spoleèná pro všechny role krome nakupujici tedy vede z nastaveni_prodavajici.html.twig, nastaveni_prodejnai.html.twig, nastaveni_organizace.html.twig
+
+ 	- @Route("/login_uspesny/homepage/pridat_adresu_prodavajici", name="pridat_adresu_prodavajici") metoda: pridatAdresuProdavajici(Request $request)
+		- je to stejna routa jako ta pomoci ktere se z nakupujiciho stane prodavajici jelikoz funkcionalita je jen pridani adresy a staci jen if aby se nemenila role
+
+funkcionalita specificky pro roli prodejna tedy vede z nastaveni_prodejna.html.twig
+
+	- @Route("/login_uspesny/homepage/nove_jmeno_prodejny", name="nove_jmeno_prodejny") metoda: noveJmenoProdejny(Request $request)
+		- prida jmeno prodejny, nebo zmeni pokud prodejna ji jmeno ma
+
+funkcionalita specificky pro roli organizace tedy vede z nastaveni_prodejna.html.twig
+
+	- @Route("/login_uspesny/homepage/nove_jmeno_organizace", name="nove_jmeno_organizace") metoda: noveJmenoOrganizace(Request $request)
+		- pøidá jmeno organizace, nebo zmenu pokud organizace ji jmeno ma
+
+
+PridatNabidkuController
+- dostanu se zde z pridat_nabidku.html.twig kde je formular na pridavani nabidky, jsou zde tedy pomocne routy ktere slouzi k pridavani znacek , kategorii a pod pokud uz neexistuji a k 
+pridani samotne nabidky
+- vsechny formulare zde jsou moje vlastni html/js protoe zde neni dobré mapovani na entity abych pouil symfony formulare
+
+	- @Route("/login_uspesny/homepage/vyhledat_nabidku/pridat_kategorii_zobrazit", name="pridat_kategorii_zobrazit") metoda: pridatKategoriiZobrazit()
+		- pouze vyrendruje templatu vytvorit_novu_kategorii.html.twig kde je formular pomoci ktereho se vytvori nova kategorie
+		- k vytvoreni samotne nove kategorie slouci jina routa
+
+	@Route("/login_uspesny/homepage/vyhledat_nabidku/pridat_znacku_zobrazit", name="pridat_znacku_zobrazit") metoda: pridatZnackuZobrazit()
+		- pouze vyrendruje templatu vytvorit_novu_znacku.html.twig kde je formular pomoci ktereho se vytvori nova znacka
+		- k vytvoreni samotne nove znacky slouci jina routa
+
+	- @Route("/login_uspesny/homepage/vyhledat_nabidku/pridat_kategorii", name="pridat_kategorii") metoda: pridatKategorii(\Symfony\Component\HttpFoundation\Request $request)
+		- toto je ta routa, ktera slouzi k samotnemu pridani kategorie, dostanu se sem z vytvorit_novou_kategorii.html.twig, takze by to asi kdybych chtel byt uplne konzistentni
+		melo mit vlastni controller s nazvem VytvoritNovouKategoriiController ale byla by tam pouze jedna routa take sem to šoupnul sem opìt trochu matoucí
+		- po uspesnem pridani zavola routu s name="pridat_nabidku" tedy dostane uivatele na zpatky na pridat_nabidku.html.twig kde je formular s pridavanim nabidky
+
+	- @Route("/login_uspesny/homepage/vyhledat_nabidku/pridat_znacku", name="pridat_znacku") matoda: pridatZnacku(\Symfony\Component\HttpFoundation\Request $request, ProducerRepository $producerRepository)
+		- toto je ta routa, ktera slouzi k samotnemu pridani znacky, dostanu se sem z vytvorit_novou_znacku.html.twig, takze by to asi kdybych chtel byt uplne konzistentni
+		melo mit vlastni controller s nazvem VytvoritNovouZnackuController ale byla by tam pouze jedna routa take sem to šoupnul sem opìt trochu matoucí
+		- po uspesnem pridani zavola routu s name="pridat_nabidku" tedy dostane uivatele na zpatky na pridat_nabidku.html.twig kde je formular s pridavanim nabidky
+
+	- @Route("/login_uspesny/homepage/vyhledat_nabidku/{znacka}/{kategorie}", name="vyhledat_nabidku") metoda: index($znacka, $kategorie)
+		- tuto routu vola javascript ajax a slouzi k tomu z kdyz uzivatel ve formulari vybere znacku a kategorii za vsech znacek a kategori ktere posilam spolu s templatou
+		tak chci aby se mu zobrazili pouze produkty, ktere maji vybranou znacku a kategorii. Jinak bych musel spolu s templatou posilat vsechny produkty a to by byl logicky
+		overkill protoze produktu muze byt mrte a stranka by se tak nacitala hrozne dlouho 
+		- tato routa tedy vracu json objekt ve kterem jsou produkty ktere odpovidaji znacce a kategorii a javascript v template pridat_nabidku.html.twig si to uz zpracuje a zobrazi
+		uzivateli
+
+	- @Route("/login_uspesny/homepage/vytvorit_produkt/{znacka}/{kategorie}", name="vytvorit_produkt") metoda: vytvoritProdukt($znacka, $kategorie)
+		- opet routa ktera pouze vyrendruje templatu vytvorit_novy_produkt.html.twig kde je formular jenz slouzi k vytvoreni produktu, nicmene tato routa teto template predava para-
+		metry znacka a kategorie ktere ma jiz uzivatel vybrane aby se produkt mohl pridat spravne jelikoz produkt jako entita ma vazbu na znacku a kategorii
+
+	- @Route("/login_uspesny/homepage/pridat_produkt", name="pridat_produkt") metoda: pridatProdukt(\Symfony\Component\HttpFoundation\Request $request, CategoryRepository $categoryRepository, BrandRepository $brandRepository)
+		- toto je ta routa, ktera slouzi k samotnemu pridani produktu, dostanu se sem z vytvorit_novy_produkt.html.twig, takze by to asi kdybych chtel byt uplne konzistentni
+		melo mit vlastni controller s nazvem VytvoritNovyProduktController ale byla by tam pouze jedna routa take sem to šoupnul sem opìt trochu matoucí
+		- po uspesnem pridani zavola routu s name="pridat_nabidku" tedy dostane uivatele na zpatky na pridat_nabidku.html.twig kde je formular s pridavanim nabidky
+
+	- @Route("/login_uspesny/homepage/vlozit_nabidku", name="vlozit_nabidku") metoda: pridatNabidku(\Symfony\Component\HttpFoundation\Request $request, AddressRepository $addressRepository, CategoryRepository $categoryRepository, BrandRepository $brandRepository, ProductRepository $productRepository, PriceRepository $repository)
+		- tato routa slouí k samotnému pøidání nabídky tedy zpracováva celı formuláø z templaty pridat_nabidku.html.twig, je zde celkem sloita logika, protoe nabidka ma spoustu
+		vazeb na dalsi entity, detailni popis uvnitr routy
+		- po uspesnem pridani zavola routu s name="login_uspesny" tedy dostane uivatele na jeho homepage
+
+TrzisteController
+- dostanu se zde z trziste.html.twig
+
+	- @Route("/login_uspesny/homepage/trziste/vice_informaci/{id}", name="vice_informaci") metoda: viceInformaci($id)
+		- v template trziste.html.twig je tabulka se vsemi nabidkami, kde diky tomu ze je to v tabulce muzou byt pouze zakladni informace a dane nabidce, proto v kazdem radku tabulky
+		ktery obsahuje jendu nabidku je odkaz ktery smìøuje prave na tuto routu, tento odkaz sebou posila informaci a jakou nabidku se jedna a tato routa vyrendruje templatu
+		vice_informaci.html.twig kde budou vsechny informace o dane nabidce (tyto informace se najdou zde pomoci repository a pošlou se do templaty na vyrendrovani jako parametr)
+		- v template vice_informaci.html.twig bude mimo dodateènych informaci rovnì monost rezervovat danou nabidku
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

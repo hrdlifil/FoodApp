@@ -30,7 +30,7 @@ class IndexController extends Controller
     /**
      * @Route("/", name="index")
      */
-    public function index(Request $request, AuthenticationUtils $authenticationUtils)
+    public function index(AuthenticationUtils $authenticationUtils)
     {
         $error = $authenticationUtils->getLastAuthenticationError();
         $lastUsername = $authenticationUtils->getLastUsername();
@@ -44,7 +44,7 @@ class IndexController extends Controller
     /**
      * @Route("/login_uspesny/homepage", name="login_uspesny")
      */
-    public function loginUspesny(Request $request, AuthenticationUtils $authenticationUtils)
+    public function loginUspesny()
     {
 
         return $this->render("homepage.html.twig");

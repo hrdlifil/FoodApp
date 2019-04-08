@@ -36,6 +36,7 @@ class Product
      */
     private $category;
 
+
     /**
      * @return mixed
      */
