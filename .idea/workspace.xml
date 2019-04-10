@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="995808a4-91c2-49cb-8598-f36dfa344aac" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/FoodApp/templates/sprava.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FoodApp/src/Controller/HomepageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/FoodApp/src/Controller/HomepageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FoodApp/src/Controller/TrzisteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/FoodApp/src/Controller/TrzisteController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FoodApp/src/Entity/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/FoodApp/src/Entity/Address.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FoodApp/src/Entity/Offer.php" beforeDir="false" afterPath="$PROJECT_DIR$/FoodApp/src/Entity/Offer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FoodApp/src/Entity/Reservation.php" beforeDir="false" afterPath="$PROJECT_DIR$/FoodApp/src/Entity/Reservation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FoodApp/templates/homepage.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/FoodApp/templates/homepage.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -59,7 +52,7 @@
       <file leaf-file-name="SpravaController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/FoodApp/src/Controller/SpravaController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
+            <state relative-caret-position="777">
               <caret line="37" column="62" selection-start-line="37" selection-start-column="62" selection-end-line="37" selection-end-column="62" />
               <folding>
                 <element signature="e#34#69#0#PHP" expanded="true" />
@@ -481,7 +474,7 @@
       <workItem from="1554477515094" duration="30798000" />
       <workItem from="1554646918016" duration="28454000" />
       <workItem from="1554724816579" duration="28380000" />
-      <workItem from="1554806970854" duration="13076000" />
+      <workItem from="1554806970854" duration="14170000" />
     </task>
     <task id="LOCAL-00001" summary="bug fix">
       <created>1553294761699</created>
@@ -595,11 +588,18 @@
       <option name="project" value="LOCAL" />
       <updated>1554765271428</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="funguji sprava">
+      <created>1554921550080</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1554921550080</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="219081000" />
+    <option name="totallyTimeSpent" value="220175000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -649,7 +649,8 @@
     <MESSAGE value="Fungujici pridavani nabidky (konecne, uz sem myslel ze mi z toho jebne god dammit :D :D )" />
     <MESSAGE value="Pridani dokumentace/workflow" />
     <MESSAGE value="funguji rezervace" />
-    <option name="LAST_COMMIT_MESSAGE" value="funguji rezervace" />
+    <MESSAGE value="funguji sprava" />
+    <option name="LAST_COMMIT_MESSAGE" value="funguji sprava" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1003,7 +1004,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/FoodApp/src/Controller/SpravaController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
+        <state relative-caret-position="777">
           <caret line="37" column="62" selection-start-line="37" selection-start-column="62" selection-end-line="37" selection-end-column="62" />
           <folding>
             <element signature="e#34#69#0#PHP" expanded="true" />
