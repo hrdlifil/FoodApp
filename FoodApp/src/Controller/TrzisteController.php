@@ -6,6 +6,7 @@ use App\Entity\Reservation;
 use App\Repository\OfferRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 
 class TrzisteController extends AbstractController
 {
@@ -18,6 +19,7 @@ class TrzisteController extends AbstractController
 
     /**
      * @Route("/login_uspesny/homepage/trziste/vice_informaci/{id}", name="vice_informaci")
+     * @Method({"POST"})
      */
     public function viceInformaci($id)
     {
@@ -29,6 +31,7 @@ class TrzisteController extends AbstractController
 
     /**
      * @Route("/login_uspesny/homepage/trziste/rezervovat_nabidku/{id}", name="rezervovat_nabidku")
+     * @Method({"POST"})
      */
     public function rezervovatNabidku($id)
     {
@@ -38,7 +41,9 @@ class TrzisteController extends AbstractController
         $rezervace->setUser($this->getUser());
         $rezervace->setBeginning(new \DateTime());
         $rezervace->setExpiration($nabidka->getOfferExpiration());
+        $rezervace->setActive(true);
         $nabidka->setReserved(true);
+        $nabidka->setReservation($rezervace);
         $em = $this->getDoctrine()->getManager();
         $em->persist($rezervace);
         $em->persist($nabidka);

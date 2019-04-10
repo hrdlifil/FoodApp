@@ -1,0 +1,113 @@
+{% extends 'base.html.twig' %}
+{% block title %}Homepage{% endblock %}
+{% block stylesheets %}
+    <style>
+        *
+        {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        html
+        {
+            height: 100%;
+        }
+
+        body
+        {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+
+        }
+
+
+
+    </style>
+{% endblock %}
+
+{% block body %}
+
+
+    <a href="{{ path("login_uspesny") }}">ZPET</a>
+
+    <br/>
+
+    <h3>Nerezervovane nabidky</h3>
+    <br/>
+    {% for nabidka in nerezervovaneNabidky %}
+        <h5>-------------------------------------------------</h5>
+        Nabídka je platná do: {{ nabidka.getOfferExpirationString() }}
+        <br/>
+        Původní cena produktu: {{ nabidka.price.boughtForPrice }}
+        <br/>
+        Soucasna cena produktu: {{ nabidka.price.currentPrice }}
+        <br/>
+        Sleva: {{ nabidka.price.discount }}
+        <br/>
+        Kde lze nabídku vyzvednout: {{ nabidka.pickingOption.address.toString }}
+        <br/>
+        Kategorie: {{ nabidka.product.category.nameOfCategory }}
+        <br/>
+        Znacka: {{ nabidka.product.brand.brandName }}
+        <br/>
+        Jmeno Produktu: {{ nabidka.product.productName }}
+        <br/>
+        Datum expirace produktu: {{ nabidka.getProductExpirationString() }}
+        <br/>
+        Dalsi informace: {{ nabidka.additionalInformation }}
+        <br/>
+    <a href="{{ path("smazat_nabidku", {id: nabidka.offerId}) }}"><button>Zrusit nabidku</button></a>
+        <br/>
+
+    {% endfor %}
+    <h3>Rezervovane nabidky</h3>
+    {% for nabidka in rezervovaneNabidky %}
+        <h5>-------------------------------------------------</h5>
+        Nabídka je platná do: {{ nabidka.getOfferExpirationString() }}
+        <br/>
+        Původní cena produktu: {{ nabidka.price.boughtForPrice }}
+        <br/>
+        Soucasna cena produktu: {{ nabidka.price.currentPrice }}
+        <br/>
+        Sleva: {{ nabidka.price.discount }}
+        <br/>
+        Kde lze nabídku vyzvednout: {{ nabidka.pickingOption.address.toString }}
+        <br/>
+        Kategorie: {{ nabidka.product.category.nameOfCategory }}
+        <br/>
+        Znacka: {{ nabidka.product.brand.brandName }}
+        <br/>
+        Jmeno Produktu: {{ nabidka.product.productName }}
+        <br/>
+        Datum expirace produktu: {{ nabidka.getProductExpirationString() }}
+        <br/>
+        Dalsi informace: {{ nabidka.additionalInformation }}
+        <br/>
+        Uzivatel, ktery si vysi nabidku rezervoval: {{ nabidka.reservation.user.login }}
+        Jeho profil: <a href="#">odkaz</a>
+        <a href="{{ path("zrusit_rezervaci", {id_rezervace: nabidka.reservation.reservationId}) }}"><button>Zrusit rezervaci</button></a>
+        <br/>
+
+    {% endfor %}
+
+    <h5>Moje rezervace</h5>
+    {% for rezervace in rezervace %}
+        <h5>-------------------------------------------------</h5>
+        <br/>
+        Datum expirace rezervace: {{ rezervace.getExpirationString }}
+        <br/>
+        Rezervace je na nabidku: {{ rezervace.offer.toString() }}
+        <br/>
+        Misto vyzvednuti nabidky: {{ rezervace.offer.pickingOption.address.toString() }}
+        <br/>
+        <a href="{{ path("zrusit_rezervaci", {id_rezervace: rezervace.reservationId}) }}"><button>Zrusit rezervaci</button></a>
+
+
+    {% endfor %}
+
+{% endblock %}
+{% block javascripts %}
+
+{% endblock %}

@@ -18,6 +18,7 @@ use App\Repository\BrandRepository;
 use App\Repository\CategoryRepository;
 use App\Repository\OfferRepository;
 use App\Repository\ProductRepository;
+use App\Repository\ReservationRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use App\Form\AddressType;
@@ -112,17 +113,16 @@ class HomepageController extends Controller
      */
     public function trziste(OfferRepository $offerRepository)
     {
-        // zatim primitivni treba prepsat do query
-        // vsechny prosle nabidky oznacim jako neaktivni, aby se nezobrazovaly a vyselektuji aktivni a ty zobrazim na trzisti
-        // toto je hrozne shit implementace treba udelat lepsi
+        // vyselektuji z db vsechny nabidky ktere jsou nerezervovane a aktivni
         $nabidky = [];
-        $vsechnyNabidky = $offerRepository->findAll();
+        $vsechnyNabidky = $offerRepository->findBy(["active" => true, "reserved" => false]);
         $em = $this->getDoctrine()->getManager();
         foreach ($vsechnyNabidky as $nabidka)
         {
             $today = new \DateTime();
             $expiraceNabidky = $nabidka->getOfferExpiration();
 
+            // zjistim jestli neproslo datum expirace nabidky, pokud ano tak jiz neni aktivni
             if ($expiraceNabidky < $today)
             {
                 $nabidka->setActive(false);
@@ -139,6 +139,58 @@ class HomepageController extends Controller
         // aktualizuji db tak aby prosle nabidky nebyly aktivni
         $em->flush();
         return $this->render("trziste.html.twig", ["nabidky" => $nabidky]);
+    }
+
+    /**
+     * @Route("/login_uspesny/homepage/sprava", name="sprava")
+     */
+    public function sprava(OfferRepository $offerRepository, ReservationRepository $reservationRepository)
+    {
+
+        // vyselektuji z db vsechny nabidky, ktere zverejnil user jez jsou aktivni
+        $nerezervovaneNabidky = [];
+        $rezervovaneNabidky = [];
+        $mojeRezervace= $reservationRepository->findBy(["user" => $this->getUser(), "active" => true]);
+        $rezervace = [];
+
+        $vsechnyNabidky = $offerRepository->findBy(["active" => true, "user" => $this->getUser()]);
+        $em = $this->getDoctrine()->getManager();
+        $today = new \DateTime();
+        foreach ($vsechnyNabidky as $nabidka)
+        {
+            $expiraceNabidky = $nabidka->getOfferExpiration();
+
+            // zjistim jestli neproslo datum expirace nabidky, pokud ano tak jiz neni aktivni
+            if ($expiraceNabidky < $today)
+            {
+                $nabidka->setActive(false);
+                $em->persist($nabidka);
+            }
+            // chci zobrazovat pouze aktivni nidky
+            if ($nabidka->getActive() == true and $nabidka->getReserved() == false)
+            {
+                $nerezervovaneNabidky[] = $nabidka;
+            }elseif ($nabidka->getActive() == true and $nabidka->getReserved() == true)
+            {
+                $rezervovaneNabidky[] = $nabidka;
+
+            }
+        }
+
+
+        foreach ($mojeRezervace as $x)
+        {
+            if ($x->getExpiration() > $today)
+            {
+                $rezervace[] = $x;
+            }else
+                {
+                    $x->setActive(false);
+                    $em->persist($x);
+                }
+        }
+
+        return $this->render("sprava.html.twig", ["nerezervovaneNabidky" => $nerezervovaneNabidky, "rezervovaneNabidky" => $rezervovaneNabidky, "rezervace" => $rezervace]);
     }
 
 }

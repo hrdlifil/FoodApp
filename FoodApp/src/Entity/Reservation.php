@@ -29,10 +29,31 @@ class Reservation
     private $expiration;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Offer")
+     * @ORM\OneToOne(targetEntity="Offer", inversedBy="reservation")
      * @ORM\JoinColumn(name="offer_id", referencedColumnName="offer_id")
      */
     private $offer;
+
+    /**
+     * @ORM\Column(type="boolean", name="active")
+     */
+    private $active;
+
+    /**
+     * @return mixed
+     */
+    public function getActive()
+    {
+        return $this->active;
+    }
+
+    /**
+     * @param mixed $active
+     */
+    public function setActive($active): void
+    {
+        $this->active = $active;
+    }
 
     /**
      * @ORM\ManyToOne(targetEntity="User")
@@ -67,6 +88,11 @@ class Reservation
     public function getExpiration()
     {
         return $this->expiration;
+    }
+
+    public function getExpirationString()
+    {
+        return $this->expiration->format('d-m-y');
     }
 
     /**

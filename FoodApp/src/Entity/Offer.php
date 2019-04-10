@@ -25,9 +25,31 @@ class Offer
     private $additionalInformation;
 
     /**
+     * One Customer has One Cart.
+     * @ORM\OneToOne(targetEntity="Reservation", mappedBy="offer")
+     */
+    private $reservation;
+
+    /**
      * @ORM\Column(type="boolean")
      */
     private $reserved = false;
+
+    /**
+     * @return mixed
+     */
+    public function getReservation()
+    {
+        return $this->reservation;
+    }
+
+    /**
+     * @param mixed $reservation
+     */
+    public function setReservation($reservation): void
+    {
+        $this->reservation = $reservation;
+    }
 
     /**
      * @ORM\Column(type="boolean")
@@ -270,6 +292,12 @@ class Offer
     public function setPickingOptions($pickingOptions): void
     {
         $this->pickingOptions = $pickingOptions;
+    }
+
+    public function toString()
+    {
+        return $this->product->getCategory()->getNameOfCategory() . " " . $this->product->getBrand()->getBrandName() . " ". $this->product->getProductName() . " uzivatel: " . $this->user->getLogin();
+
     }
 
 }

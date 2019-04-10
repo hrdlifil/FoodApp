@@ -75,7 +75,7 @@ class Address
 
     public function toString()
     {
-        return $this->town . " " . $this->street . " " . $this->houseNumber . " " . $this->postCode;
+        return $this->town . "-" . $this->street . "-" . $this->houseNumber . "-" . $this->postCode;
     }
 
     /**

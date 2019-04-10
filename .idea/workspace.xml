@@ -2,17 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="995808a4-91c2-49cb-8598-f36dfa344aac" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/FoodApp/templates/trziste.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FoodApp/templates/vice_informaci.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FoodApp/templates/sprava.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FoodApp/src/Controller/HomepageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/FoodApp/src/Controller/HomepageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FoodApp/src/Controller/IndexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/FoodApp/src/Controller/IndexController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FoodApp/src/Controller/NastaveniController.php" beforeDir="false" afterPath="$PROJECT_DIR$/FoodApp/src/Controller/NastaveniController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FoodApp/src/Controller/PridatNabidkuController.php" beforeDir="false" afterPath="$PROJECT_DIR$/FoodApp/src/Controller/PridatNabidkuController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FoodApp/src/Entity/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/FoodApp/src/Entity/Product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FoodApp/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/FoodApp/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodApp/src/Controller/TrzisteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/FoodApp/src/Controller/TrzisteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodApp/src/Entity/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/FoodApp/src/Entity/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodApp/src/Entity/Offer.php" beforeDir="false" afterPath="$PROJECT_DIR$/FoodApp/src/Entity/Offer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodApp/src/Entity/Reservation.php" beforeDir="false" afterPath="$PROJECT_DIR$/FoodApp/src/Entity/Reservation.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FoodApp/templates/homepage.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/FoodApp/templates/homepage.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FoodApp/templates/pridat_nabidku.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/FoodApp/templates/pridat_nabidku.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -29,53 +26,8 @@
       <file leaf-file-name="PridatNabidkuController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FoodApp/src/Controller/PridatNabidkuController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-43">
-              <caret line="114" column="49" selection-start-line="114" selection-start-column="39" selection-end-line="114" selection-end-column="49" />
-              <folding>
-                <element signature="e#34#55#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="trziste.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/FoodApp/templates/trziste.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="444">
-              <caret line="69" column="20" selection-start-line="69" selection-start-column="20" selection-end-line="69" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TrzisteController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/FoodApp/src/Controller/TrzisteController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="25" column="54" lean-forward="true" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="54" />
-              <folding>
-                <element signature="e#34#69#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="vice_informaci.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/FoodApp/templates/vice_informaci.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="16" column="14" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IndexController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/FoodApp/src/Controller/IndexController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="129">
-              <caret line="32" column="20" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="67" />
-              <folding>
-                <element signature="e#117#138#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="425">
+              <caret line="23" selection-start-line="23" selection-end-line="23" selection-end-column="60" />
             </state>
           </provider>
         </entry>
@@ -83,10 +35,34 @@
       <file leaf-file-name="HomepageController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FoodApp/src/Controller/HomepageController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="451">
-              <caret line="115" column="47" selection-start-line="115" selection-start-column="30" selection-end-line="115" selection-end-column="47" />
+            <state relative-caret-position="1284">
+              <caret line="192" column="148" selection-start-line="192" selection-start-column="148" selection-end-line="192" selection-end-column="148" />
               <folding>
                 <element signature="e#116#139#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TrzisteController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/FoodApp/src/Controller/TrzisteController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="20" column="90" selection-start-line="20" selection-start-column="15" selection-end-line="20" selection-end-column="90" />
+              <folding>
+                <element signature="e#34#61#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SpravaController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/FoodApp/src/Controller/SpravaController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="318">
+              <caret line="37" column="62" selection-start-line="37" selection-start-column="62" selection-end-line="37" selection-end-column="62" />
+              <folding>
+                <element signature="e#34#69#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -95,8 +71,8 @@
       <file leaf-file-name="RegisterController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FoodApp/src/Controller/RegisterController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="36" column="20" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="43" />
+            <state relative-caret-position="378">
+              <caret line="18" selection-start-line="18" selection-end-line="18" />
               <folding>
                 <element signature="e#33#53#0#PHP" expanded="true" />
               </folding>
@@ -104,32 +80,53 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="security.yaml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/FoodApp/config/packages/security.yaml">
+      <file leaf-file-name="Reservation.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/FoodApp/src/Entity/Reservation.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="31" column="50" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="50" />
+            <state relative-caret-position="209">
+              <caret line="31" column="37" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="37" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NastaveniController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/FoodApp/src/Controller/NastaveniController.php">
+      <file leaf-file-name="sprava.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/FoodApp/templates/sprava.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="178">
-              <caret line="248" lean-forward="true" selection-start-line="248" selection-end-line="248" />
+            <state relative-caret-position="-543">
+              <caret line="61" column="13" selection-start-line="61" selection-start-column="13" selection-end-line="61" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Offer.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/FoodApp/src/Entity/Offer.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="209">
+              <caret line="82" column="27" selection-start-line="82" selection-start-column="23" selection-end-line="82" selection-end-column="27" />
               <folding>
-                <element signature="e#115#136#0#PHP" expanded="true" />
+                <element signature="e#31#79#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="nastaveni_prodejny.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/FoodApp/templates/nastaveni_prodejny.html.twig">
+      <file leaf-file-name="Producer.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/FoodApp/src/Entity/Producer.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1092">
-              <caret line="52" column="4" selection-start-line="52" selection-start-column="4" selection-end-line="52" selection-end-column="50" />
+            <state relative-caret-position="183">
+              <caret line="91" column="28" selection-start-line="91" selection-start-column="20" selection-end-line="91" selection-end-column="28" />
+              <folding>
+                <element signature="e#30#78#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Product.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/FoodApp/src/Entity/Product.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="572">
+              <caret line="37" selection-start-line="37" selection-end-line="37" />
             </state>
           </provider>
         </entry>
@@ -138,20 +135,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>setPassw</find>
-      <find>new</find>
-      <find>get</find>
-      <find>getI</find>
-      <find>getM</find>
-      <find>getP</find>
-      <find>getPl</find>
-      <find>setPh</find>
-      <find>nameO</find>
-      <find>setJmeno</find>
-      <find>act</find>
-      <find>getA</find>
-      <find>pop</find>
-      <find>pos</find>
       <find>getR</find>
       <find>onet</find>
       <find>oneto</find>
@@ -163,6 +146,25 @@
       <find>pridatNab</find>
       <find>nameOf</find>
       <find>pridat_pro</find>
+      <find>picki</find>
+      <find>picking</find>
+      <find>expi</find>
+      <find>price</find>
+      <find>disc</find>
+      <find>offerE</find>
+      <find>produc</find>
+      <find>sle</find>
+      <find>expira</find>
+      <find>use</find>
+      <find>act</find>
+      <find>rese</find>
+      <find>reserv</find>
+      <find>stri</find>
+      <find>reser</find>
+      <find>str</find>
+      <find>toS</find>
+      <find>pick</find>
+      <find>of</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -171,10 +173,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/FoodApp/src/Entity/UserBan.php" />
-        <option value="$PROJECT_DIR$/FoodApp/src/Views/index.html.twig" />
-        <option value="$PROJECT_DIR$/FoodApp/src/Controller/KokotController.php" />
-        <option value="$PROJECT_DIR$/FoodApp/templates/register/index.html.twig" />
         <option value="$PROJECT_DIR$/FoodApp/templates/login.html.twiq" />
         <option value="$PROJECT_DIR$/FoodApp/templates/login.html.twig" />
         <option value="$PROJECT_DIR$/FoodApp/config/packages/doctrine.yaml" />
@@ -209,19 +207,23 @@
         <option value="$PROJECT_DIR$/FoodApp/src/Helpers/EnumCountryOfOriginType.php" />
         <option value="$PROJECT_DIR$/FoodApp/templates/vytvorit_novou_kategorii.html.twig" />
         <option value="$PROJECT_DIR$/FoodApp/templates/vytvorit_novy_produkt.html.twig" />
-        <option value="$PROJECT_DIR$/FoodApp/src/Entity/Address.php" />
-        <option value="$PROJECT_DIR$/FoodApp/src/Entity/PickingOption.php" />
         <option value="$PROJECT_DIR$/FoodApp/templates/base.html.twig" />
-        <option value="$PROJECT_DIR$/FoodApp/templates/pridat_nabidku.html.twig" />
-        <option value="$PROJECT_DIR$/FoodApp/templates/homepage.html.twig" />
         <option value="$PROJECT_DIR$/FoodApp/src/Entity/Product.php" />
-        <option value="$PROJECT_DIR$/FoodApp/src/Controller/TrzisteController.php" />
         <option value="$PROJECT_DIR$/FoodApp/templates/trziste.html.twig" />
-        <option value="$PROJECT_DIR$/FoodApp/templates/vice_informaci.html.twig" />
         <option value="$PROJECT_DIR$/FoodApp/src/Controller/IndexController.php" />
-        <option value="$PROJECT_DIR$/FoodApp/src/Controller/HomepageController.php" />
         <option value="$PROJECT_DIR$/FoodApp/src/Controller/NastaveniController.php" />
+        <option value="$PROJECT_DIR$/FoodApp/templates/pridat_nabidku.html.twig" />
         <option value="$PROJECT_DIR$/FoodApp/src/Controller/PridatNabidkuController.php" />
+        <option value="$PROJECT_DIR$/FoodApp/src/Entity/PickingOption.php" />
+        <option value="$PROJECT_DIR$/FoodApp/templates/vice_informaci.html.twig" />
+        <option value="$PROJECT_DIR$/FoodApp/templates/homepage.html.twig" />
+        <option value="$PROJECT_DIR$/FoodApp/src/Entity/Address.php" />
+        <option value="$PROJECT_DIR$/FoodApp/src/Entity/Reservation.php" />
+        <option value="$PROJECT_DIR$/FoodApp/src/Controller/HomepageController.php" />
+        <option value="$PROJECT_DIR$/FoodApp/src/Entity/Offer.php" />
+        <option value="$PROJECT_DIR$/FoodApp/src/Controller/TrzisteController.php" />
+        <option value="$PROJECT_DIR$/FoodApp/templates/sprava.html.twig" />
+        <option value="$PROJECT_DIR$/FoodApp/src/Controller/SpravaController.php" />
       </list>
     </option>
   </component>
@@ -478,7 +480,8 @@
       <workItem from="1554371658216" duration="25540000" />
       <workItem from="1554477515094" duration="30798000" />
       <workItem from="1554646918016" duration="28454000" />
-      <workItem from="1554724816579" duration="16424000" />
+      <workItem from="1554724816579" duration="28380000" />
+      <workItem from="1554806970854" duration="13076000" />
     </task>
     <task id="LOCAL-00001" summary="bug fix">
       <created>1553294761699</created>
@@ -578,29 +581,43 @@
       <option name="project" value="LOCAL" />
       <updated>1554682753640</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Pridani dokumentace/workflow">
+      <created>1554751597738</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1554751597738</updated>
+    </task>
+    <task id="LOCAL-00016" summary="funguji rezervace">
+      <created>1554765271428</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1554765271428</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="194049000" />
+    <option name="totallyTimeSpent" value="219081000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23624161" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23959732" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" visible="true" weight="0.0" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" visible="true" weight="0.0" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -630,7 +647,9 @@
     <MESSAGE value="zmena role a pridani adresy" />
     <MESSAGE value="Nastaveni zda se hotovo (konecne uffff)" />
     <MESSAGE value="Fungujici pridavani nabidky (konecne, uz sem myslel ze mi z toho jebne god dammit :D :D )" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fungujici pridavani nabidky (konecne, uz sem myslel ze mi z toho jebne god dammit :D :D )" />
+    <MESSAGE value="Pridani dokumentace/workflow" />
+    <MESSAGE value="funguji rezervace" />
+    <option name="LAST_COMMIT_MESSAGE" value="funguji rezervace" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -638,22 +657,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/FoodApp/src/Services/CustomError.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="5" selection-start-column="5" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FoodApp/src/Form/UserType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-105">
-          <caret line="10" selection-start-line="10" selection-end-line="10" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FoodApp/src/Entity/ZmenitEmail.php" />
-    <entry file="file://$PROJECT_DIR$/FoodApp/src/Form/ZmenitEmailType.php" />
     <entry file="file://$PROJECT_DIR$/FoodApp/src/Form/ZmenaUsernameType.php" />
     <entry file="file://$PROJECT_DIR$/FoodApp/src/Form/ZmenitEmail.php" />
     <entry file="file://$PROJECT_DIR$/FoodApp/src/Form/AddressType.php">
@@ -666,27 +669,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FoodApp/src/Entity/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-169">
-          <caret line="80" column="18" selection-start-line="80" selection-start-column="18" selection-end-line="80" selection-end-column="18" />
-          <folding>
-            <element signature="e#29#77#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/FoodApp/templates/nastaveni.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="769">
           <caret line="428" column="15" selection-start-line="428" selection-start-column="15" selection-end-line="428" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FoodApp/templates/nastaveni_nakupujici.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="52" selection-start-line="52" selection-end-line="52" />
         </state>
       </provider>
     </entry>
@@ -734,16 +720,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FoodApp/src/Entity/Producer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="91" column="28" selection-start-line="91" selection-start-column="20" selection-end-line="91" selection-end-column="28" />
-          <folding>
-            <element signature="e#30#78#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/FoodApp/src/Helpers/EnumCountryOfOriginType.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -781,24 +757,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FoodApp/src/Entity/Offer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="756">
-          <caret line="37" column="53" selection-start-line="37" selection-start-column="53" selection-end-line="37" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/FoodApp/templates/vytvorit_novy_produkt.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="15" column="63" selection-start-line="15" selection-start-column="63" selection-end-line="15" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FoodApp/src/Entity/PickingOption.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="756">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
         </state>
       </provider>
     </entry>
@@ -837,16 +799,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FoodApp/src/Entity/Address.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="74" selection-start-line="74" selection-end-line="74" />
-          <folding>
-            <element signature="e#30#73#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/FoodApp/templates/registration.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="551">
@@ -854,57 +806,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FoodApp/src/Entity/Product.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="37" selection-start-line="37" selection-end-line="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FoodApp/src/Entity/Price.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-693" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/FoodApp/templates/vytvorit_novou_znacku.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="462">
           <caret line="22" selection-end-line="23" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FoodApp/templates/pridat_nabidku.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-483">
-          <caret line="81" column="13" selection-start-line="81" selection-start-column="13" selection-end-line="81" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FoodApp/templates/homepage.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="67" column="31" selection-start-line="67" selection-start-column="31" selection-end-line="67" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FoodApp/templates/trziste.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="444">
-          <caret line="69" column="20" selection-start-line="69" selection-start-column="20" selection-end-line="69" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FoodApp/templates/vice_informaci.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="16" column="14" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FoodApp/config/packages/security.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="31" column="50" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="50" />
         </state>
       </provider>
     </entry>
@@ -918,57 +823,188 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FoodApp/src/Controller/HomepageController.php">
+    <entry file="file://$PROJECT_DIR$/FoodApp/templates/trziste.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="115" column="47" selection-start-line="115" selection-start-column="30" selection-end-line="115" selection-end-column="47" />
-          <folding>
-            <element signature="e#116#139#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FoodApp/src/Controller/RegisterController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="36" column="20" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="43" />
-          <folding>
-            <element signature="e#33#53#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FoodApp/templates/nastaveni_prodejny.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1092">
-          <caret line="52" column="4" selection-start-line="52" selection-start-column="4" selection-end-line="52" selection-end-column="50" />
+        <state relative-caret-position="315">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/FoodApp/src/Controller/NastaveniController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="178">
-          <caret line="248" lean-forward="true" selection-start-line="248" selection-end-line="248" />
+          <caret line="248" selection-start-line="248" selection-end-line="248" />
           <folding>
             <element signature="e#115#136#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/FoodApp/src/Entity/Price.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="693">
+          <caret line="33" column="17" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FoodApp/src/Entity/PickingOption.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="21" column="68" selection-start-line="21" selection-start-column="68" selection-end-line="21" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FoodApp/templates/nastaveni_nakupujici.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="57" column="4" selection-start-line="57" selection-start-column="4" selection-end-line="57" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/skola/PHP/OOP/Polomorfismus.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="693">
+          <caret line="38" column="5" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FoodApp/templates/pridat_nabidku.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="635">
+          <caret line="35" selection-start-line="35" selection-end-line="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FoodApp/templates/nastaveni_prodejny.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="509">
+          <caret line="46" column="12" selection-end-line="215" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FoodApp/config/packages/security.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-81">
+          <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FoodApp/src/Entity/Address.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+          <folding>
+            <element signature="e#30#73#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FoodApp/templates/homepage.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1116">
+          <caret line="83" selection-start-line="83" selection-end-line="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FoodApp/src/Entity/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="635">
+          <caret line="80" column="18" selection-start-line="80" selection-start-column="18" selection-end-line="80" selection-end-column="18" />
+          <folding>
+            <element signature="e#29#77#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FoodApp/templates/vice_informaci.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="717">
+          <caret line="74" lean-forward="true" selection-start-line="74" selection-end-line="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FoodApp/src/Entity/Producer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="91" column="28" selection-start-line="91" selection-start-column="20" selection-end-line="91" selection-end-column="28" />
+          <folding>
+            <element signature="e#30#78#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FoodApp/src/Entity/Product.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FoodApp/src/Entity/Offer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="82" column="27" selection-start-line="82" selection-start-column="23" selection-end-line="82" selection-end-column="27" />
+          <folding>
+            <element signature="e#31#79#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/FoodApp/src/Controller/PridatNabidkuController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-43">
-          <caret line="114" column="49" selection-start-line="114" selection-start-column="39" selection-end-line="114" selection-end-column="49" />
+        <state relative-caret-position="425">
+          <caret line="23" selection-start-line="23" selection-end-line="23" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FoodApp/src/Controller/RegisterController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
           <folding>
-            <element signature="e#34#55#0#PHP" expanded="true" />
+            <element signature="e#33#53#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/FoodApp/src/Controller/TrzisteController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="25" column="54" lean-forward="true" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="54" />
+        <state relative-caret-position="420">
+          <caret line="20" column="90" selection-start-line="20" selection-start-column="15" selection-end-line="20" selection-end-column="90" />
+          <folding>
+            <element signature="e#34#61#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FoodApp/src/Controller/HomepageController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1284">
+          <caret line="192" column="148" selection-start-line="192" selection-start-column="148" selection-end-line="192" selection-end-column="148" />
+          <folding>
+            <element signature="e#116#139#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FoodApp/src/Entity/Reservation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="31" column="37" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FoodApp/templates/sprava.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-543">
+          <caret line="61" column="13" selection-start-line="61" selection-start-column="13" selection-end-line="61" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FoodApp/src/Controller/SpravaController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="37" column="62" selection-start-line="37" selection-start-column="62" selection-end-line="37" selection-end-column="62" />
           <folding>
             <element signature="e#34#69#0#PHP" expanded="true" />
           </folding>
