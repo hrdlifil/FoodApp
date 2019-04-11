@@ -57,11 +57,11 @@
 {% block body %}
     <a href="{{ path("login_uspesny") }}">ZPET</a>
 
-    <h3>Moje jmeno:  </h3> {{ app.user.name }}
+    <h3>Moje jméno:  </h3> {{ app.user.name }}
     <br/>
-    <h3>Moje prijmeni:  </h3> {{ app.user.surname }}
+    <h3>Moje přijmení:  </h3> {{ app.user.surname }}
     <br/>
-    <h3>Moje Uzivatelske jmeno:  </h3> {{ app.user.login }}
+    <h3>Moje uživatelské jméno:  </h3> {{ app.user.login }}
     <br/>
     <h3>Moje role:  </h3> {{ app.user.role }}
     <br/>
@@ -72,7 +72,7 @@
 
 
         <div>
-            <label for="chci-se-stat-prodavajicim">Chci i prodavat</label>
+            <label for="chci-se-stat-prodavajicim">Chci i prodávat</label>
             <input id="chci-se-stat-prodavajicim" type="radio" name="zmena-rola">
         </div>
         <div>
@@ -85,7 +85,8 @@
         </div>
 
         <div id="prodavajici">
-            <h2>Zadejte adresu vyzvedavaciho mista:</h2>
+            <h2>Zadejte adresu vyzvedávacího místa:</h2>
+            <br/>
             <div id="form-pridat-adresu">
                 {{ form_start(form_pridat_adresu) }}
 
@@ -95,10 +96,10 @@
                 {{ form_label(form_pridat_adresu.street, 'Ulice') }}
                 {{ form_widget(form_pridat_adresu.street) }}
 
-                {{ form_label(form_pridat_adresu.town, 'Mesto') }}
+                {{ form_label(form_pridat_adresu.town, 'Město') }}
                 {{ form_widget(form_pridat_adresu.town) }}
 
-                {{ form_label(form_pridat_adresu.houseNumber, 'Cislo Domu') }}
+                {{ form_label(form_pridat_adresu.houseNumber, 'Číslo domu') }}
                 {{ form_widget(form_pridat_adresu.houseNumber) }}
 
                 {{ form_label(form_pridat_adresu.postCode, 'PSC') }}
@@ -120,10 +121,10 @@
             {{ form_label(form_stat_se_prodejnou.street, 'Ulice') }}
             {{ form_widget(form_stat_se_prodejnou.street) }}
 
-            {{ form_label(form_stat_se_prodejnou.town, 'Mesto') }}
+            {{ form_label(form_stat_se_prodejnou.town, 'Město') }}
             {{ form_widget(form_stat_se_prodejnou.town) }}
 
-            {{ form_label(form_stat_se_prodejnou.houseNumber, 'Cislo Domu') }}
+            {{ form_label(form_stat_se_prodejnou.houseNumber, 'Číslo domu') }}
             {{ form_widget(form_stat_se_prodejnou.houseNumber) }}
 
             {{ form_label(form_stat_se_prodejnou.postCode, 'PSC') }}
@@ -144,10 +145,10 @@
             {{ form_label(form_stat_se_organizaci.street, 'Ulice') }}
             {{ form_widget(form_stat_se_organizaci.street) }}
 
-            {{ form_label(form_stat_se_organizaci.town, 'Mesto') }}
+            {{ form_label(form_stat_se_organizaci.town, 'Město') }}
             {{ form_widget(form_stat_se_organizaci.town) }}
 
-            {{ form_label(form_stat_se_organizaci.houseNumber, 'Cislo Domu') }}
+            {{ form_label(form_stat_se_organizaci.houseNumber, 'Číslo Domu') }}
             {{ form_widget(form_stat_se_organizaci.houseNumber) }}
 
             {{ form_label(form_stat_se_organizaci.postCode, 'PSC') }}

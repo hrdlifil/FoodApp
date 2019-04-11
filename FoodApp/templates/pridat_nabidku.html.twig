@@ -35,11 +35,11 @@
 {% endblock %}
 
 {% block body %}
-    <a href="{{ path("login_uspesny") }}">ZPET</a>
+    <a href="{{ path("login_uspesny") }}">ZPĚT</a>
     <form action="{{ path("vlozit_nabidku") }}">
-        <h3>Zvolte znacku: </h3>
+        <h3>Zvolte značku: </h3>
         <select id="znacky" name="jmeno-znacky">
-            <option value="Zvolte znacku">Zvolte znacku</option>
+            <option value="Zvolte znacku">Zvolte značku</option>
             {% for znacka in  pole_znacek  %}
 
                 <option  value="{{ znacka.brandName }}">{{ znacka.brandName }}</option>
@@ -47,7 +47,7 @@
             {% endfor %}
         </select>
         <br/>
-        <a href="{{ path("pridat_znacku_zobrazit") }}" id="nova-znacka">Nenasli jste svou znacku? Vytvorte ji</a>
+        <a href="{{ path("pridat_znacku_zobrazit") }}" id="nova-znacka">Nenašli jste svou značku? Vytvořte ji</a>
 
         <br/>
         <h3>Zvolte kategorii: </h3>
@@ -61,7 +61,7 @@
 
         </select>
         <br/>
-        <a href="{{ path("pridat_kategorii_zobrazit") }}" id="nova-kategorie">Nenasli jste svou kategorii? Vytvorte ji</a>
+        <a href="{{ path("pridat_kategorii_zobrazit") }}" id="nova-kategorie">Nenašli jste svou kategorii? Vytvořte ji</a>
         <br/>
         <h3>Zvolte produkt: </h3>
         <select id="produkty" name="jmeno-produktu">
@@ -69,9 +69,9 @@
 
         </select>
         <br/>
-        <a id="novy-produkt">Nenasli jste produkt? Vytvorte ho</a>
+        <a id="novy-produkt">Nenašli jste produkt? Vytvořte ho</a>
         <br/>
-        <h3>Zvolte misto vyzvednuti: </h3>
+        <h3>Zvolte místo vyzvednuti: </h3>
         <br/>
         <select name="misto-vyzvednuti">
             {% for adresa in app.user.address %}
@@ -80,12 +80,12 @@
             {% endfor %}
         </select>
         <br/>
-        <h3>Puvodni cena </h3>
+        <h3>Původní cena </h3>
         <nb/>
 
         <input type="text" id="puvodni-cena" name="puvodni-cena">
         <br/>
-        <h3>Soucasna cena </h3>
+        <h3>Současná cena </h3>
         <br/>
 
         <input type="text" id="soucasna-cena" name="soucasna-cena">
@@ -95,7 +95,7 @@
 
         <input type="date" id="datum-expirace-produktu" name="datum-expirace-produktu">
         <br/>
-        <h3>Datum expirace Nabídky </h3>
+        <h3>Datum expirace nabídky </h3>
         <br/>
 
         <input type="datetime-local" id="datum-expirace-nabidky" name="datum-expirace-nabidky">
@@ -105,7 +105,7 @@
 
         </textarea>
         <br/>
-        <input type="submit" value="Vlozit nabidku">
+        <input type="submit" value="Vložit nabidku">
     </form>
 
 

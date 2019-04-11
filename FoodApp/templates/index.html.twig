@@ -35,7 +35,7 @@
 
 {% block body %}
     <div>
-        <h1>Prihlaseni</h1>
+        <h1>Přihlášení</h1>
     </div>
     <div>
         {% if error %}
@@ -45,18 +45,19 @@
         {% endif  %}
         <form method="post" {{ path("index") }} id="sign-in-form">
 
-            <label for="username" >Uzivatelske jmeno</label>
+            <label for="username" >Uživatelské jméno</label>
             <input required  pattern=".{4,}" type="text" id="username" name="_username" value="{{ last_username }}">
             <br/>
             <label for="password" >Heslo</label>
             <input  required pattern=".{5,}" type="password" id="password" name="_password">
             <br/>
-            <button type="submit">odeslat</button>
+            <input type="hidden" name="csrf_token" value="{{ csrf_token("authenticate") }}">
+            <button type="submit">Odeslat</button>
 
         </form>
 
 
     </div>
-    <a href="{{ path("register") }}">Jeste nemam ucet - REGISTRACE</a>
+    <a href="{{ path("register") }}">Ještě nemám účet - REGISTRACE</a>
 {% endblock %}
 

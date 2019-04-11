@@ -31,14 +31,16 @@ security:
                 # kam bude uživatel redirectovan po uspesnem prihlaseni
                 default_target_path: login_uspesny
 
-                #csrf_token_generator: security.csrf.token_manager
+                csrf_token_generator: security.csrf.token_manager
+
+                # property name v prihlasovacim formulari ktera souvisi s csrf tokenem
+                csrf_parameter: csrf_token
 
                 # property name v prihlasovacim formulari ktera souvisi s username
                 #username_parameter: username
                 # property name v prihlasovacim formulari ktera souvisi s password
                 #password_parameter: password
-                # property name v prihlasovacim formulari ktera souvisi s csrf tokenem
-                #csrf_parameter: csrf_token
+
                 # kam bude uživatel redirectovan po neuspesnem prihlaseni, defaultne je to stejne misto s
                 # kde je přihlašovací formulář
                 #failure_path: dement

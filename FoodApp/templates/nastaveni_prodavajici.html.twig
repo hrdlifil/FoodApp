@@ -110,7 +110,7 @@
             <input type="submit" value="Zmenit">
         </form>
 
-        <h3>Me adresy:</h3>
+        <h3>Mé adresy:</h3>
         <br/>
         {% for adresa in app.user.address %}
             <h3>--------------------------------</h3>
@@ -122,6 +122,7 @@
                 <li>{{ adresa.postCode }}</li>
             </ul>
         {% endfor %}
+    <br/>
 
         <h3>Pridat dalsi adresu:</h3>
         <div id="pridat-dalsi-adresu">

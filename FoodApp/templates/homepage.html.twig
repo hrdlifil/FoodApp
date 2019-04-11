@@ -45,42 +45,49 @@
 
 {% block body %}
 
+
     <div id="main_menu">
+        <a href="{{ path("security_logout") }}">
+            <button>Odhlásit se</button>
+        </a>
+
         <a href="{{ path("nastaveni") }}">
             <div class="menu-item" id="nastaveni">
 
-                nastaveni
+                Nastavení
             </div>
         </a>
         <div class="menu-item" id="zpravy">
 
-            zpravy
+            Zprávy
         </div>
         <div class="menu-item" id="vyhledavani">
 
-            vyhledavani
+            Vyhledávání
         </div>
         <div class="menu-item" id="profil">
 
-            profil
+            Uživatelský profil
         </div>
 
         <a href="{{ path("trziste") }}">
             <div class="menu-item" id="trziste">
 
-                trziste
+                Tržiště
             </div>
         </a>
+        {% if app.user.role is same as("prodavajici") or app.user.role is same as("prodejna") or app.user.role is same as("organizace") %}
         <a href="{{ path("pridat_nabidku") }}">
             <div class="menu-item" id="pridat-nabidku">
 
-            pridat nabidku
+            Přidat Nabídku
             </div>
         </a>
+        {% endif %}
         <a href="{{ path("sprava") }}">
             <div class="menu-item" id="sprava-nabidek-rezervaci">
 
-                sprava
+                Správa nabídek a rezervací
 
             </div>
         </a>

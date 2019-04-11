@@ -69,7 +69,7 @@
         {% for message in app.flashes("info_organizace") %}
             <h3>{{ message }}</h3>
         {% endfor %}
-        <a id="zmenit-jmeno-organizace">Zmenit/Pridat jmeno organizace</a>
+        <a id="zmenit-jmeno-organizace">Změnit/Přidat jméno organizace</a>
 
 
         <form id="nove-jmeno-organizace" method="post" action="{{ path("nove_jmeno_organizace") }}">
@@ -82,11 +82,11 @@
         {% for message in app.flashes("info") %}
             <h3>{{ message }}</h3>
         {% endfor %}
-        <a id="zmenit-username-odkaz">Zmenit username</a>
+        <a id="zmenit-username-odkaz">Změnit uživatelské jméno</a>
 
 
         <form id="nove-username" method="post" action="{{ path("nove_username") }}">
-            <label for="x">Zadejte nove uzivatelske jmeno:</label>
+            <label for="x">Zadejte nové uživatelské jméno:</label>
             <input id="x" type="text" name="nove-username">
             <br/>
             <input type="submit" value="Zmenit">
@@ -96,7 +96,7 @@
         {% for message in app.flashes("info_email") %}
             <h3>{{ message }}</h3>
         {% endfor %}
-        <a id="zmenit-email-odkaz">Zmenit email</a>
+        <a id="zmenit-email-odkaz">Změnit email</a>
         <form id="novy-email" method="post" action="{{ path("novy_email") }}">
             <label for="x">Zadejte novy email:</label>
             <input id="x" type="email" name="novy-email">
@@ -107,12 +107,12 @@
         {% for message in app.flashes("info_heslo") %}
             <h3>{{ message }}</h3>
         {% endfor %}
-        <a id="zmenit-heslo-odkaz">Zmenit helo</a>
+        <a id="zmenit-heslo-odkaz">Změnit helo</a>
         <form id="nove-heslo" method="post" action="{{ path("nove_heslo") }}">
-            <label for="y">Zadejte nove heslo:</label>
+            <label for="y">Zadejte nové heslo:</label>
             <input id="y" type="password" name="nove-heslo">
             <br/>
-            <label for="z">Zadejte nove heslo znovu:</label>
+            <label for="z">Zadejte nové heslo znovu:</label>
             <input id="z" type="password" name="nove-heslo-znovu">
             <br/>
             <input type="submit" value="Zmenit">
@@ -121,15 +121,15 @@
         {% for message in app.flashes("info_telefon") %}
             <h3>{{ message }}</h3>
         {% endfor %}
-        <a id="zmenit-telefon-odkaz">Zmenit telefon</a>
+        <a id="zmenit-telefon-odkaz">Změnit telefon</a>
         <form id="novy-telefon" method="post" action="{{ path("novy_telefon") }}">
-            <label for="y">Zadejte sve telefoni cislo:</label>
+            <label for="y">Zadejte své telefonní číslo:</label>
             <input id="y" type="text" name="novy-telefon">
             <br/>
             <input type="submit" value="Zmenit">
         </form>
 
-    <h3>Me adresy:</h3>
+    <h3>Mé adresy:</h3>
     <br/>
     {% for adresa in app.user.address %}
         <h3>--------------------------------</h3>
@@ -142,7 +142,7 @@
         </ul>
     {% endfor %}
 
-    <h3>Pridat dalsi adresu:</h3>
+    <h3>Přidat další adresu:</h3>
     <div id="pridat-dalsi-adresu">
         {{ form_start(form_pridat_adresu) }}
 

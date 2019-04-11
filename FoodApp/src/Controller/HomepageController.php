@@ -22,6 +22,7 @@ use App\Repository\ReservationRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use App\Form\AddressType;
+use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 
 
@@ -93,11 +94,16 @@ class HomepageController extends Controller
     }
 
     /**
-     * TODO: zabazpeceni aby nebyl pristup chranen pouze blbym ifem
+     * TODO: zabazpeceni aby nebyl pristup chranen pouze blbym ifem -> HOTOVO
      * @Route("/login_uspesny/homepage/pridat_nabidku", name="pridat_nabidku")
      */
     public function pridatNabidku(BrandRepository $brandRepository, CategoryRepository $categoryRepository)
     {
+        if ($this->getUser()->getRole() =="nakupujici" )
+        {
+            throw new UnauthorizedHttpException("Dobrej pokus, ale nevyšlp :D ");
+        }
+
         $znacka = new Brand();
 
         $poleZnacek = $brandRepository->findAll();

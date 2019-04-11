@@ -52,13 +52,13 @@
 
     <a href="{{ path("login_uspesny") }}">ZPET</a>
 
-    <h3>Moje jmeno:  </h3> {{ app.user.name }}
+    <h3>Moje jméno:  </h3> {{ app.user.name }}
     <br/>
-    <h3>Jmeno prodejny:  </h3> {{ app.user.nameOfShop }}
+    <h3>Jméno prodejny:  </h3> {{ app.user.nameOfShop }}
     <br/>
-    <h3>Moje prijmeni:  </h3> {{ app.user.surname }}
+    <h3>Moje přijmení:  </h3> {{ app.user.surname }}
     <br/>
-    <h3>Moje Uzivatelske jmeno:  </h3> {{ app.user.login }}
+    <h3>Moje uživatelské jméno:  </h3> {{ app.user.login }}
     <br/>
     <h3>Moje role:  </h3> {{ app.user.role }}
     <br/>
@@ -71,7 +71,7 @@
         {% for message in app.flashes("info_prodejna") %}
             <h3>{{ message }}</h3>
         {% endfor %}
-        <a id="zmenit-jmeno-prodejny">Zmenit/Pridat jmeno prodejny</a>
+        <a id="zmenit-jmeno-prodejny">Změnit/Přidat jméno prodejny</a>
 
 
         <form id="nove-jmeno-prodejny" method="post" action="{{ path("nove_jmeno_prodejny") }}">
@@ -84,7 +84,7 @@
         {% for message in app.flashes("info") %}
             <h3>{{ message }}</h3>
         {% endfor %}
-        <a id="zmenit-username-odkaz">Zmenit username</a>
+        <a id="zmenit-username-odkaz">Změnit uživatelské jméno</a>
 
 
         <form id="nove-username" method="post" action="{{ path("nove_username") }}">
@@ -98,7 +98,7 @@
         {% for message in app.flashes("info_email") %}
             <h3>{{ message }}</h3>
         {% endfor %}
-        <a id="zmenit-email-odkaz">Zmenit email</a>
+        <a id="zmenit-email-odkaz">Změnit email</a>
         <form id="novy-email" method="post" action="{{ path("novy_email") }}">
             <label for="x">Zadejte novy email:</label>
             <input id="x" type="email" name="novy-email">
@@ -109,7 +109,7 @@
         {% for message in app.flashes("info_heslo") %}
             <h3>{{ message }}</h3>
         {% endfor %}
-        <a id="zmenit-heslo-odkaz">Zmenit helo</a>
+        <a id="zmenit-heslo-odkaz">Změnit helo</a>
         <form id="nove-heslo" method="post" action="{{ path("nove_heslo") }}">
             <label for="y">Zadejte nove heslo:</label>
             <input id="y" type="password" name="nove-heslo">
@@ -123,7 +123,7 @@
         {% for message in app.flashes("info_telefon") %}
             <h3>{{ message }}</h3>
         {% endfor %}
-        <a id="zmenit-telefon-odkaz">Zmenit telefon</a>
+        <a id="zmenit-telefon-odkaz">Změnit telefon</a>
         <form id="novy-telefon" method="post" action="{{ path("novy_telefon") }}">
             <label for="y">Zadejte sve telefoni cislo:</label>
             <input id="y" type="text" name="novy-telefon">
