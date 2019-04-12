@@ -22,6 +22,10 @@ class Message
      */
     private $text;
 
+    /**
+     * @ORM\Column(type="string", name="subject")
+     */
+    private $subject;
 
     /**
      * @ORM\Column(type="datetime", name="time_of_sending")
@@ -49,6 +53,50 @@ class Message
      * @ORM\JoinColumn(name="receiver_id", referencedColumnName="user_id")
      */
     private $receiver;
+
+    /**
+     * @ORM\Column(type="boolean", name="read_by_reciever")
+     */
+    private $readByReciever = false;
+
+    public function getTimeOfSendingString()
+    {
+        return $this->timeOfSending->format('d-m-y H:i:s');
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSubject()
+    {
+        return $this->subject;
+    }
+
+    /**
+     * @param mixed $subject
+     */
+    public function setSubject($subject): void
+    {
+        $this->subject = $subject;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getReadByReciever()
+    {
+        return $this->readByReciever;
+    }
+
+    /**
+     * @param mixed $readByReciever
+     */
+    public function setReadByReciever($readByReciever): void
+    {
+        $this->readByReciever = $readByReciever;
+    }
+
+
 
     public function getMessageId(): ?int
     {

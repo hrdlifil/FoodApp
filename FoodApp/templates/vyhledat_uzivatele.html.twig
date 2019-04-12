@@ -1,0 +1,126 @@
+{% extends 'base.html.twig' %}
+{% block title %}Vyhledat uzivatele{% endblock %}
+{% block stylesheets %}
+    <style>
+        *
+{
+box-sizing: border-box;
+padding: 0;
+margin: 0;
+}
+
+html
+{
+height: 100%;
+}
+
+body
+{
+height: 100%;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+form
+{
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-items: center;
+}
+</style>
+
+
+
+{% endblock %}
+
+{% block body %}
+    <a href="{{ path("login_uspesny") }}">ZPET</a>
+
+    <form id="form-vyhledat-uzivatele" name="form-vyhledat-uzivatele" action="">
+        <label for="login">Zadejte jméno uživatele</label>
+        <input name="login" type="text" id="login">
+        <br/>
+        <input type="submit" id="submit" value="Vyhledat">
+    </form>
+
+    <div id="js-div">
+        <p id="user-info"></p>
+        <a href="" id="na-profil"></a>
+    </div>
+{% endblock %}
+{% block javascripts %}
+
+    <script>
+
+        document.getElementById("form-vyhledat-uzivatele").addEventListener("submit", ajaxFunction);
+
+
+        function ajaxFunction(event)
+        {
+            let login = document.getElementById("login").value;
+            let userData;
+
+            login = login.trim();
+
+            if(login.length === 0) {
+                console.log("nic nezadano");
+                writeNotFound();
+                event.preventDefault();
+                return;
+            }
+
+            let xhr = new XMLHttpRequest();
+            xhr.open("GET","/FoodApp/FoodApp/public/login_uspesny/homepage/vysledek_vyhledavani/" + login, true);
+            xhr.onload = function ()
+            {
+                userData = JSON.parse(this.responseText);
+                console.log(userData);
+                if(userData.login.length > 2) {
+                    writeUserData(userData);
+                }
+                else {
+                    writeNotFound();
+                }
+            };
+
+            xhr.send();
+
+            event.preventDefault();
+
+        }
+
+        function writeUserData(userData) {
+            let div = document.getElementById("js-div");
+
+            div.innerHTML = "";
+
+            let p = document.createElement("p");
+
+            p.innerHTML += "Username: " + userData.login + "<br>";
+            p.innerHTML += "E-mail: " + userData.email + "<br>";
+            p.innerHTML += "Role: " + userData.role;
+
+            let a = document.createElement("a");
+
+            a.innerHTML = "Profil uživatele";
+            let href = document.createAttribute("href");
+            href.value = "vyhledat_uzivatele/profil/" + userData.login;
+            a.setAttributeNode(href);
+
+            div.appendChild(p);
+            div.appendChild(a);
+        }
+
+        function writeNotFound() {
+            let div = document.getElementById("js-div");
+
+            div.innerHTML = "Uživatel nebyl nalezen";
+        }
+
+
+
+    </script>
+
+{% endblock %}

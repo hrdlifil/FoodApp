@@ -19,6 +19,16 @@ class MessageRepository extends ServiceEntityRepository
         parent::__construct($registry, Message::class);
     }
 
+    public function getMessagesByReciever($receiver)
+    {
+        $gb = $this->createQueryBuilder("m");
+        $gb->select("m")->where("m.receiver = :receiver")->orderBy("m.timeOfSending")
+            ->setParameters(array("receiver" => $receiver));
+
+
+        return $gb->getQuery()->getResult();
+    }
+
     // /**
     //  * @return Message[] Returns an array of Message objects
     //  */

@@ -1,0 +1,154 @@
+{% extends 'base.html.twig' %}
+{% block title %}Homepage{% endblock %}
+{% block stylesheets %}
+    <style>
+        *
+        {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        html
+        {
+            height: 100%;
+        }
+
+        body
+        {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+        }
+
+        #biggerfied-picture
+        {
+            width: 100%;
+            height: 100%;
+            filter: blur(0px) grayscale(0%);
+            transform: scale(0);
+            transition-property: all;
+            transition-duration: 1s;
+            transition-timing-function: ease-in-out;
+            position: fixed;
+            top: 51px;
+            left: 0;
+            background-color: white;
+            visibility: hidden;
+            z-index: 9001;
+            overflow: scroll;
+            display: flex;
+            align-itemst: center;
+            justify-content: center;
+        }
+
+        #cross
+        {
+            font-weight: bolder;
+
+            color: #ff0011;
+            position: absolute;
+            cursor: pointer;
+            top: 3px;
+            left: 3px;
+            z-index: 9001;
+        }
+        #paragraph
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+        }
+
+        body.biggerfied-picture-visible #biggerfied-picture
+        {
+            transform: scale(1);
+            visibility: visible;
+        }
+
+
+    </style>
+{% endblock %}
+
+{% block body %}
+    <h3>Vaše zprávy: </h3>
+    <div>
+        <button>Doručené</button>
+        <button>Odeslané</button>
+    </div>
+    <div id="biggerfied-picture">
+        <a id="cross"> &#8855;</a>
+        <div id="paragraph"></div>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    Odesílatel:
+                </th>
+                <th>
+                    Předmět:
+                </th>
+                <th>
+                    Čas odeslání:
+                </th>
+                <th>
+                    Zobrazir text
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for dorucene in dorucene_zpravy %}
+            <tr>
+                <td>{{ dorucene.sender.login }}</td>
+                <td>{{ dorucene.subject }}</td>
+                <td>{{ dorucene.getTimeOfSendingString }}</td>
+                <td ><button id="{{ dorucene.messageId }}" onclick="txtBtnClicked(this.id)">Text zprávy</button> </td>
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+
+{% endblock %}
+{% block javascripts %}
+    <script>
+
+        document.querySelector("#cross").addEventListener("click", debiggerfy_picture);
+
+        function debiggerfy_picture(event)
+        {
+            document.body.classList.remove('biggerfied-picture-visible');
+        }
+
+        function txtBtnClicked(id)
+        {
+            let xhr = new XMLHttpRequest();
+            let text;
+            xhr.open("GET","/FoodApp/FoodApp/public/login_uspesny/homepage/napsat_zpravu/schranka_zprav/vyhledej_text/" + id, true);
+            xhr.onload = function ()
+            {
+                text = JSON.parse(this.responseText);
+                console.log(text);
+
+                let biggerfiedPicture = document.querySelector("#biggerfied-picture");
+                document.body.classList.add('biggerfied-picture-visible');
+
+                let paragraph = document.querySelector("#paragraph");
+                paragraph.innerHTML = text.text;
+
+            };
+
+            xhr.send();
+
+        }
+
+
+
+
+    </script>
+
+{% endblock %}

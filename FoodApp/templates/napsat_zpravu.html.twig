@@ -1,0 +1,120 @@
+{% extends 'base.html.twig' %}
+{% block title %}Vyhledat uzivatele{% endblock %}
+{% block stylesheets %}
+    <style>
+        *
+        {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        html
+        {
+            height: 100%;
+        }
+
+        body
+        {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        form
+        {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #user-nenalezen
+        {
+            display: none;
+        }
+    </style>
+
+
+
+{% endblock %}
+
+{% block body %}
+    <a href="{{ path("login_uspesny") }}">ZPĚT</a>
+
+    <form id="napsat-zpravu-form" name="napsat-zpravu-form" method="post" action="{{ path("odeslat_zpravu") }}">
+        <label for="jmeno-uzivatele">Zadejte uživatelské jméno příjemce</label>
+        <input name="jmeno-uzivatele" type="text" id="jmeno-uzivatele">
+        <br/>
+        <div id="user-nenalezen">
+            <h5>Zadaný uživatel neexistuje</h5>
+            <br/>
+        </div>
+        <label for="predmet-zpravy">Předmět Vaší zprávy</label>
+        <input name="predmet-zpravy" type="text" id="predmet-zpravy">
+        <br/>
+        <label for="text-zpravy">Text zprávy: </label>
+        <textarea id="text-zpravy" name="text-zpravy">
+
+        </textarea>
+        <br/>
+        <input type="submit" id="submit" value="Odeslat zprávu">
+    </form>
+
+    <br/>
+
+    <a href="{{ path("schranka_zprav") }}"><button>Schránka zpráv</button></a>
+
+
+{% endblock %}
+{% block javascripts %}
+
+    <script>
+        document.getElementById("jmeno-uzivatele").addEventListener("blur", vyhledatUzivatele);
+        document.getElementById("jmeno-uzivatele").addEventListener("focus", makeInvisible);
+
+        function makeInvisible()
+        {
+            document.getElementById("user-nenalezen").style.display= "none";
+        }
+
+        function vyhledatUzivatele(event)
+        {
+            let log = document.getElementById("jmeno-uzivatele").value;
+
+            if (log.length <1)
+            {
+                log = "Z";
+            }
+
+            let vysledek;
+
+            let xhr = new XMLHttpRequest();
+            console.log(log);
+            xhr.open("GET","/FoodApp/FoodApp/public/login_uspesny/homepage/vysledek_vyhledavani/" + log, true);
+            xhr.onload = function ()
+            {
+                console.log("jsem tam");
+                vysledek = JSON.parse(this.responseText);
+
+                if(vysledek.login.length < 2)
+                {
+                    document.getElementById("user-nenalezen").style.display= "block";
+                }else
+                    {
+                        document.getElementById("user-nenalezen").style.display= "none";
+                    }
+
+            };
+
+            xhr.send();
+
+
+
+        }
+    </script>
+
+
+
+{% endblock %}

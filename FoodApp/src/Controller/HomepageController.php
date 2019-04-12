@@ -16,6 +16,7 @@ use App\Form\ZmenitEmail;
 use App\Form\ZmenitEmailType;
 use App\Repository\BrandRepository;
 use App\Repository\CategoryRepository;
+use App\Repository\MessageRepository;
 use App\Repository\OfferRepository;
 use App\Repository\ProductRepository;
 use App\Repository\ReservationRepository;
@@ -197,6 +198,23 @@ class HomepageController extends Controller
         }
 
         return $this->render("sprava.html.twig", ["nerezervovaneNabidky" => $nerezervovaneNabidky, "rezervovaneNabidky" => $rezervovaneNabidky, "rezervace" => $rezervace]);
+    }
+
+    /**
+     * @Route("/login_uspesny/homepage/vyhledat_uzivatele", name="vyhledat_uzivatele")
+     */
+    public function vyhledavani()
+    {
+        return $this->render("vyhledat_uzivatele.html.twig");
+    }
+
+    /**
+     * @Route("/login_uspesny/homepage/napsat_zpravu", name="napsat_zpravu")
+     */
+    public function zpravy()
+    {
+
+        return $this->render("napsat_zpravu.html.twig");
     }
 
 }
