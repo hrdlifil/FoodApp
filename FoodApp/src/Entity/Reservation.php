@@ -92,7 +92,7 @@ class Reservation
 
     public function getExpirationString()
     {
-        return $this->expiration->format('d-m-y');
+        return $this->expiration->format('d-m-Y H:i:s');
     }
 
     /**
