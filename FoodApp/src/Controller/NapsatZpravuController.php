@@ -39,6 +39,7 @@ class NapsatZpravuController extends AbstractController
     public function schrankaZprav(MessageRepository $messageRepository)
     {
         $doruceneZpravy = $messageRepository->getMessagesByReciever($this->getUser());
-        return $this->render("schranka_zprav.html.twig", ["dorucene_zpravy" => $doruceneZpravy]);
+        $odeslaneZpravy = $messageRepository->getMessagesBySender($this->getUser());
+        return $this->render("schranka_zprav.html.twig", ["dorucene_zpravy" => $doruceneZpravy, "odeslane_zpravy" => $odeslaneZpravy]);
     }
 }
