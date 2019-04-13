@@ -33,9 +33,28 @@ align-items: center;
 
 {% block body %}
 
+    <a href="{{ path("login_uspesny") }}">ZPĚT</a>
+
     <div id="registration-form">
         {{ form_start(form) }}
-        {{ form_widget(form) }}
+
+            {{ form_label(form, 'Uživatelské jméno') }}
+            {{ form_widget(form.login) }}
+
+            {{ form_widget(form.plainPassword) }}
+
+            {{ form_label(form, 'Křestní jméno') }}
+            {{ form_widget(form.name) }}
+
+            {{ form_label(form, 'Příjmení') }}
+            {{ form_widget(form.surname) }}
+
+            {{ form_label(form, 'Email') }}
+            {{ form_widget(form.email) }}
+
+
+
+
         {{ form_end(form) }}
     </div>
 

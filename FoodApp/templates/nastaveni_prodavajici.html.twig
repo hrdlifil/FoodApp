@@ -19,6 +19,7 @@
             height: 100%;
             display: flex;
             flex-direction: column;
+            align-items: center;
 
         }
 
@@ -44,14 +45,14 @@
 {% endblock %}
 
 {% block body %}
-    <a href="{{ path("login_uspesny") }}">ZPET</a>
+    <a href="{{ path("login_uspesny") }}">ZPĚT</a>
 
 
-    <h3>Moje jmeno:  </h3> {{ app.user.name }}
+    <h3>Moje jméno:  </h3> {{ app.user.name }}
     <br/>
-    <h3>Moje prijmeni:  </h3> {{ app.user.surname }}
+    <h3>Moje příjmení:  </h3> {{ app.user.surname }}
     <br/>
-    <h3>Moje Uzivatelske jmeno:  </h3> {{ app.user.login }}
+    <h3>Moje uživatelské jméno:  </h3> {{ app.user.login }}
     <br/>
     <h3>Moje role:  </h3> {{ app.user.role }}
     <br/>
@@ -63,11 +64,11 @@
         {% for message in app.flashes("info") %}
             <h3>{{ message }}</h3>
         {% endfor %}
-        <a id="zmenit-username-odkaz">Zmenit username</a>
+        <a id="zmenit-username-odkaz">Změnit uživatelské jméno</a>
 
 
         <form id="nove-username" method="post" action="{{ path("nove_username") }}">
-            <label for="x">Zadejte nove uzivatelske jmeno:</label>
+            <label for="x">Zadejte nové uzivatelske jméno:</label>
             <input id="x" type="text" name="nove-username">
             <br/>
             <input type="submit" value="Zmenit">
@@ -79,7 +80,7 @@
         {% endfor %}
         <a id="zmenit-email-odkaz">Zmenit email</a>
         <form id="novy-email" method="post" action="{{ path("novy_email") }}">
-            <label for="x">Zadejte novy email:</label>
+            <label for="x">Zadejte nový email:</label>
             <input id="x" type="email" name="novy-email">
             <br/>
             <input type="submit" value="Zmenit">
@@ -88,12 +89,12 @@
         {% for message in app.flashes("info_heslo") %}
             <h3>{{ message }}</h3>
         {% endfor %}
-        <a id="zmenit-heslo-odkaz">Zmenit helo</a>
+        <a id="zmenit-heslo-odkaz">Změnit helo</a>
         <form id="nove-heslo" method="post" action="{{ path("nove_heslo") }}">
-            <label for="y">Zadejte nove heslo:</label>
+            <label for="y">Zadejte nové heslo:</label>
             <input id="y" type="password" name="nove-heslo">
             <br/>
-            <label for="z">Zadejte nove heslo znovu:</label>
+            <label for="z">Zadejte nové heslo znovu:</label>
             <input id="z" type="password" name="nove-heslo-znovu">
             <br/>
             <input type="submit" value="Zmenit">
@@ -102,12 +103,12 @@
         {% for message in app.flashes("info_telefon") %}
             <h3>{{ message }}</h3>
         {% endfor %}
-        <a id="zmenit-telefon-odkaz">Zmenit telefon</a>
+        <a id="zmenit-telefon-odkaz">Změnit telefon</a>
         <form id="novy-telefon" method="post" action="{{ path("novy_telefon") }}">
-            <label for="y">Zadejte sve telefoni cislo:</label>
+            <label for="y">Zadejte své telefonní číslo:</label>
             <input id="y" type="text" name="novy-telefon">
             <br/>
-            <input type="submit" value="Zmenit">
+            <input type="submit" value="Změnit">
         </form>
 
         <h3>Mé adresy:</h3>
@@ -124,7 +125,7 @@
         {% endfor %}
     <br/>
 
-        <h3>Pridat dalsi adresu:</h3>
+        <h3>Pridat další adresu:</h3>
         <div id="pridat-dalsi-adresu">
             {{ form_start(form_pridat_adresu) }}
 
@@ -134,10 +135,10 @@
             {{ form_label(form_pridat_adresu.street, 'Ulice') }}
             {{ form_widget(form_pridat_adresu.street) }}
 
-            {{ form_label(form_pridat_adresu.town, 'Mesto') }}
+            {{ form_label(form_pridat_adresu.town, 'Město') }}
             {{ form_widget(form_pridat_adresu.town) }}
 
-            {{ form_label(form_pridat_adresu.houseNumber, 'Cislo Domu') }}
+            {{ form_label(form_pridat_adresu.houseNumber, 'Číslo domu') }}
             {{ form_widget(form_pridat_adresu.houseNumber) }}
 
             {{ form_label(form_pridat_adresu.postCode, 'PSC') }}
@@ -160,7 +161,7 @@
 
         function zmenitTelefon()
         {
-            document.getElementById("novy-telefon").style.display = "block";
+            document.getElementById("novy-telefon").style.display = "flex";
 
         }
 

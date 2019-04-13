@@ -19,15 +19,15 @@ class UserType extends AbstractType
         $builder
             ->add('login', TextType::class, [ "attr" => ["labtl" => "Uzivatelske jmeno"]])
             ->add('plainPassword', RepeatedType::class,
-                ["type" => PasswordType::class, "first_options" => ["label" => "Password"],
-                    "second_options" => ["label" => "Repeated password"]
+                ["type" => PasswordType::class, "first_options" => ["label" => "Heslo"],
+                    "second_options" => ["label" => "Heslo znovu"]
 
                 ]
             )
             ->add('name', TextType::class)
             ->add('surname', TextType::class)
             ->add('email', EmailType::class)
-            ->add('Register', SubmitType::class)
+            ->add('Registrovat', SubmitType::class)
 
         ;
     }

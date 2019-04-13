@@ -19,6 +19,7 @@
             height: 100%;
             display: flex;
             flex-direction: column;
+            align-items: center;
 
         }
 
@@ -50,7 +51,7 @@
 {% block body %}
 
 
-    <a href="{{ path("login_uspesny") }}">ZPET</a>
+    <a href="{{ path("login_uspesny") }}">ZPĚT</a>
 
     <h3>Moje jméno:  </h3> {{ app.user.name }}
     <br/>
@@ -75,10 +76,10 @@
 
 
         <form id="nove-jmeno-prodejny" method="post" action="{{ path("nove_jmeno_prodejny") }}">
-            <label for="x">Zadejte jmeno prodejny:</label>
+            <label for="x">Zadejte jméno prodejny:</label>
             <input id="x" type="text" name="nove-jmeno-prodejny">
             <br/>
-            <input type="submit" value="Zmenit">
+            <input type="submit" value="Změnit">
         </form>
 
         {% for message in app.flashes("info") %}
@@ -88,10 +89,10 @@
 
 
         <form id="nove-username" method="post" action="{{ path("nove_username") }}">
-            <label for="x">Zadejte nove uzivatelske jmeno:</label>
+            <label for="x">Zadejte nové uživatelské jméno:</label>
             <input id="x" type="text" name="nove-username">
             <br/>
-            <input type="submit" value="Zmenit">
+            <input type="submit" value="Změnit">
         </form>
 
 
@@ -100,10 +101,10 @@
         {% endfor %}
         <a id="zmenit-email-odkaz">Změnit email</a>
         <form id="novy-email" method="post" action="{{ path("novy_email") }}">
-            <label for="x">Zadejte novy email:</label>
+            <label for="x">Zadejte nový email:</label>
             <input id="x" type="email" name="novy-email">
             <br/>
-            <input type="submit" value="Zmenit">
+            <input type="submit" value="Změnit">
         </form>
 
         {% for message in app.flashes("info_heslo") %}
@@ -111,13 +112,13 @@
         {% endfor %}
         <a id="zmenit-heslo-odkaz">Změnit helo</a>
         <form id="nove-heslo" method="post" action="{{ path("nove_heslo") }}">
-            <label for="y">Zadejte nove heslo:</label>
+            <label for="y">Zadejte nové heslo:</label>
             <input id="y" type="password" name="nove-heslo">
             <br/>
-            <label for="z">Zadejte nove heslo znovu:</label>
+            <label for="z">Zadejte nové heslo znovu:</label>
             <input id="z" type="password" name="nove-heslo-znovu">
             <br/>
-            <input type="submit" value="Zmenit">
+            <input type="submit" value="Změnit">
         </form>
 
         {% for message in app.flashes("info_telefon") %}
@@ -125,13 +126,13 @@
         {% endfor %}
         <a id="zmenit-telefon-odkaz">Změnit telefon</a>
         <form id="novy-telefon" method="post" action="{{ path("novy_telefon") }}">
-            <label for="y">Zadejte sve telefoni cislo:</label>
+            <label for="y">Zadejte své telefonní číslo:</label>
             <input id="y" type="text" name="novy-telefon">
             <br/>
-            <input type="submit" value="Zmenit">
+            <input type="submit" value="Změnit">
         </form>
 
-    <h3>Me adresy:</h3>
+    <h3>Mé adresy:</h3>
     <br/>
     {% for adresa in app.user.address %}
         <h3>--------------------------------</h3>
@@ -144,7 +145,7 @@
         </ul>
     {% endfor %}
 
-    <h3>Pridat dalsi adresu:</h3>
+    <h3>Přidat další adresu:</h3>
     <div id="pridat-dalsi-adresu">
         {{ form_start(form_pridat_adresu) }}
 
@@ -154,10 +155,10 @@
         {{ form_label(form_pridat_adresu.street, 'Ulice') }}
         {{ form_widget(form_pridat_adresu.street) }}
 
-        {{ form_label(form_pridat_adresu.town, 'Mesto') }}
+        {{ form_label(form_pridat_adresu.town, 'Město') }}
         {{ form_widget(form_pridat_adresu.town) }}
 
-        {{ form_label(form_pridat_adresu.houseNumber, 'Cislo Domu') }}
+        {{ form_label(form_pridat_adresu.houseNumber, 'Číslo domu') }}
         {{ form_widget(form_pridat_adresu.houseNumber) }}
 
         {{ form_label(form_pridat_adresu.postCode, 'PSC') }}
