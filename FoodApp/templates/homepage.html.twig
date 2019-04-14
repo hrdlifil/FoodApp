@@ -71,10 +71,12 @@
                 Vyhledávání
             </div>
         </a>
-        <div class="menu-item" id="profil">
+        <a href="{{ path("profil", {login: app.user.login}) }}">
+            <div class="menu-item" id="profil">
 
-            Uživatelský profil
-        </div>
+                Uživatelský profil
+            </div>
+        </a>
 
         <a href="{{ path("trziste") }}">
             <div class="menu-item" id="trziste">

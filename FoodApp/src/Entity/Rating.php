@@ -24,7 +24,7 @@ class Rating
     private $points;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", name="comment")
      */
     private $comment;
 

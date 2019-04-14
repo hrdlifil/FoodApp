@@ -45,7 +45,7 @@
         Jméno organizace: {{ nabidka.user.nameOfOrganization }}
         <br/>
     {% endif %}
-    <a href="#">Profil uživatele</a>
+    <a href="{{ path("profil", {login: nabidka.user.login}) }}">Profil uživatele</a>
     <br/>
     Nabídka je platná do: {{ nabidka.getOfferExpirationString() }}
     <br/>

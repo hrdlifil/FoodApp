@@ -1,0 +1,203 @@
+{% extends 'base.html.twig' %}
+{% block title %}Profil uzivatele{% endblock %}
+{% block stylesheets %}
+
+    <style>
+        *
+        {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        html
+        {
+            height: 100%;
+        }
+
+        body
+        {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+        }
+        form
+        {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+
+
+        #biggerfied-picture
+        {
+            height: 300px;
+            width: 500px;
+            filter: blur(0px) grayscale(0%);
+            transform: scale(0);
+            transition-property: all;
+            transition-duration: 1s;
+            transition-timing-function: ease-in-out;
+            position: fixed;
+            top: 100px;
+            left: calc(50% - 250px);
+            background-color: white;
+            visibility: hidden;
+            z-index: 9001;
+            overflow: scroll;
+            display: flex;
+            align-itemst: center;
+            justify-content: center;
+        }
+
+        #cross
+        {
+            font-weight: bolder;
+
+            color: #ff0011;
+            position: absolute;
+            cursor: pointer;
+            top: 3px;
+            left: 3px;
+            z-index: 9001;
+        }
+        #paragraph
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+        }
+
+
+        body.biggerfied-picture-visible #biggerfied-picture
+        {
+            transform: scale(1);
+            visibility: visible;
+        }
+    </style>
+
+{% endblock %}
+
+{% block body %}
+    <a href="{{ path("login_uspesny") }}">ZPĚT</a>
+
+
+    <div id="biggerfied-picture">
+        <a id="cross"> &#8855;</a>
+        <div id="paragraph"></div>
+    </div>
+
+
+        Uživatelské jméno: {{ user.login }}
+        <br>
+        E-mail: {{ user.email }}
+        <br>
+        Role: {{ user.role }}
+        <br>
+        Hodnocení uživatele: {{ hodnoceni }}
+        <br>
+        Jméno: {{ user.name }}
+        <br>
+        Příjmení: {{ user.surname }}
+        <br>
+        Telefon: {{ user.phone }}
+
+        <br>
+        <h3>Adresy uživatele</h3>
+        <br/>
+        {% for adresa in user.address %}
+            <h3>--------------------------------</h3>
+            <ul>
+                <li>{{ adresa.popisAdresy }}</li>
+                <li>{{ adresa.town }}</li>
+                <li>{{ adresa.street }}</li>
+                <li>{{ adresa.houseNumber }}</li>
+                <li>{{ adresa.postCode }}</li>
+            </ul>
+        {% endfor %}
+
+        <h3>Hodnocení</h3>
+
+        <table>
+            <tr>
+                <th>
+                    Hodnotitel
+                </th>
+                <th>
+                    Skóre
+                </th>
+                <th>
+                    Zobrazit komentář
+                </th>
+            </tr>
+
+            {% for rating in ratings %}
+                <tr>
+                    <td>
+                        {{ rating.sender.login }}
+                    </td>
+                    <td>
+                        {{ rating.points }} / 5
+                    </td>
+                    <td>
+                        <button id="{{ rating.ratingId }}" onclick="txtBtnClicked(this.id)">Zobrazit komentář</button>
+                    </td>
+                </tr>
+            {% endfor %}
+
+        </table>
+
+
+        <h5>Ohodnoťte uživatele: </h5>
+
+        <form method="post" action="{{ path("vlozit_hodnoceni") }}">
+            <label for="hodnoceni">Hodnocení: (Od 0 do 6, 0 je nejhorší, 5 je nejlepší)</label>
+            <input type="number" id="hodnoceni" name="hodnoceni">
+            <br/>
+            <label for="komentar">Komentář/Zdůvodnění hodnocení</label>
+            <textarea id="komentar" name="komentar"></textarea>
+            <input type="hidden" name="hodnoceny-id" value="{{ user.id }}">
+            <br/>
+            <input type="submit" id="submit" value="Ohodnotit">
+        </form>
+
+
+{% endblock %}
+{% block javascripts %}
+
+    <script>
+        document.querySelector("#cross").addEventListener("click", debiggerfy_picture);
+
+        function txtBtnClicked(id)
+        {
+            let xhr = new XMLHttpRequest();
+            let text;
+            xhr.open("GET","/FoodApp/FoodApp/public/login_uspesny/homepage/vyhledat_uzivatele/profil/najit_komentar/" + id, true);
+            xhr.onload = function ()
+            {
+                text = JSON.parse(this.responseText);
+                console.log(text);
+
+                let biggerfiedPicture = document.querySelector("#biggerfied-picture");
+                document.body.classList.add('biggerfied-picture-visible');
+
+                let paragraph = document.querySelector("#paragraph");
+                paragraph.innerHTML = text.text;
+
+            };
+
+            xhr.send();
+
+        }
+
+        function debiggerfy_picture(event)
+        {
+            document.body.classList.remove('biggerfied-picture-visible');
+        }
+
+    </script>
+{% endblock %}

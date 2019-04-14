@@ -19,6 +19,17 @@ class RatingRepository extends ServiceEntityRepository
         parent::__construct($registry, Rating::class);
     }
 
+
+    public function getRatingsByReceiver($receiver)
+    {
+        $res = $this->createQueryBuilder("r");
+        $res->select("r")->where("r.receiver = :receiver")->orderBy("r.ratingTime", "DESC")
+            ->setParameters(array("receiver" => $receiver));
+
+
+        return $res->getQuery()->getResult();
+    }
+
     // /**
     //  * @return Rating[] Returns an array of Rating objects
     //  */

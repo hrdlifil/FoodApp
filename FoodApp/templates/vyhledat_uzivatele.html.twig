@@ -1,42 +1,43 @@
+
 {% extends 'base.html.twig' %}
 {% block title %}Vyhledat uzivatele{% endblock %}
 {% block stylesheets %}
     <style>
         *
-{
-box-sizing: border-box;
-padding: 0;
-margin: 0;
-}
+        {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
 
-html
-{
-height: 100%;
-}
+        html
+        {
+            height: 100%;
+        }
 
-body
-{
-height: 100%;
-display: flex;
-flex-direction: column;
-align-items: center;
-}
+        body
+        {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-form
-{
-display: flex;
-flex-direction: column;
-justify-content: space-between;
-align-items: center;
-}
-</style>
+        form
+        {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
 
 
 
 {% endblock %}
 
 {% block body %}
-    <a href="{{ path("login_uspesny") }}">ZPĚT</a>
+    <a href="{{ path("login_uspesny") }}">ZPET</a>
 
     <form id="form-vyhledat-uzivatele" name="form-vyhledat-uzivatele" action="">
         <label for="login">Zadejte jméno uživatele</label>
@@ -118,6 +119,8 @@ align-items: center;
 
             div.innerHTML = "Uživatel nebyl nalezen";
         }
+
+
 
 
 
